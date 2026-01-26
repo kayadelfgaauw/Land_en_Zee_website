@@ -1,0 +1,6126 @@
+/* Basic Styling for Resort Land en Zee */
+/* Fonts */
+@font-face {
+    font-family: 'Canela';
+    src: url('../fonts/Canela-Thin.woff2') format('woff2'),
+        url('../fonts/Canela-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Canela';
+    src: url('../fonts/Canela-Regular.woff2') format('woff2'),
+        url('../fonts/Canela-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Canela';
+    src: url('../fonts/Canela-Bold.woff2') format('woff2'),
+        url('../fonts/Canela-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Urbanist';
+    src: url('../fonts/Urbanist-Regular.woff2') format('woff2'),
+        url('../fonts/Urbanist-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --primary-color: #005f73;
+    --secondary-color: #94d2bd;
+    --text-color: #333;
+    --bg-color: #eeeae6;
+    /* Updated global background color */
+    --color-cream: #eeeae6;
+    /* The requested white/cream color */
+
+    --font-heading: 'Canela', serif;
+    --font-body: 'Urbanist', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ... existing styles ... */
+
+/* Link to previous code not shown here, assuming replace target is distinct enough. 
+   Actually, I should do this in two ReplaceCalls or one Clean one. 
+   Let's just target the root variables first to be safe, then the icon.
+*/
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Fix for double-tap issue on mobile */
+a,
+button,
+input,
+select,
+textarea,
+.menu-trigger,
+.nav-link,
+.btn,
+.btn-outline {
+    touch-action: manipulation;
+}
+
+/* Button Reset for Menu Trigger */
+button.menu-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    outline: none;
+    /* Focus handled by :focus-visible ideally, or keep default */
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ... existing styles ... */
+
+/* =========================================
+   Fixed Header & Scroll Animation
+   ========================================= */
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    /* Initial: Transparent */
+    color: var(--color-cream);
+    /* Initial: White/Cream Text */
+    transition: background-color 0.4s ease, border-bottom-color 0.4s ease;
+    /* Animate BG and Border */
+    /* Only animate BG color on container */
+    padding: 0;
+    /* Removing general padding to keep nav stable */
+    height: 100px;
+    /* Fixed height container */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    /* Start transparent */
+}
+
+/* Ensure interactive items are above logo if overlapping */
+.menu-trigger {
+    position: relative;
+    z-index: 10;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    /* Wider spread - "meer naar de buitenkant" */
+    max-width: 1800px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}
+
+/* Center logo absolutely */
+.header-logo-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+/* Right side group: Languages + Book Now */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+
+.header-logo {
+    height: 90px;
+    /* Initial: Large */
+    width: auto;
+    opacity: 1;
+    /* Optimize performance: animate transform instead of height */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+    filter: invert(1) brightness(100);
+    will-change: transform, filter;
+    /* Initial: White */
+}
+
+/* Nav Links in Header */
+.fixed-header .nav-link {
+    color: inherit;
+
+    transition: color 0.4s ease;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+@media (hover: hover) {
+    .fixed-header .nav-link:hover {
+        color: var(--secondary-color);
+        /* Or whatever hover effect logic implies, assuming inheritance acts weirdly without hover */
+    }
+}
+
+/* Scrolled State */
+/* Scrolled State or Always Visible */
+.fixed-header.scrolled,
+.fixed-header.always-visible {
+    background-color: var(--color-cream);
+    /* Becomes Cream */
+    color: #000;
+    /* Text becomes Black */
+    border-bottom-color: #d1cbc5;
+    /* Fade in border color */
+    box-shadow: none;
+    /* Shadow removed */
+    /* Note: padding/height of header container stays same so nav items don't move */
+}
+
+.fixed-header.scrolled .header-logo,
+.fixed-header.always-visible .header-logo {
+    /* Scale down instead of reducing height to avoid layout thrashing */
+    transform: scale(0.6666);
+    /* 60px / 90px = 0.6666 */
+    transform-origin: center center;
+    filter: invert(0);
+    /* Back to original Black */
+}
+
+/* Adjust nav link color in scrolled state explicitly */
+.fixed-header.scrolled .nav-link,
+.fixed-header.always-visible .nav-link {
+    color: #000;
+}
+
+/* =========================================
+   Global Container
+   ========================================= */
+.container {
+    width: 90%;
+    /* Consistent margins (5% each side) */
+    max-width: 1800px;
+    /* Match sustainability section */
+    margin: 0 auto;
+    padding: 0;
+    /* Remove padding if using width % */
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+}
+
+.logo {
+    height: 60px;
+    /* Adjust height as needed */
+    width: auto;
+    display: block;
+}
+
+.logo-link {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    background-color: var(--secondary-color);
+    padding: 4rem 0;
+    text-align: center;
+    color: #000;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* =========================================
+   Footer Section
+   ========================================= */
+
+.main-footer {
+    background-color: var(--color-cream);
+    /* Soft light gray backing for "Rust" */
+    color: #2f4356;
+    /* Dark Blue Text */
+    padding: 5rem 0 0 0;
+    margin-top: 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* 4 Columns: Logo + 3 Content Columns */
+    gap: 2rem;
+    padding-bottom: 4rem;
+    align-items: start;
+}
+
+.footer-logo-col {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-logo-img {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* First links section gets min-height to align secondary headings */
+.footer-col>.footer-links:first-of-type {
+    min-height: 245px;
+    /* Ensures all 3 columns have same height for first section */
+}
+
+/* Contact column doesn't need min-height */
+.footer-col.col-contact>.footer-links:first-of-type {
+    min-height: auto;
+}
+
+.footer-heading {
+    font-family: var(--font-heading);
+    /* Canela */
+    font-size: 1.25rem;
+    color: #2f4356;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #555;
+    /* Softer for links */
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: inline-block;
+}
+
+
+
+@media (hover: hover) {
+    .footer-links a:hover {
+        color: #d4a373;
+        /* Gold/Tan accent for luxury feel */
+        padding-left: 5px;
+    }
+}
+
+/* Contact Specifics */
+.contact-info p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.contact-links a {
+    color: #2f4356;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+
+
+@media (hover: hover) {
+    .contact-links a:hover {
+        color: #d4a373;
+    }
+}
+
+/* WhatsApp Button */
+.whatsapp-section {
+    margin-bottom: 1.5rem;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #25D366;
+    color: #25D366;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+
+
+@media (hover: hover) {
+    .whatsapp-link:hover {
+        background-color: #25D366;
+        color: #ffffff;
+    }
+}
+
+.whatsapp-icon-sm {
+    fill: #25D366;
+    /* Fallback */
+}
+
+/* Force Green Color for Footer Icon explicitly */
+.whatsapp-section .whatsapp-icon-sm {
+    fill: #25D366 !important;
+    transition: fill 0.3s ease;
+}
+
+@media (hover: hover) {
+
+    /* Force White on Hover for Footer Icon */
+    .whatsapp-link:hover .whatsapp-icon-sm {
+        fill: #ffffff !important;
+    }
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    color: #2f4356;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link svg {
+    width: 28px;
+    /* Larger format as requested */
+    height: 28px;
+}
+
+
+
+@media (hover: hover) {
+    .social-link:hover {
+        color: #d4a373;
+        transform: translateY(-3px);
+    }
+}
+
+/* Sub-Footer */
+.sub-footer {
+    border-top: 1px solid #e0e0e0;
+    background-color: transparent;
+    padding: 1.5rem 0;
+}
+
+.sub-footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.sub-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+}
+
+.sub-footer-links li {
+    display: flex;
+    align-items: center;
+}
+
+.sub-footer-links a {
+    color: #777;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .sub-footer-links a:hover {
+        color: #2f4356;
+    }
+}
+
+.sub-footer-links li:not(:last-child)::after {
+    content: "|";
+    color: #ccc;
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+/* Responsive Footer */
+@media (max-width: 1100px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-col>.footer-links:first-of-type {
+        min-height: auto;
+    }
+
+    .mt-4 {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2.5rem;
+    }
+
+    .footer-col>.footer-links:first-of-type {
+        min-height: auto;
+    }
+
+    .footer-heading {
+        margin-bottom: 1rem;
+    }
+
+    .mt-4 {
+        margin-top: 2rem;
+    }
+
+    .footer-links {
+        margin-bottom: 0;
+    }
+
+    .sub-footer-content {
+        flex-direction: column-reverse;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .sub-footer-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .sub-footer-links li:not(:last-child)::after {
+        content: none;
+    }
+
+    .sub-footer-links a {
+        margin: 0;
+        font-size: 0.95rem;
+    }
+}
+
+/* =========================================
+   New Hero Section Design
+   ========================================= */
+
+.hero-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+/* Added gumlet-hero-wrapper styles */
+.gumlet-hero-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    /* Fallback if video fails */
+}
+
+.gumlet-hero-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* Simulate object-fit: cover */
+    pointer-events: none;
+    transform: scale(1.1);
+    /* Slight zoom to avoid edges */
+}
+
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    /* Subtle dimming */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5rem 3.5rem;
+    /* Spacious padding as per image */
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    /* Urbanist */
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+
+
+@media (hover: hover) {
+    .nav-link:hover {
+        opacity: 1;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+}
+
+.hero-center {
+    text-align: center;
+    margin-top: auto;
+    /* Push to bottom */
+    margin-bottom: 2rem;
+    /* Space between title and arrow */
+    padding-top: 20vh;
+    /* Ensure it doesn't overlap header if short screen */
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    /* Canela */
+    font-weight: 400;
+    color: #fcfcfc;
+    line-height: 1;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title .line-1 {
+    display: block;
+    font-size: clamp(3rem, 8vw, 7rem);
+    /* Responsive sizing */
+    margin-bottom: 0px;
+    letter-spacing: 0.02em;
+}
+
+
+.hero-title .line-2 {
+    display: block;
+    font-size: clamp(3rem, 8vw, 7rem);
+    /* Responsive sizing */
+    letter-spacing: 0.02em;
+}
+
+
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #fcfcfc;
+    margin-top: 1rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+.content-spacer {
+    height: 50px;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+.scroll-down-arrow svg {
+    width: 24px;
+    height: 24px;
+    animation: floating 2s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================================
+   Introduction Section
+   ========================================= */
+
+.intro-section {
+    padding: clamp(80px, 8vw, 120px) 0;
+    /* Ensure no negative margins mess this up elsewhere */
+    position: relative;
+    z-index: 2;
+    /* Ensure it lies above any fixed hero nonsense if overlapping */
+
+    background-color: var(--color-cream);
+    /* Inherits global bg */
+    color: #2f4356;
+    /* Requested accent color */
+    text-align: center;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    /* Limit width for text readability */
+}
+
+.intro-title {
+    font-family: var(--font-heading);
+    /* Canela */
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    color: #2f4356;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.intro-text p,
+p.intro-text {
+    font-family: var(--font-body);
+    /* Urbanist */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #2f4356;
+    max-width: 100%;
+}
+
+.intro-action {
+    margin-top: 2rem;
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 1px solid #2f4356;
+    color: #2f4356;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+
+
+@media (hover: hover) {
+    .btn-outline:hover {
+        background-color: #2f4356;
+        color: #fff;
+    }
+}
+
+/* Responsive adjustments for Intro */
+@media (max-width: 768px) {
+    .intro-section {
+        padding: 3rem 0;
+    }
+
+    .intro-title {
+        font-size: 2.5rem;
+    }
+
+    .intro-text p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* =========================================
+   Service Card Styling (Shared)
+   ========================================= */
+
+.service-card {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 40px rgba(47, 67, 86, 0.05);
+    /* Soft shadow with accent tone */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    /* Prevent flux overflow */
+}
+
+@media (hover: hover) {
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(47, 67, 86, 0.1);
+    }
+}
+
+/* Booking Card Styling */
+.booking-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+/* AI Card Styling */
+.ai-card {
+    border-left: 4px solid var(--secondary-color);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+.card-subtext {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Booking Highlight */
+.card-highlight {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0.8rem 0;
+}
+
+.highlight-amount {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    /* Ocean Blue */
+    font-weight: 700;
+}
+
+.highlight-per {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+/* Arrow Icon */
+.card-action {
+    display: flex;
+    align-items: center;
+}
+
+.arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(0, 95, 115, 0.05);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+    .booking-card:hover .arrow-icon {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        transform: translateX(5px);
+    }
+}
+
+/* WhatsApp Icon styling */
+.ai-card .whatsapp-icon {
+    background-color: #25D366;
+    color: #ffffff;
+}
+
+@media (hover: hover) {
+    .ai-card:hover .whatsapp-icon {
+        background-color: #128C7E;
+        /* Darker WhatsApp Green on hover */
+        color: #ffffff;
+        transform: translateX(5px);
+    }
+}
+
+/* Initial AI Icon (Robby) stays sea green if not targetted by whatsapp class? 
+   No, the robby icon is .card-icon, action is .arrow-icon.
+*/
+.ai-card .arrow-icon:not(.whatsapp-icon) {
+    background-color: rgba(148, 210, 189, 0.1);
+    color: var(--secondary-color);
+}
+
+/* AI Icon */
+.card-icon {
+    flex-shrink: 0;
+    color: var(--secondary-color);
+    /* Soft Sea Green */
+}
+
+/* Responsive Styles for Service Bar */
+@media (max-width: 900px) {
+    .service-bar-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* =========================================
+   Video & Service Split Section
+   ========================================= */
+
+.media-service-split {
+    padding: 5rem 0;
+    background-color: var(--color-cream);
+}
+
+.split-container {
+    display: flex;
+    align-items: stretch;
+    /* Stretch to equal height */
+    gap: 0;
+    /* Manual spacing via divider margins */
+    max-width: 1800px;
+    /* Match sustainability section */
+    width: 90%;
+    /* Consistent margins */
+    margin: 0 auto;
+    height: auto;
+    /* Match content/video size */
+}
+
+/* Left Column: Video */
+.split-media {
+    flex: 1;
+    /* 50% Width */
+    position: relative;
+    /* Normal positioning */
+    overflow: hidden;
+}
+
+.bridge-video {
+    width: 100%;
+    height: auto;
+    /* Respect Original AR */
+    object-fit: cover;
+    display: block;
+}
+
+/* Divider */
+.split-divider {
+    width: 1px;
+    background-color: #d1cbc5;
+    margin: 0 35px 0 15px;
+    /* Close to video (15px), text closer (35px) */
+    height: 100%;
+    /* Stretch full length */
+}
+
+/* Right Column: Service Cards */
+/* Right Column: Service Cards */
+.split-content {
+    flex: 1;
+    /* 50% Width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Top and Bottom alignment */
+    gap: 0;
+    padding-left: 0;
+    height: auto;
+    /* Let it stretch with container */
+}
+
+/* Scroll Containers removed/reset - just wrappers now */
+.content-block {
+    height: auto;
+    display: block;
+    width: 100%;
+}
+
+/* Adjust card styling for this context */
+.split-content .service-card {
+    /* Cleaner, "transparent" look to fit design */
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    /* Remove gap as we stack vertically in card-content */
+    border-left: none;
+    transition: none;
+    /* No movement */
+    flex: none;
+    /* Don't stretch */
+    position: static;
+    /* No more*/
+}
+
+.booking-card {
+    margin-bottom: 0;
+    /* Handled by content-block */
+}
+
+.ai-card {
+    margin-bottom: 0;
+}
+
+@media (hover: hover) {
+    .split-content .service-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* Redefine global card styles for split context overrides */
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Ensure left align */
+}
+
+.split-content .card-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    /* Larger title */
+    color: #2f4356;
+    /* Dark Blue */
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* ALL CAPS */
+}
+
+.split-content .card-subtext {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #2f4356;
+    /* Dark Blue */
+    margin: 0 0 1.5rem 0;
+    /* Space before button */
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.split-content .btn-outline {
+    margin-top: auto;
+    /* Push to bottom if needed, but flex gap handles it */
+}
+
+/* Sustainability Section */
+.sustainability-section {
+    padding: 120px 0;
+    /* Luxurious spacing */
+    background-color: #ffffff;
+    /* Clean white */
+}
+
+.sustainability-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    /* Standard margin */
+    max-width: 1800px;
+    /* Cap width for readability */
+    margin: 0 auto;
+    gap: 120px;
+    /* Big gap for premium feel */
+}
+
+/* Text Column */
+.sus-text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sus-title {
+    font-family: var(--font-heading);
+    /* Canela */
+    font-weight: 400;
+    /* Regular elegance */
+    font-size: 4rem;
+    /* Large and impactful */
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    line-height: 1.1;
+    color: #2f4356;
+    letter-spacing: -0.02em;
+}
+
+.sus-body {
+    font-family: var(--font-body);
+    /* Urbanist */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 3.5rem;
+    max-width: 55ch;
+    /* Optimal reading width */
+}
+
+.sus-body p {
+    margin-bottom: 1.5rem;
+}
+
+/* Image Column - In-Frame Parallax Effect */
+.sus-image-col {
+    flex: 1;
+    height: 800px;
+    /* Tall, majestic image */
+    overflow: hidden;
+    position: relative;
+    border-radius: 0px;
+    /* Sharp corners for modern premium look */
+}
+
+.sus-image {
+    width: 100%;
+    height: 115%;
+    /* Slightly larger than container for subtle parallax movement */
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .sustainability-section {
+        padding: 60px 0;
+    }
+
+    .sustainability-container {
+        flex-direction: column-reverse;
+        /* Image Top */
+        gap: 40px;
+        width: 90%;
+    }
+
+    .sus-image-col {
+        width: 100%;
+        height: 60vh;
+        /* Prominent image on mobile */
+        max-height: 500px;
+    }
+
+    .sus-image {
+        /* Reduce parallax movement on mobile */
+        height: 115%;
+    }
+
+    .sus-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .sus-body {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+}
+
+/* Responsive Styles for Split Section */
+@media (max-width: 900px) {
+    .split-container {
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+    }
+
+    /* Video Section - Move to middle */
+    .split-media {
+        height: 350px;
+        flex: none;
+        order: 2;
+    }
+
+    .split-divider {
+        display: none;
+    }
+
+    /* Unwrap the right column content so chunks become direct flex children */
+    .split-content {
+        display: contents;
+    }
+
+    /* Reorder text blocks */
+    /* Target the content-blocks inside split-content */
+    .split-content .content-block:first-child {
+        order: 1;
+    }
+
+    .split-content .content-block:last-child {
+        order: 3;
+    }
+
+    /* Since split-content is display:contents, these rules might need applied directly to blocks if they relied on inheritance,
+       but usually styles cascade fine. We just need to ensure spacing is handled by gap on parent. */
+
+    .split-content .card-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* =========================================
+   Image Grid Section
+   ========================================= */
+
+.image-grid-section {
+    padding-bottom: 6rem;
+    background-color: var(--color-cream);
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 100%;
+    /* Fill container */
+    margin: 0 auto;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    /* Strict: No rounded corners */
+    display: block;
+    aspect-ratio: 4/3;
+    /* Ensure consistent height */
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   Hotel Overview Page
+   ========================================= */
+
+/* Hotel Hero Section */
+/* Hotel Hero Section */
+.hotel-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.hotel-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hotel-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+.hotel-hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-hero-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotel-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3.5rem;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    margin: 0;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 90%;
+}
+
+.hotel-hero-bottom {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+/* Rooms Section */
+.rooms-section {
+    padding: 6rem 0;
+    background-color: var(--color-cream);
+}
+
+/* Rooms Grid */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem 3rem;
+}
+
+/* Room Card */
+.room-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    border: 1px solid #d1cbc5;
+    background-color: transparent;
+    transition: box-shadow 0.4s ease;
+}
+
+@media (hover: hover) {
+    .room-card:hover {
+        box-shadow: 0 10px 40px rgba(47, 67, 86, 0.08);
+    }
+}
+
+/* KAMER Label */
+.room-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* Room Title */
+.room-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #2f4356;
+    letter-spacing: 0.05em;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+}
+
+/* Room Description */
+.room-description {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #555;
+    max-width: 90%;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Zie Meer Link */
+.room-link {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2f4356;
+    text-decoration: none;
+    border-bottom: 1px solid #2f4356;
+    padding-bottom: 2px;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .room-link:hover {
+        color: #d4a373;
+        border-color: #d4a373;
+    }
+}
+
+/* Room Carousel */
+.room-carousel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slides img {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2f4356;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+}
+
+@media (hover: hover) {
+    .room-carousel:hover .carousel-nav {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 992px) {
+    .carousel-nav {
+        opacity: 1;
+    }
+}
+
+@media (hover: hover) {
+    .carousel-nav:hover {
+        background-color: #ffffff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+.carousel-prev {
+    left: 15px;
+}
+
+.carousel-next {
+    right: 15px;
+}
+
+/* Carousel Counter */
+.carousel-counter {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 12px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+}
+
+/* Boek Direct Button */
+.room-book-btn {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #2f4356;
+    text-decoration: none;
+    padding: 12px 30px;
+    border: 1px solid #2f4356;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+@media (hover: hover) {
+    .room-book-btn:hover {
+        background-color: #2f4356;
+        color: #ffffff;
+    }
+}
+
+/* Responsive Styles for Hotel Page */
+@media (max-width: 992px) {
+    .rooms-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hotel-hero-title {
+        font-size: 3.5rem;
+    }
+
+    .room-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hotel-hero {
+        height: 70vh;
+    }
+
+    .hotel-hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .rooms-section {
+        padding: 4rem 0;
+    }
+
+    .room-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .carousel-nav {
+        opacity: 1;
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-prev {
+        left: 10px;
+    }
+
+    .carousel-next {
+        right: 10px;
+    }
+}
+
+/* =========================================
+   Room Detail Pages
+   ========================================= */
+
+/* Room Hero Section */
+.room-hero {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 500px;
+    overflow: visible;
+}
+
+/* Back Arrow */
+.room-back-link {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    z-index: 5;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) {
+    .room-back-link:hover {
+        opacity: 0.7;
+    }
+}
+
+.room-back-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.room-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.room-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.room-hero-content {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.room-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 4rem;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+/* Book Now Button - Straddling Hero/Content */
+.room-book-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 10;
+}
+
+.room-book-main {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 18px 45px;
+    background-color: #2f4356;
+    border: 14px solid var(--color-cream);
+    border-radius: 1px;
+    outline: none;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .room-book-main:hover {
+        background-color: #1e2d3a;
+    }
+}
+
+/* Room Info Section */
+.room-info-section {
+    padding: 8rem 0 5rem 0;
+    background-color: var(--color-cream);
+}
+
+.room-info-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.room-intro {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2f4356;
+    margin-bottom: 3rem;
+    font-style: normal;
+}
+
+.room-amenities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.room-amenities li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 2;
+    color: #2f4356;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.room-amenities li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #888;
+}
+
+.room-amenities li strong {
+    font-weight: 600;
+}
+
+/* Room Image Gallery - Carousel on all devices */
+.room-gallery-section {
+    padding: 0 0 6rem 0;
+    background-color: var(--color-cream);
+}
+
+.room-gallery {
+    display: block;
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    touch-action: pan-y;
+}
+
+.carousel-slides img {
+    flex-shrink: 0;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+/* Room Gallery on detail pages: 3 images on desktop */
+.room-gallery .carousel-slides {
+    gap: 16px;
+}
+
+.room-gallery .carousel-slides img {
+    width: calc((100% - 32px) / 3);
+    /* 3 images with 2 gaps of 16px */
+}
+
+/* Mobile: 1 image at a time for all carousels */
+@media (max-width: 767px) {
+    .room-gallery .carousel-slides {
+        gap: 0;
+    }
+
+    .room-gallery .carousel-slides img {
+        width: 100%;
+    }
+}
+
+/* Show carousel controls on all devices - positioned below images */
+.room-gallery .carousel-nav {
+    position: static;
+    display: inline-flex;
+    opacity: 1;
+    transform: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (hover: hover) {
+    .room-gallery .carousel-nav:hover {
+        background-color: #ffffff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transform: none;
+    }
+}
+
+.room-gallery .carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+}
+
+.room-gallery .carousel-counter {
+    position: static;
+    display: inline-block;
+    background-color: transparent;
+    color: #2f4356;
+    padding: 0;
+    margin-right: auto;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles for Room Detail */
+@media (max-width: 992px) {
+    .room-hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .room-hero {
+        height: 70vh;
+    }
+
+    .room-hero-title {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .room-book-main {
+        padding: 15px 35px;
+        font-size: 0.8rem;
+        border-width: 6px;
+    }
+
+    .room-info-section {
+        padding: 6rem 0 3rem 0;
+    }
+
+    .room-amenities li {
+        font-size: 0.95rem;
+    }
+
+    /* Always show carousel controls on mobile */
+    .room-gallery .carousel-nav {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hotel-hero-title,
+    .room-hero-title {
+        font-size: 1.75rem;
+        padding: 0 1rem;
+    }
+}
+
+/* =========================================
+   Two-Column Room Intro with Sticky Text
+   ========================================= */
+
+.room-intro-split {
+    padding: 8rem 0 5rem 0;
+    background-color: var(--color-cream);
+}
+
+.room-intro-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: stretch;
+    /* Allow content column to stretch to match image height */
+}
+
+.room-intro-image img {
+    width: 100%;
+    aspect-ratio: 5/8;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+.room-intro-sticky {
+    position: sticky;
+    top: 120px;
+}
+
+.room-intro-sticky .room-intro {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2f4356;
+    margin-bottom: 2rem;
+    font-style: normal;
+}
+
+.room-intro-sticky .room-amenities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.room-intro-sticky .room-amenities li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 2;
+    color: #2f4356;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.room-intro-sticky .room-amenities li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #888;
+}
+
+.room-intro-sticky .room-amenities li strong {
+    font-weight: 600;
+}
+
+/* Responsive Two-Column Intro */
+@media (max-width: 992px) {
+    .room-intro-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .room-intro-sticky {
+        position: relative;
+        top: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .room-intro-split {
+        padding: 6rem 0 3rem 0;
+    }
+
+    .room-intro-container {
+        gap: 2rem;
+    }
+
+    .room-intro-image img {
+        aspect-ratio: 4/3;
+        max-height: 50vh;
+    }
+}
+
+/* =========================================
+   Mobile Gallery Carousel
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Switch to carousel mode on mobile */
+    .room-gallery {
+        display: block;
+        position: relative;
+    }
+
+    /* Show carousel controls on mobile */
+    .room-gallery .carousel-nav {
+        display: flex;
+        opacity: 1;
+    }
+
+    .room-gallery .carousel-counter {
+        display: block;
+    }
+
+    .carousel-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .carousel-slides {
+        display: flex;
+        transition: transform 0.5s ease;
+        touch-action: pan-y;
+    }
+
+    .carousel-slides img {
+        flex-shrink: 0;
+        width: 100%;
+    }
+}
+
+/* =========================================
+   Other Rooms Section (Slider)
+   ========================================= */
+
+.other-rooms-section {
+    position: relative;
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+.other-rooms-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.other-rooms-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.other-rooms-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+}
+
+.other-rooms-container {
+    position: relative;
+    z-index: 2;
+}
+
+.other-rooms-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.02em;
+}
+
+.other-rooms-carousel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.other-rooms-nav {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+    .other-rooms-nav:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.other-rooms-track-wrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+.other-rooms-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s ease;
+}
+
+/* Mini Room Card for Slider */
+.room-card-mini {
+    flex: 0 0 calc(33.333% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+    .room-card-mini:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.room-card-mini .room-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.room-card-mini .room-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #2f4356;
+    letter-spacing: 0.03em;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.room-card-mini .room-description {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.room-card-mini .room-link {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2f4356;
+    text-decoration: none;
+    border-bottom: 1px solid #2f4356;
+    padding-bottom: 2px;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .room-card-mini .room-link:hover {
+        color: #d4a373;
+        border-color: #d4a373;
+    }
+}
+
+.room-card-image {
+    width: 100%;
+    margin-top: auto;
+}
+
+.room-card-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* Hide counter on desktop - only shown on mobile */
+.other-rooms-counter {
+    display: none;
+}
+
+/* Responsive Other Rooms Section */
+@media (max-width: 1200px) {
+    .room-card-mini {
+        flex: 0 0 calc(50% - 0.75rem);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .other-rooms-section {
+        padding: 2rem 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .other-rooms-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Hide nav arrows on mobile - swipe only */
+    .other-rooms-nav {
+        display: none;
+    }
+
+    .other-rooms-track-wrapper {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .other-rooms-track-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .other-rooms-track {
+        display: flex;
+        gap: 16px;
+        padding: 0 7.5vw;
+    }
+
+    /* Mobile card - optimized to fit screen with counter */
+    .room-card-mini {
+        flex: 0 0 80vw;
+        width: 80vw;
+        min-width: 80vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        /* Vertical layout like desktop */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.25rem 0.75rem;
+        background-color: rgba(255, 255, 255, 0.97);
+        border-radius: 4px;
+        /* Height to fit on screen with title and counter */
+        height: auto;
+        max-height: calc(100vh - 180px);
+        max-height: calc(100dvh - 180px);
+    }
+
+    /* Disable hover effects on mobile */
+    .room-card-mini:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Label */
+    .room-card-mini .room-label {
+        font-family: var(--font-body);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        color: #888;
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
+        flex-shrink: 0;
+    }
+
+    /* Title */
+    .room-card-mini .room-title {
+        font-family: var(--font-heading);
+        font-weight: 400;
+        font-size: 1.1rem;
+        color: #2f4356;
+        letter-spacing: 0.02em;
+        margin: 0 0 0.6rem 0;
+        line-height: 1.2;
+        flex-shrink: 0;
+    }
+
+    /* Description */
+    .room-card-mini .room-description {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        line-height: 1.5;
+        color: #555;
+        margin: 0 0 0.6rem 0;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    /* Link */
+    .room-card-mini .room-link {
+        font-family: var(--font-body);
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #2f4356;
+        text-decoration: none;
+        border-bottom: 1px solid #2f4356;
+        padding-bottom: 2px;
+        margin-bottom: 0.75rem;
+        flex-shrink: 0;
+    }
+
+    /* Image at bottom */
+    .room-card-mini .room-card-image {
+        width: 100%;
+        margin-top: auto;
+        flex-shrink: 1;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .room-card-mini .room-card-image img {
+        width: 100%;
+        height: 100%;
+        max-height: 25vh;
+        object-fit: cover;
+        border-radius: 2px;
+    }
+
+    /* Swipe Counter */
+    .other-rooms-counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.25rem;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.8);
+        letter-spacing: 0.1em;
+    }
+
+    .other-rooms-counter .current {
+        font-weight: 600;
+        color: #ffffff;
+    }
+}
+
+/* =========================================
+   Fullscreen Menu
+   ========================================= */
+
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2f4356;
+    z-index: 9999;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-close {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    background: none;
+    border: none;
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+@media (hover: hover) {
+    .menu-close:hover {
+        opacity: 0.7;
+    }
+}
+
+.menu-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-left {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 87px 40px 60px 40px;
+    /* Top padding calculated for 20px gap from SLUIT button */
+    overflow-y: auto;
+}
+
+.menu-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Fill the empty space in menu-left */
+    justify-content: space-between;
+    /* Distribute items evenly */
+    /* Removed max-height to allow full stretching within the padded container */
+}
+
+.menu-nav li {
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.menu-nav a {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    /* 
+       Refined Fluid Typography:
+       - Baseline (1024px): 1.1rem (17.6px) for elegant fit on laptops.
+       - Peak (2560px): 2.75rem (44px) for premium look on ultra-wide screens.
+       - Calculation: slope 1.71875vw keeps items within view on all standard heights.
+    */
+    font-size: clamp(1.1rem, 1.71875vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-cream);
+    text-decoration: none;
+    text-align: left;
+    /* Spacing adjusted to ensure 11 items + padding fit the viewport height */
+    padding-top: clamp(0.3rem, 1vh, 1rem);
+    padding-bottom: clamp(0.3rem, 1vh, 1rem);
+    min-height: clamp(2.5rem, 4.5vh, 7.5rem);
+    position: relative;
+    border-bottom: 1px solid rgba(238, 234, 230, 0.2);
+    transition: color 0.3s ease;
+}
+
+
+
+.menu-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-cream);
+    transition: width 0.4s ease;
+}
+
+@media (hover: hover) {
+    .menu-nav a:hover::after {
+        width: 100%;
+    }
+}
+
+@media (hover: hover) {
+    .menu-nav a:hover {
+        color: #ffffff;
+    }
+}
+
+.menu-right {
+    width: 45%;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.menu-image.active {
+    opacity: 1;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 992px) {
+    .menu-left {
+        width: 100%;
+        padding: 100px 40px 40px 40px;
+        /* Increased top padding for better breathing room */
+        align-items: center;
+        text-align: center;
+    }
+
+    .menu-nav {
+        max-height: none;
+        /* Allow full expansion */
+        width: 100%;
+        justify-content: space-around;
+        /* Better distribution */
+        height: calc(100% - 150px);
+        /* Adjusted for larger top space */
+    }
+
+
+    .menu-nav a {
+        font-size: clamp(1.4rem, 3.5vh, 2.2rem);
+        /* More impactful font size */
+        padding-top: clamp(0.5rem, 1vh, 0.8rem);
+        padding-bottom: clamp(0.5rem, 1vh, 0.8rem);
+        min-height: clamp(2.5rem, 6vh, 4.5rem);
+        text-align: center;
+        justify-content: center;
+        /* Full-width clickable area */
+        width: 100%;
+    }
+
+    .menu-nav li:first-child a {
+        padding-top: clamp(0.5rem, 1vh, 0.8rem);
+    }
+
+    .menu-right {
+        display: none;
+    }
+
+    .menu-close {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 30px;
+        /* Centered for a clean vertical axis */
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-left {
+        padding: 85px 25px 30px 25px;
+    }
+
+    .menu-nav {
+        height: calc(100% - 120px);
+        justify-content: space-between;
+    }
+
+    .menu-nav a {
+        font-size: clamp(1.2rem, 3.2vh, 1.8rem) !important;
+        padding: clamp(0.4rem, 0.8vh, 0.6rem) 15px !important;
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    /* Mobile Header Adjustments */
+    .header-container {
+        padding: 0 15px;
+    }
+
+    .header-logo {
+        height: 45px;
+    }
+
+    .fixed-header.scrolled .header-logo {
+        height: 35px;
+    }
+
+    .fixed-header .nav-link {
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+    }
+}
+
+/* =========================================
+   Omgeving & Activiteiten Page
+   ========================================= */
+
+/* Omgeving Hero Section - Full Height */
+.omgeving-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.omgeving-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.omgeving-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Darker overlay for better text contrast - WCAG compliant */
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.35) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+}
+
+.omgeving-hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.omgeving-hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    padding-top: 100px;
+    /* Account for fixed header */
+}
+
+.omgeving-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 4.5rem;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    margin: 0 0 2rem 0;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+    line-height: 1.15;
+    max-width: 900px;
+}
+
+.omgeving-hero-subtitle {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.03em;
+    margin: 0;
+    text-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+    line-height: 1.8;
+    max-width: 700px;
+}
+
+.omgeving-hero-bottom {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+/* Scroll indicator animation enhancement */
+.omgeving-hero-bottom .scroll-down-arrow svg {
+    animation: floating 2s ease-in-out infinite;
+}
+
+/* Responsive styles for Omgeving Hero */
+@media (max-width: 992px) {
+    .omgeving-hero-title {
+        font-size: 3.5rem;
+    }
+
+    .omgeving-hero-subtitle {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .omgeving-hero {
+        min-height: 100vh;
+        height: 100vh;
+    }
+
+    .omgeving-hero-center {
+        padding: 0 1.5rem;
+        padding-top: 80px;
+    }
+
+    .omgeving-hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .omgeving-hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .omgeving-hero-subtitle br {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .omgeving-hero-title {
+        font-size: 2rem;
+    }
+
+    .omgeving-hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .omgeving-hero-bottom {
+        padding-bottom: 2rem;
+    }
+}
+
+/* =========================================
+   Omgeving Page - Intro Section (Unified)
+   ========================================= */
+
+.omgeving-intro-section {
+    padding: 5rem 0;
+    background-color: var(--color-cream);
+}
+
+.omgeving-intro-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.omgeving-intro-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.omgeving-intro-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3rem;
+    color: #2f4356;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.omgeving-intro-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 1.5rem auto 0;
+}
+
+.omgeving-intro-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.omgeving-intro-main {
+    padding-right: 2rem;
+}
+
+.omgeving-intro-lead {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: #2f4356;
+    margin: 0 0 1.5rem 0;
+}
+
+.omgeving-intro-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #5a6a7a;
+    margin: 0;
+}
+
+.omgeving-intro-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+@media (hover: hover) {
+    .omgeving-intro-text a:hover {
+        border-bottom-color: var(--primary-color);
+    }
+}
+
+.omgeving-intro-aside {
+    display: flex;
+    align-items: center;
+}
+
+.omgeving-quote {
+    margin: 0;
+    padding: 2rem 2.5rem;
+    background-color: #faf9f8;
+    /* Very light cream/grey */
+    border-left: 3px solid #d4a373;
+    /* Gold accent */
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.omgeving-quote::before {
+    content: '"';
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1;
+    color: #d4a373;
+    opacity: 0.2;
+}
+
+.omgeving-quote::after {
+    display: none;
+}
+
+.omgeving-quote p {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #2f4356;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 992px) {
+    .omgeving-intro-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .omgeving-intro-main {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .omgeving-intro-section {
+        padding: 3rem 0;
+    }
+
+    .omgeving-intro-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .omgeving-intro-title {
+        font-size: 2.2rem;
+    }
+
+    .omgeving-intro-lead {
+        font-size: 1.1rem;
+    }
+
+    .omgeving-intro-text {
+        font-size: 1rem;
+    }
+
+    .omgeving-quote {
+        padding: 1.5rem;
+    }
+
+    .omgeving-quote p {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   Omgeving Page - Strand Split Section
+   ========================================= */
+
+.strand-split-section {
+    background-color: var(--color-cream);
+}
+
+.strand-split-container {
+    display: flex;
+    min-height: 500px;
+}
+
+.strand-text-col {
+    flex: 1;
+    background-color: #f8f5f4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4rem;
+}
+
+.strand-text-inner {
+    max-width: 480px;
+}
+
+.strand-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.strand-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3.5rem;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.02em;
+}
+
+.strand-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.strand-intro {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+}
+
+.strand-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: #5a6a7a;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.strand-image-col {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.strand-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Strand Carousel Styles */
+.strand-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.carousel-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2f4356;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+@media (hover: hover) {
+    .carousel-btn:hover {
+        background-color: #ffffff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+    .carousel-dot:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.carousel-dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+}
+
+@media (max-width: 992px) {
+    .strand-split-container {
+        flex-direction: column-reverse;
+    }
+
+    .strand-image-col {
+        height: 350px;
+    }
+
+    .strand-text-col {
+        padding: 3rem 2rem;
+        justify-content: center;
+    }
+
+    .strand-text-inner {
+        max-width: 100%;
+    }
+
+    .strand-title {
+        font-size: 2.5rem;
+    }
+
+    .strand-carousel {
+        min-height: 0;
+        height: 100%;
+    }
+
+    .strand-image-col {
+        height: 350px;
+        background-color: #eee;
+        /* Placeholder color in case of loading issues */
+    }
+}
+
+/* =========================================
+   Omgeving Page - Honden Section
+   ========================================= */
+
+.honden-section {
+    padding: 0;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.honden-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.honden-text-col {
+    flex: 1;
+    padding: 5rem;
+    padding-left: 10%;
+    padding-right: 3rem;
+    max-width: 800px;
+}
+
+.honden-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.honden-icon {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.honden-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #2f4356;
+    margin: 0;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--primary-color);
+}
+
+.honden-content {
+    text-align: left;
+}
+
+.honden-content p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #2f4356;
+    margin-bottom: 1.5rem;
+}
+
+.honden-alert {
+    background-color: #fff8e6;
+    border-left: 4px solid #d4a373;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #5a4a3a;
+}
+
+.honden-alert strong {
+    color: #8b6914;
+}
+
+.honden-image-col {
+    flex: 0 0 450px;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+}
+
+.honden-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Hide image on tablet and mobile */
+@media (max-width: 992px) {
+    .honden-wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .honden-text-col {
+        padding: 4rem 5%;
+        max-width: 100%;
+        padding-left: 5%;
+    }
+
+    .honden-image-col {
+        display: none;
+    }
+
+    .honden-header {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .honden-text-col {
+        padding: 3rem 5%;
+    }
+
+    .honden-header {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .honden-title {
+        font-size: 2rem;
+    }
+
+    .honden-content p {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   Omgeving Page - Fietshuur Section
+   ========================================= */
+
+.fietshuur-section {
+    padding: 5rem 0;
+    background-color: var(--color-cream);
+}
+
+.fietshuur-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fietshuur-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3rem;
+    color: #2f4356;
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.02em;
+}
+
+.fietshuur-intro {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #2f4356;
+    margin: 0 0 3rem 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fietshuur-prijzen {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.prijs-card {
+    flex: 1;
+    max-width: 280px;
+    background-color: #ffffff;
+    border: 1px solid #d1cbc5;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@media (hover: hover) {
+    .prijs-card:hover {
+        box-shadow: 0 10px 30px rgba(47, 67, 86, 0.1);
+        transform: translateY(-5px);
+    }
+}
+
+.prijs-label {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.prijs-bedrag {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.prijs-periode {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.fietshuur-service {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid #d1cbc5;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .fietshuur-title {
+        font-size: 2.5rem;
+    }
+
+    .fietshuur-intro {
+        font-size: 1rem;
+    }
+
+    .fietshuur-prijzen {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .prijs-card {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* =========================================
+   Duurzaamheid Page - Hero Section
+   ========================================= */
+
+.duurzaam-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.duurzaam-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.duurzaam-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.duurzaam-hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.duurzaam-hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    padding-top: 100px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.duurzaam-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 4rem;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    margin: 0 0 2rem 0;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+}
+
+.duurzaam-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0;
+}
+
+.duurzaam-hero-bottom {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .duurzaam-hero {
+        min-height: 500px;
+    }
+
+    .duurzaam-hero-center {
+        padding: 0 1.5rem;
+        padding-top: 80px;
+    }
+
+    .duurzaam-hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .duurzaam-hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+/* =========================================
+   Duurzaamheid Page - Cards Section
+   ========================================= */
+
+.duurzaam-cards-section {
+    padding: 6rem 0;
+    background-color: var(--color-cream);
+}
+
+.duurzaam-cards-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.duurzaam-cards-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.duurzaam-cards-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3rem;
+    color: #2f4356;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.duurzaam-cards-divider {
+    width: 60px;
+    height: 3px;
+    background-color: #228B22;
+    margin: 1.5rem auto;
+}
+
+.duurzaam-cards-intro {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5a6a7a;
+    margin: 0 0 1rem 0;
+}
+
+.duurzaam-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.duurzaam-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(47, 67, 86, 0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (hover: hover) {
+    .duurzaam-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(47, 67, 86, 0.12);
+    }
+}
+
+.duurzaam-card-icon {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.duurzaam-card-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+}
+
+.duurzaam-card-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #5a6a7a;
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+    .duurzaam-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .duurzaam-cards-section {
+        padding: 4rem 0;
+    }
+
+    .duurzaam-cards-title {
+        font-size: 2.2rem;
+    }
+
+    .duurzaam-cards-header {
+        margin-bottom: 3rem;
+    }
+}
+
+/* =========================================
+   Duurzaamheid Page - Vision Section
+   ========================================= */
+
+.duurzaam-vision-section {
+    padding: 5rem 0;
+    background-color: #ffffff;
+}
+
+.duurzaam-vision-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.duurzaam-vision-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #2f4356;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .duurzaam-vision-section {
+        padding: 3rem 0;
+    }
+
+    .duurzaam-vision-text {
+        font-size: 1.3rem;
+    }
+}
+
+/* =========================================
+   Duurzaamheid Page - Partner Section
+   ========================================= */
+
+.duurzaam-partner-section {
+    background-color: var(--color-cream);
+}
+
+.duurzaam-partner-container {
+    display: flex;
+    min-height: 700px;
+}
+
+.duurzaam-partner-text-col {
+    flex: 1;
+    background-color: #f8f5f4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4rem;
+}
+
+.duurzaam-partner-text-inner {
+    max-width: 550px;
+}
+
+.duurzaam-partner-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.duurzaam-partner-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3rem;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.02em;
+}
+
+.duurzaam-partner-divider {
+    width: 60px;
+    height: 3px;
+    background-color: #228B22;
+    margin-bottom: 1.5rem;
+}
+
+.duurzaam-partner-intro {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2f4356;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.7;
+}
+
+.duurzaam-partner-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: #2f4356;
+    margin: 2rem 0 1rem 0;
+    font-weight: 400;
+}
+
+.duurzaam-partner-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: #5a6a7a;
+    margin: 0 0 1rem 0;
+    line-height: 1.8;
+}
+
+.duurzaam-partner-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.duurzaam-partner-list li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #2f4356;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.duurzaam-partner-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.duurzaam-partner-section .btn-outline {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.duurzaam-example-box {
+    background-color: #ffffff;
+    border-left: 4px solid #228B22;
+    padding: 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #5a6a7a;
+    margin-top: 1.5rem;
+}
+
+.duurzaam-example-box strong {
+    color: #2f4356;
+}
+
+.duurzaam-partner-image-col {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.duurzaam-partner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 992px) {
+    .duurzaam-partner-container {
+        flex-direction: column-reverse;
+    }
+
+    .duurzaam-partner-image-col {
+        height: 400px;
+    }
+
+    .duurzaam-partner-text-col {
+        padding: 3rem 2rem;
+        justify-content: center;
+    }
+
+    .duurzaam-partner-text-inner {
+        max-width: 100%;
+    }
+
+    .duurzaam-partner-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* =========================================
+   Duurzaamheid Page - Ecotap Section
+   ========================================= */
+
+.duurzaam-ecotap-section {
+    padding: 6rem 0;
+    background-color: #ffffff;
+}
+
+.duurzaam-ecotap-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.duurzaam-ecotap-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.duurzaam-ecotap-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3rem;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.02em;
+}
+
+.duurzaam-ecotap-divider {
+    width: 60px;
+    height: 3px;
+    background-color: #228B22;
+    margin-bottom: 1.5rem;
+}
+
+.duurzaam-ecotap-intro {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2f4356;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.7;
+}
+
+.duurzaam-ecotap-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: #5a6a7a;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.8;
+}
+
+.duurzaam-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.duurzaam-benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: #2f4356;
+    padding: 0.75rem 0;
+}
+
+.benefit-icon {
+    flex-shrink: 0;
+    color: #228B22;
+    margin-top: 2px;
+}
+
+.duurzaam-link {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .duurzaam-link:hover {
+        color: #2f4356;
+    }
+}
+
+.duurzaam-ecotap-image-col {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+}
+
+.duurzaam-ecotap-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 992px) {
+    .duurzaam-ecotap-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .duurzaam-ecotap-image-col {
+        height: 350px;
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .duurzaam-ecotap-section {
+        padding: 4rem 0;
+    }
+
+    .duurzaam-ecotap-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* =========================================
+   Duurzaamheid Page - Closing Section
+   ========================================= */
+
+.duurzaam-closing-section {
+    padding: 6rem 0;
+    background-color: var(--color-cream);
+}
+
+.duurzaam-closing-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.duurzaam-closing-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.duurzaam-closing-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 3rem;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.02em;
+}
+
+.duurzaam-closing-divider {
+    width: 60px;
+    height: 3px;
+    background-color: #228B22;
+    margin: 0 auto 2rem auto;
+}
+
+.duurzaam-closing-text {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #5a6a7a;
+    margin: 0 0 2.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .duurzaam-closing-section {
+        padding: 4rem 0;
+    }
+
+    .duurzaam-closing-title {
+        font-size: 2.2rem;
+    }
+
+    .duurzaam-closing-text {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   Animations & Polish
+   ========================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+
+    /* Base Animation Classes */
+    /* Base Animation Classes */
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered Delays for Grid Items */
+    .stagger-delay-1 {
+        transition-delay: 0.3s;
+    }
+
+    .delay-200 {
+        transition-delay: 0.2s;
+    }
+
+    .stagger-delay-2 {
+        transition-delay: 0.6s;
+    }
+
+    .stagger-delay-3 {
+        transition-delay: 0.9s;
+    }
+
+    .stagger-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .is-visible .stagger-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Specific Stagger handling for direct children if container has reveal class */
+    .reveal-stagger-container.is-visible .stagger-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .reveal-stagger-container.is-visible .stagger-item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .reveal-stagger-container.is-visible .stagger-item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    /* Interactive Hover Effects */
+    .hover-scale {
+        transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+        will-change: transform;
+    }
+
+    @media (hover: hover) {
+        .hover-scale:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(47, 67, 86, 0.15);
+        }
+    }
+
+    /* Soft Link Transitions */
+    a {
+        transition-property: color, background-color, border-color, opacity;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+    }
+}
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+
+
+.fixed-header:not(.scrolled) .language-switcher {
+    color: #fff;
+}
+
+.fixed-header.scrolled .language-switcher,
+.fixed-header.always-visible .language-switcher {
+    color: #333;
+}
+
+.lang-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+@media (hover: hover) {
+    .lang-link:hover {
+        opacity: 0.7;
+    }
+}
+
+.lang-link.active {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.lang-separator {
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        display: none;
+    }
+}
+
+/* Menu Language Switcher (Mobile Fullscreen Menu) */
+.menu-language-switcher {
+    display: none;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: none;
+}
+
+.menu-lang-link {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .menu-lang-link:hover {
+        color: #fff;
+    }
+}
+
+.menu-lang-link.active {
+    color: #fff;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .menu-language-switcher {
+        display: flex !important;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   Generic Parallax System
+   ========================================= */
+
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    /* Ensure it fills parent */
+    width: 100%;
+}
+
+.parallax-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 130%;
+    /* Extra height for movement */
+    object-fit: cover;
+    will-change: transform;
+}
+
+/* =========================================
+   Impressie Gallery - Editorial Layout
+   ========================================= */
+
+.gallery-page {
+    background-color: var(--bg-color);
+}
+
+.gallery-hero {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2f4356;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.gallery-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.gallery-hero-title {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Gallery Container */
+.gallery-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Gallery Section Base */
+.gallery-section {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Section A: Large Left + 2 Sticky Small Right */
+.gallery-section-a {
+    grid-template-columns: 1.2fr 0.8fr;
+    min-height: 100vh;
+}
+
+.gallery-section-a .gallery-focus {
+    grid-column: 1;
+}
+
+.gallery-section-a .gallery-side {
+    grid-column: 2;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: start;
+}
+
+/* Section C: 2 Sticky Small Left + Large Right */
+.gallery-section-c {
+    grid-template-columns: 0.8fr 1.2fr;
+    min-height: 100vh;
+}
+
+.gallery-section-c .gallery-side {
+    grid-column: 1;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: start;
+}
+
+.gallery-section-c .gallery-focus {
+    grid-column: 2;
+}
+
+/* Focus Photos - 3:4 Aspect Ratio */
+.gallery-focus img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+}
+
+/* Side Photos */
+.gallery-side img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+/* Full-Width Video Section */
+.gallery-video {
+    width: 100%;
+    padding: 0;
+}
+
+.gallery-video video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* Section E: Duo Grid */
+.gallery-section-e {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-section-e img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .gallery-hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .gallery-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .gallery-section-a,
+    .gallery-section-c {
+        min-height: auto;
+    }
+
+    /* Remove sticky on mobile */
+    .gallery-section-a .gallery-side,
+    .gallery-section-c .gallery-side {
+        position: static;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .gallery-section-a .gallery-side img,
+    .gallery-section-c .gallery-side img {
+        width: calc(50% - 5px);
+        aspect-ratio: 1 / 1;
+    }
+
+    /* Focus images - full width on mobile */
+    .gallery-focus img {
+        aspect-ratio: 3 / 4;
+    }
+
+    .gallery-video {
+        padding: 0;
+    }
+
+    .gallery-section-e {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .gallery-section-e img {
+        aspect-ratio: 1 / 1;
+    }
+
+}
+
+/* =========================================
+   Image Teaser Module (Home)
+   ========================================= */
+
+.image-teaser-module {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Add spacing between adjacent teasers */
+.image-teaser-module+.image-teaser-module {
+    margin-top: 50px;
+}
+
+/* Specific Backgrounds */
+.bg-hotel {
+    background-image: url('../images/Suite/Resort Land & Zee - november 2025-51.webp');
+}
+
+.bg-accommodaties {
+    background-image: url('../images/Ecologde/Resort Land & Zee - november 2025-102.webp');
+    background-position: center 60%;
+    /* Adjusted for focus */
+}
+
+/* Gradient Overlay */
+.image-teaser-module::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* The requested linear gradient */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 6.77%, transparent 47.4%, rgba(0, 0, 0, 0.45) 82.81%);
+    z-index: 1;
+}
+
+.image-teaser-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    padding: 60px 20px 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teaser-bottom-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Typografie */
+.teaser-tagline {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin-bottom: 2rem;
+    display: block;
+    opacity: 0.95;
+    font-weight: 600;
+}
+
+.teaser-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+}
+
+.teaser-subtext {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+}
+
+/* Ghost Button */
+.btn-ghost {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    background-color: transparent;
+}
+
+@media (hover: hover) {
+    .btn-ghost:hover {
+        background-color: #ffffff;
+        color: #000000;
+        transform: translateY(-2px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .teaser-title {
+        font-size: 3rem;
+    }
+
+    .image-teaser-module {
+        height: 70vh;
+        min-height: 500px;
+    }
+}
+
+/* =========================================
+   Lenis Recommended Styles
+   ========================================= */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* =========================================
+   Camping Page Styles
+   ========================================= */
+
+.camping-section {
+    padding: 4rem 0;
+    min-height: 80vh;
+}
+
+.camping-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.camping-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+@media (hover: hover) {
+    .camping-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.camping-card-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.camping-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+@media (hover: hover) {
+    .camping-card:hover .camping-card-image img {
+        transform: scale(1.05);
+    }
+}
+
+.camping-card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.camping-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+    font-weight: 400;
+}
+
+.camping-card-text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.camping-amenities {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0 0;
+    /* Push to bottom */
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.camping-amenities li {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.camping-amenities li::before {
+    content: "•";
+    color: var(--primary-color);
+    /* #005f73 */
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+/* Responsive Camping Grid */
+@media (max-width: 1100px) {
+    .camping-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .camping-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .camping-card-image {
+        height: 200px;
+    }
+}
+
+/* =========================================
+   Kamperen Page Styles (New Design)
+   ========================================= */
+
+.kamperen-intro-text {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2f4356;
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.kamperen-section {
+    padding: 4rem 0 6rem 0;
+    background-color: var(--color-cream);
+}
+
+.kamperen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.kampeer-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+    .kampeer-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.kampeer-image-wrapper {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.kampeer-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+@media (hover: hover) {
+    .kampeer-card:hover .kampeer-image-wrapper img {
+        transform: scale(1.05);
+    }
+}
+
+.kampeer-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.kampeer-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: #2f4356;
+    margin: 0 0 1rem 0;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.kampeer-description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.kampeer-amenities {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0 0;
+    border-top: 1px solid #eee;
+    padding-top: 1.25rem;
+}
+
+.kampeer-amenities li {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.kampeer-amenities li::before {
+    content: "✓";
+    color: #005f73;
+    margin-right: 0.6rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* Responsive Kamperen Grid */
+@media (max-width: 1100px) {
+    .kamperen-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .kamperen-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .kampeer-image-wrapper {
+        height: 220px;
+    }
+
+    .kampeer-content {
+        padding: 1.5rem;
+    }
+
+    .kampeer-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* =========================================
+   Cinematic Editorial Section (Over Land en Zee)
+   ========================================= */
+.editorial-hero {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #F9F9F7;
+}
+
+.editorial-left {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.editorial-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.editorial-right {
+    width: 50%;
+    height: 100%;
+    background-color: #F9F9F7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 120px 5% 100px 5%;
+}
+
+.hero-intro {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.hero-story-snippet {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #4A5568;
+    max-width: 350px;
+}
+
+.editorial-title-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200%;
+    /* Spans across both columns to straddle the divide */
+    transform: translate(-42%, -50%);
+    /* Shifted further left to bring white text deeper onto photo */
+    z-index: 10;
+}
+
+.editorial-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.white-column {
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 20px;
+    /* Reduced gap */
+    color: #FFFFFF;
+}
+
+.blue-column {
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    /* Reduced gap */
+    color: #2F4356;
+}
+
+.editorial-word {
+    display: block;
+}
+
+/* Content Section */
+.editorial-content-section {
+    padding: 120px 0;
+    background-color: #F9F9F7;
+}
+
+.container-editorial {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.editorial-columns {
+    column-count: 2;
+    column-gap: 80px;
+    column-rule: 1px solid rgba(47, 67, 86, 0.1);
+}
+
+.editorial-columns p {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #4A5568;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.drop-cap::first-letter {
+    font-family: var(--font-heading);
+    float: left;
+    font-size: 5rem;
+    line-height: 0.8;
+    padding-top: 10px;
+    padding-right: 15px;
+    color: var(--color-gold);
+}
+
+.editorial-footer-accent {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.accent-line {
+    width: 100px;
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+/* Responsive Editorial Management */
+@media (max-width: 1024px) {
+    .editorial-hero {
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .editorial-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .editorial-right {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(249, 249, 247, 0.85);
+        /* Light overlay */
+        padding: 100px 8% 60px 8%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .editorial-title-wrap {
+        position: relative;
+        transform: none;
+        top: 0;
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    .editorial-line {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 3.5rem;
+    }
+
+    .white-column,
+    .blue-column {
+        justify-self: auto;
+        align-items: center;
+        padding: 0;
+        color: #2F4356;
+    }
+
+    .hero-story-snippet {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .editorial-columns {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .editorial-title {
+        font-size: 3rem;
+    }
+
+    .editorial-content-section {
+        padding: 60px 0;
+    }
+}
+
+/* =========================================
+   Bijeenkomsten / Meetings Page
+   ========================================= */
+
+/* Hero */
+/* Hero */
+.bijeenkomsten-hero {
+    position: relative;
+    height: 100vh;
+    /* Airy */
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-bottom-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.hero-bottom-scroll .scroll-down-arrow svg {
+    animation: floating 2s ease-in-out infinite;
+}
+
+.hero-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    /* Minimal overlay */
+}
+
+.hero-content-centered {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-headline {
+    font-family: var(--font-heading, serif);
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subline {
+    font-family: var(--font-body, sans-serif);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary-custom {
+    display: inline-block;
+    background-color: #d4a373;
+    /* Gold/Sand */
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: var(--font-body, sans-serif);
+}
+
+@media (hover: hover) {
+    .btn-primary-custom:hover {
+        background-color: #bfa588;
+        transform: translateY(-2px);
+    }
+}
+
+/* Features Grid */
+.features-section {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.section-title {
+    font-family: var(--font-heading, serif);
+    font-size: 2.5rem;
+    text-align: center;
+    color: #2f4356;
+    margin-bottom: 4rem;
+    font-weight: 400;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    text-align: left;
+    /* Or center? Prompt says Features Grid. Center looks nicer for icons */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    color: #d4a373;
+    background-color: rgba(245, 245, 245, 0.5);
+    /* Soft backing */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.feature-text {
+    color: #555;
+    font-size: 1.05rem;
+    font-family: var(--font-body, sans-serif);
+}
+
+/* Split Section (Meerdaagse & Gastronomie) */
+.split-section {
+    width: 100%;
+}
+
+.split-section.bg-cream {
+    background-color: var(--color-cream);
+}
+
+.split-container-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    /* Full width container with internal constraints */
+    margin: 0 auto;
+    padding: 0;
+    /* Important for edge-to-edge image on one side */
+}
+
+/* Container fix for full width sections */
+@media (min-width: 768px) {
+    .split-container-inner {
+        min-height: 600px;
+    }
+}
+
+.split-text {
+    flex: 1;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.split-image {
+    flex: 1;
+    align-self: stretch;
+    position: relative;
+    min-height: 400px;
+}
+
+.split-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.split-section.reverse .split-container-inner {
+    flex-direction: row-reverse;
+}
+
+.split-title {
+    font-family: var(--font-heading, serif);
+    font-size: 2.2rem;
+    color: #2f4356;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.split-text p {
+    font-family: var(--font-body, sans-serif);
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.link-arrow {
+    font-family: var(--font-body, sans-serif);
+    color: #d4a373;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: gap 0.3s ease;
+}
+
+.link-arrow::after {
+    content: '→';
+}
+
+@media (hover: hover) {
+    .link-arrow:hover {
+        gap: 12px;
+    }
+}
+
+/* Contact CTA */
+.contact-cta-section {
+    padding: 7rem 0;
+    background-color: white;
+}
+
+.contact-desc {
+    font-family: var(--font-body, sans-serif);
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #2f4356;
+}
+
+.method-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #d4a373;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.method-value {
+    font-family: var(--font-heading, serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* Sticky Contact Button (Mobile) */
+.mobile-sticky-contact {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.btn-sticky {
+    display: block;
+    width: 100%;
+    background-color: #2f4356;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    font-family: var(--font-body, sans-serif);
+    letter-spacing: 0.05em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .bijeenkomsten-hero {
+        height: 70vh;
+    }
+
+    .hero-headline {
+        font-size: 2.8rem;
+    }
+
+    .split-section {
+        padding-top: 3rem;
+    }
+
+    .split-container-inner {
+        flex-direction: column !important;
+    }
+
+    .split-image {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        order: -1;
+        /* Image first */
+    }
+
+    .split-image img {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .split-image.reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    .split-text {
+        padding: 3rem 1.5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .split-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mobile-sticky-contact {
+        display: block;
+    }
+
+    /* Ensure footer doesn't hide behind sticky button if needed */
+    footer {
+        padding-bottom: 80px;
+    }
+}
+
+/* =========================================
+   Over Land en Zee Redesign (Split Layout)
+   ========================================= */
+
+/* Force Scrolled Style for Over Land en Zee page */
+.fixed-header.force-scrolled-style {
+    background-color: var(--color-cream);
+    color: #000;
+    border-bottom-color: #d1cbc5;
+    box-shadow: none;
+}
+
+.fixed-header.force-scrolled-style .header-logo {
+    height: 60px;
+    filter: invert(0);
+}
+
+.fixed-header.force-scrolled-style .nav-link {
+    color: #000;
+}
+
+/* Split Layout */
+.split-screen-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    padding-top: 100px;
+    /* Space for fixed header */
+    background-color: var(--color-cream);
+}
+
+.split-image-side {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    /* Ensure image covers full height of text column */
+    display: flex;
+}
+
+.split-image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 50vh;
+    /* Ensure visibility on mobile */
+}
+
+.split-content-side {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 6rem;
+    /* Wide padding for whitespace */
+    background-color: var(--color-cream);
+    color: var(--text-color);
+}
+
+.split-content-inner {
+    max-width: 600px;
+    /* For readability */
+    width: 100%;
+}
+
+.split-content-inner .eyebrow {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: #2f4356;
+}
+
+.split-content-inner h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin: 0 0 2rem 0;
+    line-height: 1.1;
+    color: #2f4356;
+    /* Dark blue/grey match */
+}
+
+.split-content-inner p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #555;
+    font-weight: 300;
+}
+
+@media (max-width: 1024px) {
+    .split-content-side {
+        padding: 4rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .split-screen-wrapper {
+        flex-direction: column-reverse;
+        /* Put image on top? Prompt: Left Image, Right Text. Browser default: Left=Top. So Column (normal) puts Image Top. */
+        /* Wait, flex-wrap creates rows. Left item is first in DOM. */
+        flex-direction: column;
+    }
+
+    .split-image-side img {
+        height: 50vh;
+    }
+
+    .split-content-side {
+        padding: 3rem 1.5rem;
+    }
+
+    .split-content-inner h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Disable scroll animations on mobile for split-screen content */
+    .split-screen-wrapper .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* =========================================
+   Contact & Route Page
+   ========================================= */
+
+.contact-section {
+    padding: 6rem 0;
+    background-color: var(--color-cream);
+    min-height: 80vh;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Left Column: Form & Info */
+.contact-form-section {
+    padding-right: 2rem;
+}
+
+.contact-header {
+    margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: #2f4356;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.contact-header p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Contact Options Cards */
+.contact-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.contact-option-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #e0dbd5;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+    .contact-option-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border-color: #d4a373;
+    }
+}
+
+.option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #d4a373;
+}
+
+.option-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.option-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.option-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin-bottom: 0.2rem;
+}
+
+.option-value {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2f4356;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2f4356;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1rem;
+    border: 1px solid #d1cbc5;
+    background-color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #2f4356;
+    border-radius: 0;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2f4356;
+}
+
+.btn-submit {
+    align-self: flex-start;
+    padding: 1rem 3rem;
+    background-color: #2f4356;
+    color: #ffffff;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+@media (hover: hover) {
+    .btn-submit:hover {
+        background-color: #1e2d3a;
+    }
+}
+
+/* Right Column: Map */
+.contact-map-section {
+    height: 100%;
+    min-height: 600px;
+    position: relative;
+    /* Ensure map takes height */
+    display: flex;
+    flex-direction: column;
+}
+
+.map-container {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    border: 1px solid #d1cbc5;
+    background-color: #f0f0f0;
+    /* Fallback */
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.map-overlay-info {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.map-overlay-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #2f4356;
+    margin: 0 0 0.5rem 0;
+}
+
+.map-overlay-info p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-form-section {
+        padding-right: 0;
+        /* Order: Map looks good at bottom too? Or top? 
+           User asked "Contact format links google maps locatie rechts".
+           On mobile usually Stacks V vertically.
+           Let's keep form first. */
+    }
+
+    .contact-map-section {
+        height: 400px;
+        min-height: 400px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* =========================================
+   Mobile Menu Refactor (2-Column Grid)
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* Reset Menu Container Padding to maximize space */
+    .menu-left {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    /* Single Column Layout for Menu Items */
+    .menu-nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
+        padding: 0;
+    }
+
+    .menu-nav li {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Menu Link Styling */
+    .menu-nav a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 1.2rem 1rem;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(238, 234, 230, 0.2);
+        line-height: 1.2;
+    }
+
+    /* Center 'SLUIT' Button */
+    .menu-close {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 25px;
+        width: auto;
+    }
+
+    /* Center Language Switcher */
+    .menu-language-switcher {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .menu-lang-link {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+}
+
+/* WhatsApp Link Alignment Fix */
+.whatsapp-section {
+    margin-top: 1rem;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #2f4356;
+    /* Match footer text color usually, or allow inherit */
+    font-family: var(--font-body);
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-link:hover {
+    opacity: 0.8;
+}
+
+/* =========================================
+   404 Page Designs
+   ========================================= */
+
+.error-404-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.error-404-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.error-404-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Slightly darker for better text contrast */
+    z-index: 1;
+}
+
+.error-404-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    margin-top: 60px;
+    /* Offset for header */
+}
+
+.error-404-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.error-404-text {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.error-404-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Secondary links below the main button */
+.secondary-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.text-link {
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+    .text-link:hover {
+        border-bottom-color: white;
+        opacity: 0.8;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .error-404-title {
+        font-size: 2.5rem;
+    }
+
+    .error-404-text {
+        font-size: 1.1rem;
+    }
+
+    .secondary-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

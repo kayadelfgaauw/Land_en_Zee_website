@@ -1,0 +1,17 @@
+# Enable URL Rewriting
+RewriteEngine On
+
+# Redirect .html extension to clean URL (301 permanent redirect)
+# This handles old URLs that still have .html
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# Serve .html file for clean URLs
+# If the requested file doesn't exist as-is, try adding .html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Handle directory index
+DirectoryIndex index.html
