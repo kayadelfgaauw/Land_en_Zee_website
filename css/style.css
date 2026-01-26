@@ -829,6 +829,10 @@ nav a {
     .nav-link {
         font-size: 0.8rem;
     }
+
+    .book-now-link {
+        font-size: 0.72rem;
+    }
 }
 
 /* =========================================
@@ -2016,8 +2020,8 @@ p.intro-text {
     }
 
     .room-book-main {
-        padding: 15px 35px;
-        font-size: 0.8rem;
+        padding: 12px 25px;
+        font-size: 0.75rem;
         border-width: 6px;
     }
 
