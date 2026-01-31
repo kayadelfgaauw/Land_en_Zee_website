@@ -36,6 +36,24 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Sunflare';
+    src: url('../fonts/SunflareRegular.woff2') format('woff2'),
+        url('../fonts/SunflareRegular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gabriola';
+    src: url('../fonts/Gabriola.woff2') format('woff2'),
+        url('../fonts/Gabriola.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --primary-color: #005f73;
     --secondary-color: #94d2bd;
@@ -45,8 +63,40 @@
     --color-cream: #eeeae6;
     /* The requested white/cream color */
 
-    --font-heading: 'Canela', serif;
-    --font-body: 'Urbanist', sans-serif;
+    --font-heading: 'Sunflare', serif;
+    --font-body: 'Gabriola', sans-serif;
+}
+
+/* Global Font Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.footer-heading,
+.hero-title,
+.widget-title,
+.section-header,
+.nav-link,
+.fixed-header .nav-link {
+    font-family: var(--font-heading) !important;
+}
+
+body,
+p,
+li,
+a,
+button,
+input,
+select,
+textarea,
+.btn,
+.book-now-link,
+.whatsapp-link,
+.footer-links a,
+.contact-info p {
+    font-family: var(--font-body) !important;
 }
 
 body {
@@ -380,8 +430,8 @@ nav a {
 }
 
 .footer-logo-img {
-    width: 230px;
-    /* Increased from 180px */
+    width: 280px;
+    /* Increased from 230px */
     height: auto;
     display: block;
     transition: transform 0.3s ease;
@@ -480,19 +530,19 @@ nav a {
 .whatsapp-link {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background-color: #ffffff;
     border: 1px solid #25D366;
     color: #25D366;
-    padding: 12px 24px;
-    /* Increased from 10px 15px */
+    padding: 16px 32px;
+    /* Increased from 12px 24px */
     border-radius: 50px;
     /* More rounded/pill shape for "physical" size feel */
     text-decoration: none;
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 1rem;
-    /* Increased from 0.9rem */
+    font-size: 1.15rem;
+    /* Increased from 1rem */
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
     /* Subtle shadow to make it pop */
@@ -508,6 +558,8 @@ nav a {
 }
 
 .whatsapp-icon-sm {
+    width: 28px;
+    height: 28px;
     fill: #25D366;
     /* Fallback */
 }
@@ -4651,7 +4703,7 @@ p.intro-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .teaser-bottom-group {
@@ -5813,6 +5865,16 @@ html.lenis body {
         transform: translateY(-5px);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         border-color: #d4a373;
+    }
+}
+
+.contact-option-card.whatsapp-card .option-icon {
+    color: #25D366;
+}
+
+@media (hover: hover) {
+    .contact-option-card.whatsapp-card:hover .option-icon {
+        color: #128C7E;
     }
 }
 
