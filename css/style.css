@@ -99,21 +99,17 @@ textarea,
     font-family: var(--font-body) !important;
 }
 
-body {
-    font-family: var(--font-body);
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+html {
+    font-size: 125%;
+    /* Base size approx 20px */
 }
 
-/* ... existing styles ... */
-
-/* Link to previous code not shown here, assuming replace target is distinct enough. 
-   Actually, I should do this in two ReplaceCalls or one Clean one. 
-   Let's just target the root variables first to be safe, then the icon.
-*/
+@media (max-width: 768px) {
+    html {
+        font-size: 100%;
+        /* Reset to 16px on mobile */
+    }
+}
 
 body {
     font-family: var(--font-body);
@@ -122,6 +118,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    font-size: 1rem;
+    /* Relative to html root */
 }
 
 /* Fix for double-tap issue on mobile */
@@ -145,7 +143,8 @@ button.menu-trigger {
     cursor: pointer;
     font-family: inherit;
     color: inherit;
-    font-size: inherit;
+    font-size: 1.3rem;
+    /* Increased from inherit/1rem */
     letter-spacing: inherit;
     font-weight: inherit;
     text-transform: inherit;
@@ -234,9 +233,11 @@ button.menu-trigger {
     background-color: rgba(0, 95, 115, 0.6);
     /* Translucent primary blue */
     color: #fff !important;
-    padding: 12px 28px;
+    padding: 0.8rem 1.8rem;
+    /* Scalable units */
     border-radius: 50px;
-    font-size: 0.95rem;
+    font-size: 1.15rem;
+    /* Increased from 0.95rem */
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 700;
@@ -534,8 +535,8 @@ nav a {
     background-color: #ffffff;
     border: 1px solid #25D366;
     color: #25D366;
-    padding: 16px 32px;
-    /* Increased from 12px 24px */
+    padding: 0.8rem 1.6rem;
+    /* Scalable units */
     border-radius: 50px;
     /* More rounded/pill shape for "physical" size feel */
     text-decoration: none;
@@ -558,8 +559,8 @@ nav a {
 }
 
 .whatsapp-icon-sm {
-    width: 28px;
-    height: 28px;
+    width: 1.75rem;
+    height: 1.75rem;
     fill: #25D366;
     /* Fallback */
 }
@@ -593,9 +594,9 @@ nav a {
 }
 
 .social-link svg {
-    width: 28px;
+    width: 1.75rem;
     /* Larger format as requested */
-    height: 28px;
+    height: 1.75rem;
 }
 
 
@@ -2700,20 +2701,21 @@ p.intro-text {
     font-family: var(--font-heading);
     /* 
        Refined Fluid Typography:
-       - Baseline (1024px): 1.1rem (17.6px) for elegant fit on laptops.
-       - Peak (2560px): 2.75rem (44px) for premium look on ultra-wide screens.
+       - Adjusted for 125% root scaling.
+       - Original Baseline: 1.1rem -> New: 0.88rem
+       - Original Peak: 2.75rem -> New: 2.2rem
        - Calculation: slope 1.71875vw keeps items within view on all standard heights.
     */
-    font-size: clamp(1.1rem, 1.71875vw, 2.75rem);
+    font-size: clamp(0.88rem, 1.71875vw, 2.2rem);
     font-weight: 400;
     line-height: 1;
     color: var(--color-cream);
     text-decoration: none;
     text-align: left;
     /* Spacing adjusted to ensure 11 items + padding fit the viewport height */
-    padding-top: clamp(0.3rem, 1vh, 1rem);
-    padding-bottom: clamp(0.3rem, 1vh, 1rem);
-    min-height: clamp(2.5rem, 4.5vh, 7.5rem);
+    padding-top: clamp(0.24rem, 1vh, 0.8rem);
+    padding-bottom: clamp(0.24rem, 1vh, 0.8rem);
+    min-height: clamp(2rem, 4.5vh, 6rem);
     position: relative;
     border-bottom: 1px solid rgba(238, 234, 230, 0.2);
     transition: color 0.3s ease;
