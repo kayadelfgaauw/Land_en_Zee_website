@@ -5539,3 +5539,260 @@ p.intro-text {
         transition-timing-function: ease-out;
     }
 }
+
+/* =========================================
+   Reviews & Rating Section
+   ========================================= */
+
+.reviews-section {
+    padding: 50px 0;
+    background-color: var(--bg-color);
+    /* Light beige/grey background */
+    overflow: hidden;
+}
+
+.trust-element {
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trust-text-top {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.trust-rating {
+    font-size: 6.4rem;
+    font-family: var(--font-heading);
+    color: #b38b59;
+    /* Brass/Gold color */
+    line-height: 1;
+    margin: 10px 0;
+    font-weight: 400;
+}
+
+.trust-text-bottom {
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 10px;
+    display: block;
+}
+
+.reviews-slider-container {
+    position: relative;
+    padding: 0 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.reviews-slider-wrapper {
+    overflow: hidden;
+    margin: 0 -15px;
+}
+
+.reviews-slider {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    gap: 30px;
+    padding: 20px 15px;
+}
+
+.review-card {
+    flex: 0 0 calc(33.333% - 20px);
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+}
+
+.review-stars {
+    color: #FFD700;
+    /* Golden stars */
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.review-name {
+    font-family: var(--font-heading) !important;
+    font-size: 1.05rem;
+    color: #2f4356;
+    font-weight: 400;
+}
+
+.reviews-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    left: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.reviews-nav .nav-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-nav .nav-btn:hover {
+    background: #b38b59;
+    border-color: #b38b59;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.reviews-nav .nav-btn.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.all-reviews-wrapper {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-link {
+    text-decoration: underline;
+    color: #2f4356;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: #b38b59;
+}
+
+/* Responsive Reviews */
+@media (max-width: 1024px) {
+    .review-card {
+        flex: 0 0 calc(50% - 15px);
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-section {
+        padding: 60px 0;
+    }
+
+    .trust-rating {
+        font-size: 6rem;
+    }
+
+    .reviews-slider-container {
+        padding: 0 20px;
+    }
+
+    .review-card {
+        flex: 0 0 250px;
+        min-height: auto;
+        padding: 20px;
+        max-width: 90vw;
+        /* Safety for very small screens */
+    }
+
+    .review-text {
+        font-size: 0.9rem;
+    }
+
+    .review-name {
+        font-size: 1rem;
+    }
+
+    .review-stars {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .reviews-nav {
+        position: relative;
+        top: 0;
+        transform: none;
+        margin-top: 30px;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+/* =========================================
+   Google Review Button
+   ========================================= */
+
+.google-review-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: transparent;
+    color: #2f4356;
+    /* Dark blue from theme */
+    padding: 12px 30px;
+    /* Match btn-outline padding */
+    border: 1px solid #2f4356;
+    /* Match btn-outline border */
+    border-radius: 0;
+    /* Rectangular */
+    text-decoration: none;
+    text-transform: uppercase;
+    /* Uppercase text */
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    /* Match btn-outline font size */
+    letter-spacing: 0.15em;
+    /* Match btn-outline spacing */
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.google-review-btn:hover {
+    background-color: #2f4356;
+    /* Fill with dark blue */
+    color: #fff;
+    /* White text */
+    box-shadow: none;
+    transform: none;
+}
+
+.google-review-btn:hover .google-logo-svg path {
+    /* Optional: maintain original colors or make white? 
+       Usually Google logo should keep colors, but on dark styling it might need a white bg circle or just stay as is.
+       Let's keep it as is for now, standard Google brand guidelines usually prefer original colors. */
+}
+
+.google-logo-svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}

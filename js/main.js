@@ -648,4 +648,107 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSwipeCounter();
         }
     }
-});
+
+    // =========================================
+    // Reviews Slider Logic
+    // =========================================
+
+    const reviewsSection = document.querySelector('.reviews-section');
+    if (reviewsSection) {
+        const track = reviewsSection.querySelector('.reviews-slider');
+        const cards = Array.from(track.querySelectorAll('.review-card'));
+        const nextBtn = reviewsSection.querySelector('.nav-btn.next');
+        const prevBtn = reviewsSection.querySelector('.nav-btn.prev');
+
+        let currentIndex = 0;
+        let isTransitioning = false;
+
+        function getCardsToShow() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
+        }
+
+        function updateSlider(animate = true) {
+            const cardsToShow = getCardsToShow();
+            const totalCards = cards.length;
+            const maxIndex = Math.max(0, totalCards - cardsToShow);
+
+            // Clamp index
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            if (currentIndex < 0) currentIndex = 0;
+
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 30;
+            const offset = currentIndex * (cardWidth + gap);
+
+            if (!animate) {
+                track.style.transition = 'none';
+            } else {
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }
+
+            track.style.transform = `translateX(-${offset}px)`;
+
+            // Button states
+            if (prevBtn) {
+                prevBtn.classList.toggle('disabled', currentIndex === 0);
+            }
+            if (nextBtn) {
+                nextBtn.classList.toggle('disabled', currentIndex >= maxIndex);
+            }
+
+            if (!animate) {
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                }, 50);
+            }
+        }
+
+        function nextSlide() {
+            if (isTransitioning) return;
+            const cardsToShow = getCardsToShow();
+            if (currentIndex < cards.length - cardsToShow) {
+                isTransitioning = true;
+                currentIndex++;
+                updateSlider();
+                setTimeout(() => isTransitioning = false, 500);
+            }
+        }
+
+        function prevSlide() {
+            if (isTransitioning) return;
+            if (currentIndex > 0) {
+                isTransitioning = true;
+                currentIndex--;
+                updateSlider();
+                setTimeout(() => isTransitioning = false, 500);
+            }
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', () => updateSlider(false));
+
+        updateSlider(false);
+    }
+}
+);
