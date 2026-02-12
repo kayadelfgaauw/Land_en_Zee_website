@@ -771,6 +771,7 @@ nav a {
     /* Responsive sizing */
     margin-bottom: 0px;
     letter-spacing: 0.02em;
+    font-family: 'Gabriola', serif !important;
 }
 
 .hero-title .line-2 {
@@ -781,7 +782,7 @@ nav a {
 }
 
 .hero-subtitle {
-    font-family: var(--font-heading);
+    font-family: 'Gabriola', serif !important;
     font-weight: 400;
     font-size: 1.5rem;
     color: #fcfcfc;
