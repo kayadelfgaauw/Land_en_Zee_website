@@ -14,6 +14,26 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Redirect logic for legacy Google Sitelink paths
+        (function () {
+            var path = window.location.pathname;
+            var redirects = {
+                '/hotelkamers/': '/hotel/',
+                '/camping/': '/kamperen',
+                '/verhuur/': '/accommodaties/',
+                '/restaurant/': 'https://www.zeeuwsverlangen.nl/'
+            };
+
+            // Check for exact match or match with trailing slash
+            for (var oldPath in redirects) {
+                if (path === oldPath || path === oldPath.replace(/\/$/, '') || path === oldPath + '/') {
+                    window.location.replace(redirects[oldPath]);
+                    break;
+                }
+            }
+        })();
+    </script>
     <meta name="description"
         content="Oeps! Deze pagina konden we niet vinden. Laat ons je terugleiden naar de rust van Resort Land & Zee.">
     <meta name="robots" content="noindex, follow"> <!-- Noindex for 404 page -->
