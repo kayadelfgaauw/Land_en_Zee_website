@@ -1,4 +1,4 @@
-/* Basic Styling for Resort Land en Zee */
+/* Basic Styling for Resort Land & Zee */
 /* Fonts */
 @font-face {
     font-family: 'Canela';
@@ -4889,10 +4889,10 @@ p.intro-text {
 }
 
 /* =========================================
-   Over Land en Zee Redesign (Split Layout)
+   Over Land & Zee Redesign (Split Layout)
    ========================================= */
 
-/* Force Scrolled Style for Over Land en Zee page */
+/* Force Scrolled Style for Over Land & Zee page */
 .fixed-header.force-scrolled-style {
     background-color: var(--color-cream);
     color: #000;
