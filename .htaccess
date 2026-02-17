@@ -1,0 +1,25 @@
+# Enable URL Rewriting
+RewriteEngine On
+
+# Redirect .html extension to clean URL (301 permanent redirect)
+# This handles old URLs that still have .html
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# Serve .html file for clean URLs
+# If the requested file doesn't exist as-is, try adding .html
+RewriteEngine On
+
+# Redirects for broken Google Sitelinks
+Redirect 301 /hotelkamers/ /hotel/
+Redirect 301 /camping/ /kamperen
+Redirect 301 /verhuur/ /accommodaties/
+Redirect 301 /restaurant/ https://www.zeeuwsverlangen.nl/
+
+# Redirect .html extension to clean URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# Optional: Serve index.html if no file found
+DirectoryIndex index.html
