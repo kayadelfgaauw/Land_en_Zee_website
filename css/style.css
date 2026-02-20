@@ -127,20 +127,13 @@ button.menu-trigger {
     width: 100%;
     z-index: 1000;
     background-color: transparent;
-    /* Initial: Transparent */
     color: var(--color-cream);
-    /* Initial: White/Cream Text */
-    transition: background-color 0.4s ease, border-bottom-color 0.4s ease;
-    /* Animate BG and Border */
-    /* Only animate BG color on container */
+    transition: background-color 0.4s ease, border-bottom-color 0.4s ease, color 0.4s ease;
     padding: 0;
-    /* Removing general padding to keep nav stable */
     height: 100px;
-    /* Fixed height container */
     display: flex;
     align-items: center;
     border-bottom: 1px solid transparent;
-    /* Start transparent */
 }
 
 /* Ensure interactive items are above logo if overlapping */
@@ -148,6 +141,12 @@ button.menu-trigger {
     position: relative;
     z-index: 10;
     padding-bottom: 2px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
 }
 
 .menu-trigger::after {
@@ -199,24 +198,23 @@ button.menu-trigger {
 
 .book-now-link {
     background-color: rgba(0, 95, 115, 0.6);
-    /* Translucent primary blue */
     color: #fff !important;
-    padding: 0.8rem 1.8rem;
-    /* Scalable units */
+    padding: 10px 25px;
     border-radius: 50px;
     font-size: 1.15rem;
-    /* Increased from 0.95rem */
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 700;
     backdrop-filter: blur(8px);
     border: 1.5px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    cursor: pointer;
 }
 
 .book-now-link:hover {
-    background-color: rgba(0, 95, 115, 0.85);
+    background-color: rgba(0, 95, 115, 0.8);
     transform: translateY(-2px) scale(1.05);
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -224,21 +222,19 @@ button.menu-trigger {
 
 /* Specific adjustment for scrolled header */
 .fixed-header.scrolled .book-now-link,
-.fixed-header.always-visible .book-now-link {
-    background-color: rgba(0, 95, 115, 0.85);
-    box-shadow: 0 4px 12px rgba(0, 95, 115, 0.2);
+.fixed-header.always-visible .book-now-link,
+.fixed-header.force-scrolled-style .book-now-link {
+    background-color: rgba(0, 95, 115, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .header-logo {
     height: 90px;
-    /* Initial: Large */
     width: auto;
     opacity: 1;
-    /* Optimize performance: animate transform instead of height */
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
     filter: invert(1) brightness(100);
     will-change: transform, filter;
-    /* Initial: White */
 }
 
 /* Nav Links in Header */
@@ -257,34 +253,28 @@ button.menu-trigger {
     }
 }
 
-/* Scrolled State */
 /* Scrolled State or Always Visible */
 .fixed-header.scrolled,
-.fixed-header.always-visible {
+.fixed-header.always-visible,
+.fixed-header.force-scrolled-style {
     background-color: var(--color-cream);
-    /* Becomes Cream */
     color: #000;
-    /* Text becomes Black */
-    border-bottom-color: #d1cbc5;
-    /* Fade in border color */
+    border-bottom: 1px solid #d1cbc5;
     box-shadow: none;
-    /* Shadow removed */
-    /* Note: padding/height of header container stays same so nav items don't move */
 }
 
 .fixed-header.scrolled .header-logo,
-.fixed-header.always-visible .header-logo {
-    /* Scale down instead of reducing height to avoid layout thrashing */
+.fixed-header.always-visible .header-logo,
+.fixed-header.force-scrolled-style .header-logo {
     transform: scale(0.6666);
-    /* 60px / 90px = 0.6666 */
     transform-origin: center center;
     filter: invert(0);
-    /* Back to original Black */
 }
 
 /* Adjust nav link color in scrolled state explicitly */
 .fixed-header.scrolled .nav-link,
-.fixed-header.always-visible .nav-link {
+.fixed-header.always-visible .nav-link,
+.fixed-header.force-scrolled-style .nav-link {
     color: #000;
 }
 
@@ -5746,11 +5736,7 @@ p.intro-text {
     transform: none;
 }
 
-.google-review-btn:hover .google-logo-svg path {
-    /* Optional: maintain original colors or make white? 
-       Usually Google logo should keep colors, but on dark styling it might need a white bg circle or just stay as is.
-       Let's keep it as is for now, standard Google brand guidelines usually prefer original colors. */
-}
+/* Removed empty ruleset */
 
 .google-logo-svg {
     width: 24px;
