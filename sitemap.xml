@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home & Index Roots (Using trailing slashes for directories) -->
+  <url>
+    <loc>https://landenzee.nl/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://landenzee.nl/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Commercial Core Pages (Priority 0.8) -->
+  <!-- Camping (No trailing slash as it maps to kamperen.html) -->
+  <url>
+    <loc>https://landenzee.nl/kamperen</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/kamperen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/camping" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/camping" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/camping</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/kamperen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/camping" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/camping" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/camping</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/kamperen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/camping" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/camping" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hotel (Directory -> Trailing Slash) -->
+  <url>
+    <loc>https://landenzee.nl/hotel/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Accommodaties (Directory -> Trailing Slash) -->
+  <url>
+    <loc>https://landenzee.nl/accommodaties/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/unterkuenfte/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/accommodations/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Events / Meetings -->
+  <url>
+    <loc>https://landenzee.nl/zalen</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zalen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/tagungen-und-feiern" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/meetings-and-events" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/tagungen-und-feiern</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zalen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/tagungen-und-feiern" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/meetings-and-events" />
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/meetings-and-events</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zalen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/tagungen-und-feiern" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/meetings-and-events" />
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vacancies (Frequently updated -> Add lastmod) -->
+  <url>
+    <loc>https://landenzee.nl/vacatures</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/vacatures" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/stellenangebote" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/vacancies" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/stellenangebote</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/vacatures" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/stellenangebote" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/vacancies" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/vacancies</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/vacatures" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/stellenangebote" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/vacancies" />
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Individual Rooms & Accomodations (Pages -> No trailing slash) -->
+  <!-- Suite -->
+  <url>
+    <loc>https://landenzee.nl/hotel/suite</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/suite" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/suite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/suite" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/suite</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/suite" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/suite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/suite" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/suite</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/suite" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/suite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/suite" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Comfortkamer -->
+  <url>
+    <loc>https://landenzee.nl/hotel/comfortkamer</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/comfortkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/komfortzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/comfort-room" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/komfortzimmer</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/comfortkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/komfortzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/comfort-room" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/comfort-room</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/comfortkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/komfortzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/comfort-room" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Hotelstudio Natuur -->
+  <url>
+    <loc>https://landenzee.nl/hotel/hotelstudio-natuur</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/hotelstudio-natuur" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/hotelstudio-natur" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/hotel-studio-nature" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/hotelstudio-natur</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/hotelstudio-natuur" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/hotelstudio-natur" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/hotel-studio-nature" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/hotel-studio-nature</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/hotelstudio-natuur" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/hotelstudio-natur" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/hotel-studio-nature" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Hotelstudio Water -->
+  <url>
+    <loc>https://landenzee.nl/hotel/hotelstudio-water</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/hotelstudio-water" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/hotelstudio-wasser" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/hotel-studio-water" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/hotelstudio-wasser</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/hotelstudio-water" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/hotelstudio-wasser" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/hotel-studio-water" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/hotel-studio-water</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/hotelstudio-water" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/hotelstudio-wasser" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/hotel-studio-water" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Pannehofje -->
+  <url>
+    <loc>https://landenzee.nl/hotel/pannehofje</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/pannehofje" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/pannehofje" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/pannehofje" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/pannehofje</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/pannehofje" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/pannehofje" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/pannehofje" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/pannehofje</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/pannehofje" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/pannehofje" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/pannehofje" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Standaard Deluxe -->
+  <url>
+    <loc>https://landenzee.nl/hotel/standaard-deluxe</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaard-deluxe" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standard-deluxe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-deluxe" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/standard-deluxe</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaard-deluxe" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standard-deluxe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-deluxe" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/standard-deluxe</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaard-deluxe" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standard-deluxe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-deluxe" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Standaardkamer -->
+  <url>
+    <loc>https://landenzee.nl/hotel/standaardkamer</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaardkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standardzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-room" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/hotel/standardzimmer</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaardkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standardzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-room" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/hotel/standard-room</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaardkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standardzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-room" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Ecolodge -->
+  <url>
+    <loc>https://landenzee.nl/accommodaties/ecolodge</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/ecolodge" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/ecolodge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/ecolodge" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/unterkuenfte/ecolodge</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/ecolodge" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/ecolodge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/ecolodge" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/accommodations/ecolodge</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/ecolodge" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/ecolodge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/ecolodge" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Vakantiewoning 6 persoons -->
+  <url>
+    <loc>https://landenzee.nl/accommodaties/vakantiewoning-6-persoons</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/vakantiewoning-6-persoons" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/ferienhaus-6-personen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/holiday-home-6-persons" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/unterkuenfte/ferienhaus-6-personen</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/vakantiewoning-6-persoons" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/ferienhaus-6-personen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/holiday-home-6-persons" />
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/accommodations/holiday-home-6-persons</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/accommodaties/vakantiewoning-6-persoons" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/unterkuenfte/ferienhaus-6-personen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/accommodations/holiday-home-6-persons" />
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Information / General Pages (Priority 0.4) -->
+  <!-- Contact -->
+  <url>
+    <loc>https://landenzee.nl/contact-en-route</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/contact-en-route" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/kontakt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/contact" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/kontakt</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/contact-en-route" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/kontakt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/contact" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/contact-en-route" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/kontakt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/contact" />
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Sustainability -->
+  <url>
+    <loc>https://landenzee.nl/duurzaamheid</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/duurzaamheid" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/nachhaltigkeit" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/sustainability" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/nachhaltigkeit</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/duurzaamheid" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/nachhaltigkeit" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/sustainability" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/sustainability</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/duurzaamheid" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/nachhaltigkeit" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/sustainability" />
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Impressions -->
+  <url>
+    <loc>https://landenzee.nl/impressie</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/impressie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/impressionen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/impressions" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/impressionen</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/impressie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/impressionen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/impressions" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/impressions</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/impressie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/impressionen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/impressions" />
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://landenzee.nl/juridisch</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/juridisch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/rechtliches" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/legal" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/rechtliches</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/juridisch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/rechtliches" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/legal" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/legal</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/juridisch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/rechtliches" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/legal" />
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Surroundings -->
+  <url>
+    <loc>https://landenzee.nl/omgeving</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/omgeving" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/umgebung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/surroundings" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/umgebung</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/omgeving" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/umgebung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/surroundings" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/surroundings</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/omgeving" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/umgebung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/surroundings" />
+    <priority>0.4</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://landenzee.nl/over-land-en-zee</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/over-land-en-zee" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/ueber-land-und-meer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/about-land-and-sea" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/ueber-land-und-meer</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/over-land-en-zee" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/ueber-land-und-meer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/about-land-and-sea" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/about-land-and-sea</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/over-land-en-zee" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/ueber-land-und-meer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/about-land-and-sea" />
+    <priority>0.4</priority>
+  </url>
+
+  <!-- WiFi -->
+  <url>
+    <loc>https://landenzee.nl/wifi</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/wifi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/wlan-nutzung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/wifi-usage" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/de/wlan-nutzung</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/wifi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/wlan-nutzung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/wifi-usage" />
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/en/wifi-usage</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/wifi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/wlan-nutzung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/wifi-usage" />
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
