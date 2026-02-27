@@ -1,3 +1,68 @@
+// =========================================
+// URL Language Loop Prevention
+// =========================================
+// Detects and redirects URLs with nested/repeated language prefixes
+// e.g. /en/de/hotel/en/page → /en/hotel/page
+// This prevents infinite crawl loops from stacked language paths.
+(function () {
+    var path = window.location.pathname;
+    // Match any sequence where two or more language segments appear consecutively
+    // e.g. /en/de/, /de/en/, /en/en/, /de/de/en/
+    var langPattern = /^\/(en|de)((?:\/(?:en|de))+)(\/.*)?$/;
+    var match = path.match(langPattern);
+    if (match) {
+        // Keep only the first language segment, discard the nested ones
+        var cleanPath = '/' + match[1] + (match[3] || '/');
+        window.location.replace(window.location.origin + cleanPath + window.location.search + window.location.hash);
+        return; // Stop further script execution
+    }
+
+    // Also catch language segments appearing deeper in the path
+    // e.g. /hotel/en/de/page or /de/hotel/en/page
+    var deepPattern = /^(\/(?:en|de)?\/?.*?)\/(en|de)\/((?:en|de)\/)*(.*)$/;
+    var deepMatch = path.match(deepPattern);
+    if (deepMatch) {
+        // Check if there are language segments that shouldn't be there
+        var segments = path.split('/').filter(Boolean);
+        var langCount = 0;
+        var firstLangIndex = -1;
+        var hasNestedLang = false;
+
+        for (var i = 0; i < segments.length; i++) {
+            if (segments[i] === 'en' || segments[i] === 'de') {
+                langCount++;
+                if (firstLangIndex === -1) firstLangIndex = i;
+                if (langCount > 1) {
+                    hasNestedLang = true;
+                    break;
+                }
+            }
+        }
+
+        if (hasNestedLang) {
+            // Rebuild path: keep language only if it's the first segment
+            var firstLang = (firstLangIndex === 0) ? segments[0] : null;
+            var cleanSegments = [];
+            if (firstLang) cleanSegments.push(firstLang);
+
+            for (var j = (firstLang ? 1 : 0); j < segments.length; j++) {
+                if (segments[j] !== 'en' && segments[j] !== 'de') {
+                    cleanSegments.push(segments[j]);
+                }
+            }
+
+            var cleanUrl = '/' + cleanSegments.join('/');
+            // Preserve trailing slash or .html
+            if (path.endsWith('/') && !cleanUrl.endsWith('/')) cleanUrl += '/';
+
+            if (cleanUrl !== path) {
+                window.location.replace(window.location.origin + cleanUrl + window.location.search + window.location.hash);
+                return;
+            }
+        }
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     // Lenis Smooth Scroll Initialization
