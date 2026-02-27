@@ -15,7 +15,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
+        // =========================================
+        // Language Loop Redirect (runs first)
+        // =========================================
+        // Detects nested language prefixes (e.g. /en/de/, /de/en/en/) and redirects
+        // to the cleaned version. This catches 404s caused by stacked language paths.
+        (function () {
+            var path = window.location.pathname;
+            var segments = path.split('/').filter(Boolean);
+            var langCount = 0;
+            var firstLangIndex = -1;
+            var hasNestedLang = false;
+
+            for (var i = 0; i < segments.length; i++) {
+                if (segments[i] === 'en' || segments[i] === 'de') {
+                    langCount++;
+                    if (firstLangIndex === -1) firstLangIndex = i;
+                    if (langCount > 1) { hasNestedLang = true; break; }
+                }
+            }
+
+            if (hasNestedLang) {
+                var firstLang = (firstLangIndex === 0) ? segments[0] : null;
+                var cleanSegments = [];
+                if (firstLang) cleanSegments.push(firstLang);
+                for (var j = (firstLang ? 1 : 0); j < segments.length; j++) {
+                    if (segments[j] !== 'en' && segments[j] !== 'de') {
+                        cleanSegments.push(segments[j]);
+                    }
+                }
+                var cleanUrl = '/' + cleanSegments.join('/');
+                if (path.endsWith('/') && !cleanUrl.endsWith('/')) cleanUrl += '/';
+                if (cleanUrl !== path) {
+                    window.location.replace(window.location.origin + cleanUrl + window.location.search + window.location.hash);
+                }
+            }
+        })();
+
+        // =========================================
         // Redirect logic for legacy Google Sitelink paths
+        // =========================================
         (function () {
             var path = window.location.pathname;
             var redirects = {
