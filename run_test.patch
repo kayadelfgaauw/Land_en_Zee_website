@@ -1,0 +1,507 @@
+commit 800a9f9d24a4a058e6c84877ebaf9cd381ce097b
+Author: Kayadelfgaauw <kayadelfgaauw@gmail.com>
+Date:   Sun Mar 1 11:03:29 2026 +0100
+
+    chore: replace video tags with bunny CDN iframes across home and impression pages
+
+diff --git a/de/impressionen.html b/de/impressionen.html
+index 9329ee6..f0c9e96 100644
+--- a/de/impressionen.html
++++ b/de/impressionen.html
+@@ -2,13 +2,16 @@
+ <html lang="de">
+ 
+ <head>
+-<!-- Google Tag Manager -->
+-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+-})(window,document,'script','dataLayer','GTM-N6G9HF63');</script>
+-<!-- End Google Tag Manager -->
++    <!-- Google Tag Manager -->
++    <script>(function (w, d, s, l, i) {
++            w[l] = w[l] || []; w[l].push({
++                'gtm.start':
++                    new Date().getTime(), event: 'gtm.js'
++            }); var f = d.getElementsByTagName(s)[0],
++                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
++                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
++        })(window, document, 'script', 'dataLayer', 'GTM-N6G9HF63');</script>
++    <!-- End Google Tag Manager -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description"
+@@ -51,10 +54,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ </head>
+ 
+ <body>
+-<!-- Google Tag Manager (noscript) -->
+-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63"
+-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-<!-- End Google Tag Manager (noscript) -->
++    <!-- Google Tag Manager (noscript) -->
++    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63" height="0" width="0"
++            style="display:none;visibility:hidden"></iframe></noscript>
++    <!-- End Google Tag Manager (noscript) -->
+     <!-- Fixed Header -->
+     <header id="main-header" class="fixed-header">
+         <div class="header-container">
+@@ -160,8 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                 <img src="../images/Ecologde/Resort Land & Zee - november 2025-102.webp"
+                     alt="Stimmungsvolles Wohnzimmer eines Holzferienhauses im Resort Land & Zee mit einem dunklen Sofa, Holzwänden und Blick auf die Natur."
+                     class="menu-image" data-id="accommodaties">
+-                <img src="../images/Kamperen/P6181021.webp" alt="Camping" class="menu-image"
+-                    data-id="kamperen">
++                <img src="../images/Kamperen/P6181021.webp" alt="Camping" class="menu-image" data-id="kamperen">
+                 <img src="../images/Ontbijt.webp"
+                     alt="Umfangreiches frisches Frühstücksbuffet im Restaurant Zeeuws Verlangen" class="menu-image"
+                     data-id="restaurant">
+@@ -173,8 +175,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                     class="menu-image" data-id="impressie">
+                 <img src="../images/RLNZ_vanaf_boot.webp" alt="Blick auf Resort Land & Zee vom Wasser aus"
+                     class="menu-image" data-id="duurzaamheid">
+-                <img src="../images/Buiten fotos/Resort Land & Zee - november 2025-135.webp" alt="Über Resort Land & Zee"
+-                    class="menu-image" data-id="over">
++                <img src="../images/Buiten fotos/Resort Land & Zee - november 2025-135.webp"
++                    alt="Über Resort Land & Zee" class="menu-image" data-id="over">
+                 <img src="../images/Buiten fotos/Resort Land & Zee - november 2025-140.webp" alt="Kontakt und Route"
+                     class="menu-image" data-id="contact">
+             </div>
+@@ -219,14 +221,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+             <!-- Section B: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source
+-                            src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441673/Land_Zee-Website_10_wpzlrf.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/e41ae69d-2fc1-4cf1-a77a-e430c36cc97a?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section C: 2 Sticky Small Left + Large Right -->
+@@ -244,13 +244,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+             <!-- Section D: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441672/Water_3s_b3gis2.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/7648ffe2-aeba-4915-b95d-1662612361bf?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section E: Duo Grid -->
+@@ -279,13 +278,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+             <!-- Section G: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441672/Wijn_6s_zfl3do.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/8ab6d272-612e-46cb-9dac-d5fc450cc92c?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section H: 2 Sticky Small Left + Large Right -->
+@@ -328,7 +326,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                 <h3 class="footer-heading">Übernachten</h3>
+                 <ul class="footer-links">
+                     <li><a href="hotel/index.html">Hotelzimmer & Studios</a></li>
+-                    
++
+                     <li><a href="unterkuenfte/index.html">Ferienhäuser & Ecolodges</a></li>
+                     <li><a href="camping.html">Camping</a></li>
+                 </ul>
+@@ -408,15 +406,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+     <!-- Lenis Smooth Scroll -->
+     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+     <script src="../js/main.js"></script>
+-<script async 
+-  src="https://webchat.runnr.ai/chat/chat-widget.js" 
+-  type="application/javascript"
+-  data-widget="chat"
+-  data-title="Chat met Resort Land & Zee"
+-  data-btn-title="Chat met ons"
+-  data-primary-color="#0e2d56"
+-  crossorigin="anonymous">
+-</script>
++    <script async src="https://webchat.runnr.ai/chat/chat-widget.js" type="application/javascript" data-widget="chat"
++        data-title="Chat met Resort Land & Zee" data-btn-title="Chat met ons" data-primary-color="#0e2d56"
++        crossorigin="anonymous">
++        </script>
+ </body>
+ 
+ </html>
+\ No newline at end of file
+diff --git a/de/index.html b/de/index.html
+index 4b0839f..7c45a92 100644
+--- a/de/index.html
++++ b/de/index.html
+@@ -197,10 +197,12 @@
+     <!-- Hero Section -->
+     <section class="hero-fullscreen">
+         <div class="gumlet-hero-wrapper">
+-            <video class="gumlet-hero-iframe" autoplay muted loop playsinline style="object-fit: cover;">
+-                <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441674/Hero_section_30s_e6ie0z.mp4"
+-                    type="video/mp4">
+-            </video>
++            <div style="position:relative;padding-top:56.25%;"><iframe
++                    src="https://player.mediadelivery.net/embed/608846/15a500ce-78d5-4a4a-b44e-95c9f8bd8a4b?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                    class="gumlet-hero-iframe" loading="lazy"
++                    style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                    allowfullscreen="true"></iframe></div>
+         </div>
+         <div class="hero-overlay"></div>
+ 
+@@ -437,14 +439,12 @@
+             <div class="container split-container">
+                 <!-- Left Column: Video -->
+                 <div class="split-media reveal-on-scroll">
+-                    <div style="position:relative;aspect-ratio:3/4;">
+-                        <video autoplay muted loop playsinline
+-                            style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                            <source
+-                                src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769442436/Windmolen_Brug_7s_b6t2cc.mp4"
+-                                type="video/mp4">
+-                        </video>
+-                    </div>
++                    <div style="position:relative;aspect-ratio:3/4;"><iframe
++                            src="https://player.mediadelivery.net/embed/608846/36489561-8dd5-49cc-993a-2f6e0b1e81ac?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                            loading="lazy"
++                            style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                            allowfullscreen="true"></iframe></div>
+                 </div>
+ 
+                 <!-- Divider -->
+diff --git a/en/impressions.html b/en/impressions.html
+index b163d12..3b75061 100644
+--- a/en/impressions.html
++++ b/en/impressions.html
+@@ -2,13 +2,16 @@
+ <html lang="en">
+ 
+ <head>
+-<!-- Google Tag Manager -->
+-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+-})(window,document,'script','dataLayer','GTM-N6G9HF63');</script>
+-<!-- End Google Tag Manager -->
++    <!-- Google Tag Manager -->
++    <script>(function (w, d, s, l, i) {
++            w[l] = w[l] || []; w[l].push({
++                'gtm.start':
++                    new Date().getTime(), event: 'gtm.js'
++            }); var f = d.getElementsByTagName(s)[0],
++                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
++                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
++        })(window, document, 'script', 'dataLayer', 'GTM-N6G9HF63');</script>
++    <!-- End Google Tag Manager -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description"
+@@ -51,10 +54,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ </head>
+ 
+ <body>
+-<!-- Google Tag Manager (noscript) -->
+-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63"
+-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-<!-- End Google Tag Manager (noscript) -->
++    <!-- Google Tag Manager (noscript) -->
++    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63" height="0" width="0"
++            style="display:none;visibility:hidden"></iframe></noscript>
++    <!-- End Google Tag Manager (noscript) -->
+     <!-- Fixed Header -->
+     <header id="main-header" class="fixed-header">
+         <div class="header-container">
+@@ -160,8 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                 <img src="../images/Ecologde/Resort Land & Zee - november 2025-102.webp"
+                     alt="Atmospheric living room of a wooden holiday home at Resort Land & Zee with a dark sofa, wooden walls and a view of nature."
+                     class="menu-image" data-id="accommodaties">
+-                <img src="../images/Kamperen/P6181021.webp" alt="Camping" class="menu-image"
+-                    data-id="kamperen">
++                <img src="../images/Kamperen/P6181021.webp" alt="Camping" class="menu-image" data-id="kamperen">
+                 <img src="../images/Ontbijt.webp" alt="Extensive fresh breakfast buffet at Restaurant Zeeuws Verlangen"
+                     class="menu-image" data-id="restaurant">
+                 <img src="../images/Vergaderen/Resort Land & Zee - november 2025-150.webp" alt="Meetings"
+@@ -172,8 +174,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                     class="menu-image" data-id="impressie">
+                 <img src="../images/RLNZ_vanaf_boot.webp" alt="View of Resort Land & Zee from the water"
+                     class="menu-image" data-id="duurzaamheid">
+-                <img src="../images/Buiten fotos/Resort Land & Zee - november 2025-135.webp" alt="About Resort Land & Zee"
+-                    class="menu-image" data-id="over">
++                <img src="../images/Buiten fotos/Resort Land & Zee - november 2025-135.webp"
++                    alt="About Resort Land & Zee" class="menu-image" data-id="over">
+                 <img src="../images/Buiten fotos/Resort Land & Zee - november 2025-140.webp" alt="Contact and Route"
+                     class="menu-image" data-id="contact">
+             </div>
+@@ -218,14 +220,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+             <!-- Section B: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source
+-                            src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441673/Land_Zee-Website_10_wpzlrf.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/e41ae69d-2fc1-4cf1-a77a-e430c36cc97a?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section C: 2 Sticky Small Left + Large Right -->
+@@ -243,13 +243,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+             <!-- Section D: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441672/Water_3s_b3gis2.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/7648ffe2-aeba-4915-b95d-1662612361bf?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section E: Duo Grid -->
+@@ -278,13 +277,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ 
+             <!-- Section G: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441672/Wijn_6s_zfl3do.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/8ab6d272-612e-46cb-9dac-d5fc450cc92c?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section H: 2 Sticky Small Left + Large Right -->
+@@ -327,7 +325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                 <h3 class="footer-heading">Overnight Stay</h3>
+                 <ul class="footer-links">
+                     <li><a href="hotel/index.html">Hotel Rooms & Studios</a></li>
+-                    
++
+                     <li><a href="accommodations/index.html">Holiday Homes & Ecolodges</a></li>
+                     <li><a href="camping.html">Camping</a></li>
+                 </ul>
+@@ -407,15 +405,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+     <!-- Lenis Smooth Scroll -->
+     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+     <script src="../js/main.js"></script>
+-<script async 
+-  src="https://webchat.runnr.ai/chat/chat-widget.js" 
+-  type="application/javascript"
+-  data-widget="chat"
+-  data-title="Chat met Resort Land & Zee"
+-  data-btn-title="Chat met ons"
+-  data-primary-color="#0e2d56"
+-  crossorigin="anonymous">
+-</script>
++    <script async src="https://webchat.runnr.ai/chat/chat-widget.js" type="application/javascript" data-widget="chat"
++        data-title="Chat met Resort Land & Zee" data-btn-title="Chat met ons" data-primary-color="#0e2d56"
++        crossorigin="anonymous">
++        </script>
+ </body>
+ 
+ </html>
+\ No newline at end of file
+diff --git a/en/index.html b/en/index.html
+index 1124447..88d3df4 100644
+--- a/en/index.html
++++ b/en/index.html
+@@ -199,10 +199,12 @@
+     <!-- Hero Section -->
+     <section class="hero-fullscreen">
+         <div class="gumlet-hero-wrapper">
+-            <video class="gumlet-hero-iframe" autoplay muted loop playsinline style="object-fit: cover;">
+-                <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441674/Hero_section_30s_e6ie0z.mp4"
+-                    type="video/mp4">
+-            </video>
++            <div style="position:relative;padding-top:56.25%;"><iframe
++                    src="https://player.mediadelivery.net/embed/608846/15a500ce-78d5-4a4a-b44e-95c9f8bd8a4b?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                    class="gumlet-hero-iframe" loading="lazy"
++                    style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                    allowfullscreen="true"></iframe></div>
+         </div>
+         <div class="hero-overlay"></div>
+ 
+@@ -436,14 +438,12 @@
+             <div class="container split-container">
+                 <!-- Left Column: Video -->
+                 <div class="split-media reveal-on-scroll">
+-                    <div style="position:relative;aspect-ratio:3/4;">
+-                        <video autoplay muted loop playsinline
+-                            style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                            <source
+-                                src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769442436/Windmolen_Brug_7s_b6t2cc.mp4"
+-                                type="video/mp4">
+-                        </video>
+-                    </div>
++                    <div style="position:relative;aspect-ratio:3/4;"><iframe
++                            src="https://player.mediadelivery.net/embed/608846/36489561-8dd5-49cc-993a-2f6e0b1e81ac?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                            loading="lazy"
++                            style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                            allowfullscreen="true"></iframe></div>
+                 </div>
+ 
+                 <!-- Divider -->
+diff --git a/impressie.html b/impressie.html
+index 23749c6..932ec75 100644
+--- a/impressie.html
++++ b/impressie.html
+@@ -219,14 +219,12 @@
+ 
+             <!-- Section B: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source
+-                            src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441673/Land_Zee-Website_10_wpzlrf.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/e41ae69d-2fc1-4cf1-a77a-e430c36cc97a?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section C: 2 Sticky Small Left + Large Right -->
+@@ -244,13 +242,12 @@
+ 
+             <!-- Section D: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441672/Water_3s_b3gis2.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/7648ffe2-aeba-4915-b95d-1662612361bf?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section E: Duo Grid -->
+@@ -279,13 +276,12 @@
+ 
+             <!-- Section G: Full-Width Video -->
+             <section class="gallery-video reveal-on-scroll">
+-                <div style="position:relative;aspect-ratio:16/9;">
+-                    <video autoplay muted loop playsinline
+-                        style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                        <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441672/Wijn_6s_zfl3do.mp4"
+-                            type="video/mp4">
+-                    </video>
+-                </div>
++                <div style="position:relative;padding-top:56.25%;"><iframe
++                        src="https://player.mediadelivery.net/embed/608846/8ab6d272-612e-46cb-9dac-d5fc450cc92c?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                        loading="lazy"
++                        style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                        allowfullscreen="true"></iframe></div>
+             </section>
+ 
+             <!-- Section H: 2 Sticky Small Left + Large Right -->
+diff --git a/index.html b/index.html
+index ff2fc4e..0ecf676 100644
+--- a/index.html
++++ b/index.html
+@@ -205,10 +205,12 @@
+     <!-- Hero Section -->
+     <section class="hero-fullscreen">
+         <div class="gumlet-hero-wrapper">
+-            <video class="gumlet-hero-iframe" autoplay muted loop playsinline style="object-fit: cover;">
+-                <source src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769441674/Hero_section_30s_e6ie0z.mp4"
+-                    type="video/mp4">
+-            </video>
++            <div style="position:relative;padding-top:56.25%;"><iframe
++                    src="https://player.mediadelivery.net/embed/608846/15a500ce-78d5-4a4a-b44e-95c9f8bd8a4b?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                    class="gumlet-hero-iframe" loading="lazy"
++                    style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                    allowfullscreen="true"></iframe></div>
+         </div>
+         <div class="hero-overlay"></div>
+ 
+@@ -448,14 +450,12 @@
+             <div class="container split-container">
+                 <!-- Left Column: Video -->
+                 <div class="split-media reveal-on-scroll">
+-                    <div style="position:relative;aspect-ratio:3/4;">
+-                        <video autoplay muted loop playsinline
+-                            style="object-fit: cover; position: absolute; top: 0; left: 0; height: 100%; width: 100%;">
+-                            <source
+-                                src="https://res.cloudinary.com/dfp51faxo/video/upload/v1769442436/Windmolen_Brug_7s_b6t2cc.mp4"
+-                                type="video/mp4">
+-                        </video>
+-                    </div>
++                    <div style="position:relative;aspect-ratio:3/4;"><iframe
++                            src="https://player.mediadelivery.net/embed/608846/36489561-8dd5-49cc-993a-2f6e0b1e81ac?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
++                            loading="lazy"
++                            style="border:0;position:absolute;top:0;height:100%;width:100%;pointer-events:none;"
++                            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
++                            allowfullscreen="true"></iframe></div>
+                 </div>
+ 
+                 <!-- Divider -->
