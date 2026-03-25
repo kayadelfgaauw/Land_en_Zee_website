@@ -1,6 +1,9 @@
 # Enable URL Rewriting
 RewriteEngine On
 
+# Custom 404 error page
+ErrorDocument 404 /404.html
+
 # Redirect .html extension to clean URL (301 permanent redirect)
 # This handles old URLs that still have .html
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]

@@ -31,7 +31,7 @@
     --color-cream: #eeeae6;
     /* The requested white/cream color */
 
-    --font-heading: 'Sunflare', serif;
+    --font-heading: 'Sunflare', 'Gabriola', serif;
     --font-body: 'Gabriola', sans-serif;
 }
 
