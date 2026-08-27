@@ -296,26 +296,26 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Standaardkamer -->
+  <!-- Duinkamer -->
   <url>
-    <loc>https://landenzee.nl/hotel/standaardkamer</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaardkamer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standardzimmer" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-room" />
+    <loc>https://landenzee.nl/hotel/duinkamer</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/duinkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/duenenzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/dune-room" />
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://landenzee.nl/de/hotel/standardzimmer</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaardkamer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standardzimmer" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-room" />
+    <loc>https://landenzee.nl/de/hotel/duenenzimmer</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/duinkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/duenenzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/dune-room" />
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://landenzee.nl/en/hotel/standard-room</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/standaardkamer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/standardzimmer" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/standard-room" />
+    <loc>https://landenzee.nl/en/hotel/dune-room</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/hotel/duinkamer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/hotel/duenenzimmer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/hotel/dune-room" />
     <priority>0.6</priority>
   </url>
 
