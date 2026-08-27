@@ -18,6 +18,9 @@ Redirect 301 /hotelkamers/ /hotel/
 Redirect 301 /camping/ /kamperen
 Redirect 301 /verhuur/ /accommodaties/
 Redirect 301 /restaurant/ https://www.zeeuwsverlangen.nl/
+Redirect 301 /hotel/standaardkamer /hotel/duinkamer
+Redirect 301 /en/hotel/standard-room /en/hotel/dune-room
+Redirect 301 /de/hotel/standardzimmer /de/hotel/duenenzimmer
 
 # Redirect .html extension to clean URLs
 RewriteCond %{REQUEST_FILENAME} !-d
