@@ -2462,12 +2462,15 @@ p.intro-text {
 
 .menu-left {
     width: 55%;
+    flex: 0 0 55%;
+    max-width: 55%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 87px 40px 60px 40px;
     /* Top padding calculated for 20px gap from SLUIT button */
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .menu-nav {
@@ -2523,8 +2526,11 @@ p.intro-text {
 
 .menu-right {
     width: 45%;
+    flex: 0 0 45%;
+    max-width: 45%;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .menu-image {
