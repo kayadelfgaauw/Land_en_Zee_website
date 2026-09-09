@@ -429,58 +429,86 @@ nav a {
     margin-bottom: 1.5rem;
 }
 
-/* WhatsApp Button */
+/* =========================================
+   WhatsApp Button Styling (Solid Green)
+   ========================================= */
 .whatsapp-section {
+    margin-top: 1.2rem;
     margin-bottom: 1.5rem;
+}
+
+.whatsapp-intro {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0 0 0.8rem 0;
 }
 
 .whatsapp-link {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background-color: #ffffff;
-    border: 1px solid #25D366;
-    color: #25D366;
+    background-color: #25D366 !important;
+    color: #ffffff !important;
     padding: 0.8rem 1.6rem;
-    /* Scalable units */
     border-radius: 50px;
-    /* More rounded/pill shape for "physical" size feel */
     text-decoration: none;
     font-family: var(--font-body);
     font-weight: 600;
     font-size: 1.15rem;
-    /* Increased from 1rem */
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
-    /* Subtle shadow to make it pop */
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    border: none;
 }
 
-@media (hover: hover) {
-    .whatsapp-link:hover {
-        background-color: #25D366;
-        color: #ffffff;
-    }
+.whatsapp-link:hover {
+    background-color: #1eb757 !important;
+    color: #ffffff !important;
 }
 
 .whatsapp-icon-sm {
     width: 1.75rem;
     height: 1.75rem;
-    fill: #25D366;
-    /* Fallback */
+    fill: #ffffff !important;
+    flex-shrink: 0;
 }
 
-/* Force Green Color for Footer Icon explicitly */
-.whatsapp-section .whatsapp-icon-sm {
-    fill: #25D366 !important;
-    transition: fill 0.3s ease;
+/* Larger WhatsApp Button specifically for Homepage Robby Section */
+.ai-card .whatsapp-link {
+    padding: 1.1rem 2.4rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    gap: 14px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    margin-top: 0.5rem;
 }
 
-@media (hover: hover) {
+.ai-card .whatsapp-link .whatsapp-icon-sm {
+    width: 2.1rem;
+    height: 2.1rem;
+}
 
-    /* Force White on Hover for Footer Icon */
-    .whatsapp-link:hover .whatsapp-icon-sm {
-        fill: #ffffff !important;
+@media (max-width: 480px) {
+    .ai-card .whatsapp-link {
+        padding: 0.9rem 1.8rem;
+        font-size: 1.15rem;
     }
+    .ai-card .whatsapp-link .whatsapp-icon-sm {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
+
+/* Robby AI Section Styling (Clean & Unboxed) */
+.ai-card,
+.split-content .ai-card {
+    background: transparent !important;
+    border: none !important;
+    border-left: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
 }
 
 /* Social Icons */
@@ -929,7 +957,7 @@ p.intro-text {
 
 /* AI Card Styling */
 .ai-card {
-    border-left: 4px solid var(--secondary-color);
+    border-left: none;
 }
 
 .card-content {
@@ -1415,6 +1443,22 @@ p.intro-text {
     }
 }
 
+/* Room Card Header Container */
+.room-card-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 993px) {
+    .room-card-header {
+        min-height: 15rem;
+    }
+}
+
 /* KAMER Label */
 .room-label {
     font-family: var(--font-body);
@@ -1473,7 +1517,7 @@ p.intro-text {
 .room-carousel {
     position: relative;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     overflow: hidden;
 }
 
@@ -1493,6 +1537,7 @@ p.intro-text {
     height: auto;
     aspect-ratio: 4/3;
     object-fit: cover;
+    object-position: center bottom;
 }
 
 /* Carousel Navigation */
@@ -1578,6 +1623,30 @@ p.intro-text {
         background-color: #2f4356;
         color: #ffffff;
     }
+}
+
+/* Camping Amenities inside Room Card */
+.room-card .kampeer-amenities {
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0 0 1.5rem 0;
+    border-top: 1px solid #d1cbc5;
+    border-bottom: 1px solid #d1cbc5;
+    width: 100%;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.room-card .kampeer-amenities li {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
 }
 
 /* Responsive Styles for Hotel Page */
@@ -5315,26 +5384,7 @@ p.intro-text {
     }
 }
 
-/* WhatsApp Link Alignment Fix */
-.whatsapp-section {
-    margin-top: 1rem;
-}
 
-.whatsapp-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: #2f4356;
-    /* Match footer text color usually, or allow inherit */
-    font-family: var(--font-body);
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-}
-
-.whatsapp-link:hover {
-    opacity: 0.8;
-}
 
 /* =========================================
    404 Page Designs
@@ -5770,4 +5820,172 @@ p.intro-text {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
+}
+
+/* =========================================
+   Boeken Intermediate Page (Ultra-Clean Fullscreen Split)
+   ========================================= */
+
+.boeken-fullscreen-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 550px;
+    padding-top: 80px;
+    display: flex;
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    overflow: hidden;
+}
+
+.boeken-split-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+.boeken-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    overflow: hidden;
+    text-decoration: none;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.boeken-panel-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 0;
+}
+
+.boeken-panel:hover .boeken-panel-bg {
+    transform: scale(1.06);
+}
+
+.boeken-panel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 35, 50, 0.45) 0%, rgba(0, 30, 45, 0.75) 100%);
+    transition: background 0.4s ease;
+    z-index: 1;
+}
+
+.boeken-panel:hover .boeken-panel-overlay {
+    background: linear-gradient(180deg, rgba(0, 35, 50, 0.3) 0%, rgba(0, 30, 45, 0.6) 100%);
+}
+
+.boeken-panel-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.boeken-panel-title {
+    font-family: var(--font-heading) !important;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.04em;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+
+.boeken-panel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #ffffff;
+    color: var(--primary-color) !important;
+    padding: 1.15rem 2.8rem;
+    border-radius: 50px;
+    font-family: var(--font-body) !important;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    margin-top: 0.5rem;
+}
+
+.boeken-panel:hover .boeken-panel-btn,
+.boeken-panel-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.boeken-panel-btn svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    transition: transform 0.3s ease;
+}
+
+.boeken-panel:hover .boeken-panel-btn svg {
+    transform: translateX(5px);
+}
+
+.boeken-split-divider {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.25);
+    z-index: 3;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .boeken-fullscreen-wrapper {
+        padding-top: 70px;
+    }
+    .boeken-split-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .boeken-split-divider {
+        left: 10%;
+        right: 10%;
+        top: 50%;
+        width: 80%;
+        height: 1px;
+        transform: translateY(-50%);
+    }
+    .boeken-panel-title {
+        font-size: 2.2rem;
+    }
+    .boeken-panel-btn {
+        font-size: 1.15rem;
+        padding: 0.95rem 2rem;
+    }
 }
