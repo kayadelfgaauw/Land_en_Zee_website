@@ -343,9 +343,9 @@ nav a {
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* 4 Columns: Logo + 3 Content Columns */
-    gap: 2rem;
+    grid-template-columns: minmax(200px, 1fr) minmax(150px, 0.8fr) minmax(150px, 0.8fr) minmax(330px, 1.4fr);
+    /* 4 Columns: Logo + 2 Nav Columns + Resort Land & Zee Column */
+    gap: 1.25rem;
     padding-bottom: 4rem;
     align-items: start;
 }
@@ -498,6 +498,134 @@ nav a {
         width: 1.75rem;
         height: 1.75rem;
     }
+}
+
+/* =========================================
+   Sticky Chat Buttons (WhatsApp & Runnr.ai)
+   ========================================= */
+#runnrai-container .wdc-launcher,
+.wdc-launcher {
+    box-sizing: border-box !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    border-radius: 50px !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+#runnrai-container .wdc-launcher:hover,
+.wdc-launcher:hover {
+    transform: translateY(-2px) !important;
+}
+
+.chat-buttons-dock {
+    height: 44px;
+    margin-top: 1rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .chat-buttons-dock {
+        height: 96px; /* 44px + 8px + 44px */
+        margin-top: 1rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+.sticky-whatsapp-btn {
+    position: fixed !important;
+    bottom: 25px;
+    right: 185px; /* dynamically updated by main.js */
+    z-index: 2147482998 !important;
+    box-sizing: border-box !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding: 0 14px !important;
+    gap: 6px !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em;
+    border-radius: 50px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease !important;
+}
+
+.sticky-whatsapp-btn:hover {
+    background-color: #1eb757 !important;
+    transform: translateY(-2px) !important;
+}
+
+.sticky-whatsapp-btn .whatsapp-icon-sm {
+    width: 20px !important;
+    height: 20px !important;
+    fill: #ffffff !important;
+    flex-shrink: 0;
+}
+
+.sticky-whatsapp-btn .wa-text-full {
+    display: inline !important;
+}
+
+.sticky-whatsapp-btn .wa-text-short {
+    display: none !important;
+}
+
+/* Mobile: Stack buttons vertically above each other */
+@media (max-width: 768px) {
+    #runnrai-container .wdc-launcher,
+    .wdc-launcher {
+        right: 20px !important;
+        bottom: 20px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        max-height: 44px !important;
+        padding: 0 14px !important;
+    }
+
+    .sticky-whatsapp-btn {
+        right: 20px;
+        bottom: 72px; /* Stacked directly above Runnr.ai (20px bottom + 44px height + 8px gap) */
+        height: 44px !important;
+        min-height: 44px !important;
+        max-height: 44px !important;
+        padding: 0 14px !important;
+        font-size: 0.9rem !important;
+        gap: 6px !important;
+    }
+
+    .sticky-whatsapp-btn .whatsapp-icon-sm {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
+
+/* Footer Trigger Link to Site Chat */
+.footer-chat-trigger-site {
+    color: var(--primary-color, #0e2d56);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.footer-chat-trigger-site:hover {
+    color: #25D366;
 }
 
 /* Robby AI Section Styling (Clean & Unboxed) */

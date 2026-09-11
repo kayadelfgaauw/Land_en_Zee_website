@@ -815,5 +815,115 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateSlider(false);
     }
+
+    // =========================================
+    // Sticky Chat Buttons (WhatsApp & Runnr.ai)
+    // =========================================
+    function initStickyChatButtons() {
+        const whatsappBtn = document.querySelector('.sticky-whatsapp-btn');
+        if (!whatsappBtn) return;
+
+        function updatePosition() {
+            const whatsappBtn = document.querySelector('.sticky-whatsapp-btn');
+            const runnrLauncher = document.querySelector('.wdc-launcher') || document.getElementById('wdc-launcher');
+            const chatWindow = document.querySelector('.wdc-chat-window');
+            const dock = document.getElementById('chat-buttons-dock') || document.querySelector('.chat-buttons-dock');
+
+            if (!whatsappBtn) return;
+
+            // If Runnr chat window is open, hide WhatsApp button so they don't overlap
+            if (chatWindow && !chatWindow.classList.contains('closed')) {
+                whatsappBtn.style.opacity = '0';
+                whatsappBtn.style.pointerEvents = 'none';
+                return;
+            } else {
+                whatsappBtn.style.opacity = '1';
+                whatsappBtn.style.pointerEvents = 'auto';
+            }
+
+            const isMobile = window.innerWidth <= 768;
+            const defaultBottom = isMobile ? 20 : 25;
+            const defaultRight = isMobile ? 20 : 25;
+
+            let currentBottom = defaultBottom;
+            let currentRight = defaultRight;
+
+            if (dock) {
+                const dockRect = dock.getBoundingClientRect();
+                const distFromBottom = window.innerHeight - dockRect.bottom;
+                if (distFromBottom > defaultBottom) {
+                    currentBottom = distFromBottom;
+                    const dockRight = window.innerWidth - dockRect.right;
+                    currentRight = Math.max(defaultRight, dockRight);
+                }
+            }
+
+            if (runnrLauncher && runnrLauncher.offsetWidth > 0 && window.getComputedStyle(runnrLauncher).display !== 'none') {
+                const runnrWidth = runnrLauncher.offsetWidth;
+
+                if (isMobile) {
+                    // Mobile: Runnr at bottom, WhatsApp stacked directly above Runnr
+                    runnrLauncher.style.setProperty('bottom', currentBottom + 'px', 'important');
+                    runnrLauncher.style.setProperty('right', currentRight + 'px', 'important');
+
+                    whatsappBtn.style.setProperty('bottom', (currentBottom + 44 + 8) + 'px', 'important');
+                    whatsappBtn.style.setProperty('right', currentRight + 'px', 'important');
+                } else {
+                    // Desktop: Runnr on right, WhatsApp to the left
+                    runnrLauncher.style.setProperty('bottom', currentBottom + 'px', 'important');
+                    runnrLauncher.style.setProperty('right', currentRight + 'px', 'important');
+
+                    whatsappBtn.style.setProperty('bottom', currentBottom + 'px', 'important');
+                    whatsappBtn.style.setProperty('right', (currentRight + runnrWidth + 8) + 'px', 'important');
+                }
+            } else {
+                // Fallback if Runnr is not loaded or blocked
+                if (isMobile) {
+                    whatsappBtn.style.setProperty('right', currentRight + 'px', 'important');
+                    whatsappBtn.style.setProperty('bottom', (currentBottom + 52) + 'px', 'important');
+                } else {
+                    whatsappBtn.style.setProperty('right', currentRight + 'px', 'important');
+                    whatsappBtn.style.setProperty('bottom', currentBottom + 'px', 'important');
+                }
+            }
+        }
+
+        // Run position check immediately and after window resize & scroll
+        updatePosition();
+        window.addEventListener('resize', updatePosition);
+        window.addEventListener('scroll', updatePosition, { passive: true });
+        if (lenis) {
+            lenis.on('scroll', updatePosition);
+        }
+
+        // Observer for dynamically injected Runnr widget
+        const observer = new MutationObserver(() => {
+            updatePosition();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // Periodically verify position during initial page load
+        let attempts = 0;
+        const interval = setInterval(() => {
+            updatePosition();
+            attempts++;
+            if (attempts > 20) clearInterval(interval);
+        }, 300);
+
+        // Footer trigger link to open Runnr webchat
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.footer-chat-trigger-site');
+            if (trigger) {
+                e.preventDefault();
+                const launcher = document.querySelector('.wdc-launcher') || document.getElementById('wdc-launcher');
+                if (launcher) {
+                    launcher.click();
+                }
+            }
+        });
+    }
+
+    initStickyChatButtons();
 }
 );
+
