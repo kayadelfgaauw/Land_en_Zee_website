@@ -110,22 +110,22 @@
 
   <!-- Events / Meetings -->
   <url>
-    <loc>https://landenzee.nl/zalen</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zalen" />
+    <loc>https://landenzee.nl/zakelijk</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zakelijk" />
     <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/tagungen-und-feiern" />
     <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/meetings-and-events" />
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://landenzee.nl/de/tagungen-und-feiern</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zalen" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zakelijk" />
     <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/tagungen-und-feiern" />
     <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/meetings-and-events" />
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://landenzee.nl/en/meetings-and-events</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zalen" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://landenzee.nl/zakelijk" />
     <xhtml:link rel="alternate" hreflang="de" href="https://landenzee.nl/de/tagungen-und-feiern" />
     <xhtml:link rel="alternate" hreflang="en" href="https://landenzee.nl/en/meetings-and-events" />
     <priority>0.8</priority>
