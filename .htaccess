@@ -13,7 +13,14 @@ RewriteRule ^ /%1 [NC,L,R=301]
 # If the requested file doesn't exist as-is, try adding .html
 RewriteEngine On
 
+# Redirect old bijeenkomsten and zalen URLs to zakelijk
+RewriteRule ^(bijeenkomsten|zalen)(\.html)?/?$ /zakelijk [R=301,L,NC]
+
 # Redirects for broken Google Sitelinks
+Redirect 301 /bijeenkomsten /zakelijk
+Redirect 301 /bijeenkomsten.html /zakelijk
+Redirect 301 /zalen /zakelijk
+Redirect 301 /zalen.html /zakelijk
 Redirect 301 /hotelkamers/ /hotel/
 Redirect 301 /camping/ /kamperen
 Redirect 301 /verhuur/ /accommodaties/
