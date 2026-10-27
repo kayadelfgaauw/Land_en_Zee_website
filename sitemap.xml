@@ -527,4 +527,34 @@
     <priority>0.4</priority>
   </url>
 
+
+  <!-- Dedicated Dutch business offers -->
+  <url>
+    <loc>https://landenzee.nl/vergaderen-zeeland/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/heisessie-zeeland/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/teamuitje-zeeland/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/vergaderen-met-overnachting-zeeland/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/werkplek-zeeland/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/training-workshop-zeeland/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://landenzee.nl/zakelijke-lunch-diner-zeeland/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
 </urlset>
