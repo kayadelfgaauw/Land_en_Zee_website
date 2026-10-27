@@ -419,7 +419,7 @@
                             <p class="lunch-card-desc">Een stijlvolle en complete zakelijke lunch met een rijke variatie aan verse kwaliteitsbroodjes en Zeeuwse streekproducten.</p>
                         </div>
                         <div class="lunch-card-footer">
-                            <a href="#aanvraag-formulier" class="lunch-card-action btn-select-package" data-package="Lunch of Diner">Aanvragen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                            <a href="#aanvraag-formulier" class="lunch-card-action btn-select-package" data-package="Lunch of Diner" data-catering="Lunch" data-lunch="Klassiek">Aanvragen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
                         </div>
                     </div>
 
@@ -433,7 +433,7 @@
                             <p class="lunch-card-desc">Voor gezelschappen die graag uitgebreid tafelen. Een royale uitbreiding op de klassieke lunch met warme seizoenssoep en warme streekgerechten.</p>
                         </div>
                         <div class="lunch-card-footer">
-                            <a href="#aanvraag-formulier" class="lunch-card-action btn-select-package" data-package="Lunch of Diner">Aanvragen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                            <a href="#aanvraag-formulier" class="lunch-card-action btn-select-package" data-package="Lunch of Diner" data-catering="Lunch" data-lunch="Bourgondisch">Aanvragen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
                         </div>
                     </div>
 
@@ -447,7 +447,7 @@
                             <p class="lunch-card-desc">Licht, energierijk en boordevol vitaminen met verse smoothies en gezonde seizoenssalades om de middag met maximale focus in te gaan.</p>
                         </div>
                         <div class="lunch-card-footer">
-                            <a href="#aanvraag-formulier" class="lunch-card-action btn-select-package" data-package="Lunch of Diner">Aanvragen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                            <a href="#aanvraag-formulier" class="lunch-card-action btn-select-package" data-package="Lunch of Diner" data-catering="Lunch" data-lunch="Vitaal">Aanvragen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
                         </div>
                     </div>
                 </div>
@@ -479,7 +479,7 @@
                                 Ontdek Restaurant Zeeuws Verlangen
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                             </a>
-                            <a href="#aanvraag-formulier" class="diner-btn-action btn-select-package" data-package="Lunch of Diner">
+                            <a href="#aanvraag-formulier" class="diner-btn-action btn-select-package" data-package="Lunch of Diner" data-catering="Diner">
                                 Diner opnemen in offerte &rarr;
                             </a>
                         </div>
@@ -636,15 +636,13 @@
 
 
         <!-- Contact Section -->
-        <section id="aanvraag-formulier" class="contact-section">
+        <section id="aanvraag-formulier" class="contact-section business-contact-section">
             <div class="container contact-container">
-                <div class="contact-grid">
-                    <!-- Left: Form & Info -->
+                    <!-- Business request form -->
                     <div class="contact-form-section reveal-on-scroll">
                         <div class="contact-header">
-                            <h2>Contact en Route</h2>
-                            <p>Heeft u vragen of wilt u meer informatie? Wij helpen u graag verder. Vul het formulier in
-                                of neem direct contact met ons op via één van de onderstaande opties.</p>
+                            <h2>Vraag een zakelijk voorstel aan</h2>
+                            <p>Vertel ons wat u wilt organiseren. We denken graag mee over een bijeenkomst die past bij uw gezelschap en wensen. U kunt ook direct contact met ons opnemen.</p>
                         </div>
 
                         <div class="contact-options">
@@ -695,49 +693,144 @@
                             </a>
                         </div>
 
-                        <form class="contact-form" action="https://formspree.io/f/mnjdvyon" method="POST">
+                        <form class="contact-form business-request-form" action="https://formspree.io/f/mnjdvyon" method="POST" aria-label="Zakelijk voorstel aanvragen">
                             <input type="hidden" name="_language" value="NL">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="firstname">Voornaam</label>
-                                    <input type="text" id="firstname" name="firstname" placeholder="Voornaam" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastname">Achternaam</label>
-                                    <input type="text" id="lastname" name="lastname" placeholder="Achternaam" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mailadres</label>
-                                <input type="email" id="email" name="email" placeholder="uw@email.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefoonnummer (optioneel)</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+31 6 12345678">
-                            </div>
+                            <p class="form-help">Velden met een * zijn verplicht. De overige wensen kunt u later met ons afstemmen.</p>
 
-                            <div class="form-group">
-                                <label for="message">Bericht</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Uw bericht..."
-                                    required></textarea>
+                            <fieldset>
+                                <legend>Uw bijeenkomst</legend>
+                                <div class="form-group">
+                                    <label for="arrangement">Waar heeft u interesse in? *</label>
+                                    <select id="arrangement" name="arrangement" required aria-describedby="arrangement-help">
+                                        <option value="">Maak een keuze</option>
+                                        <option value="Halve dag arrangement">Vergaderen – halve dag</option>
+                                        <option value="Hele dag arrangement">Vergaderen – hele dag</option>
+                                        <option value="Heisessie">Heisessie / MT-overleg</option>
+                                        <option value="Meerdagen arrangement">Meerdaags retreat</option>
+                                        <option value="Bedrijfsuitje op maat">Bedrijfsuitje / teambuilding</option>
+                                        <option value="Training">Training / workshop</option>
+                                        <option value="Werkplek arrangement">Werkplek</option>
+                                        <option value="Lunch of Diner">Zakelijke lunch / diner</option>
+                                        <option value="Advies of maatwerk">Ik ontvang graag advies / maatwerk</option>
+                                    </select>
+                                    <p id="arrangement-help" class="form-help" aria-live="polite"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="participants">Aantal personen *</label>
+                                    <input type="number" id="participants" name="participants" min="1" step="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferred-period">Gewenste datum of periode (optioneel)</label>
+                                    <input type="text" id="preferred-period" name="preferred_period" placeholder="Bijvoorbeeld 12 november of een week in maart">
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Maak uw bijeenkomst compleet</legend>
+                                <p class="form-help">Deze keuzes zijn optioneel. We bespreken de mogelijkheden graag met u.</p>
+                                <div class="form-group" id="overnight-group">
+                                    <label for="overnight">Overnachting gewenst?</label>
+                                    <select id="overnight" name="overnight">
+                                        <option value="Nog te bepalen">Nog te bepalen</option>
+                                        <option value="Ja">Ja, graag</option>
+                                        <option value="Nee">Nee</option>
+                                    </select>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group" id="catering-group">
+                                        <label for="catering">Lunch en/of diner gewenst?</label>
+                                        <select id="catering" name="catering">
+                                            <option value="Nog te bepalen">Nog te bepalen</option>
+                                            <option value="Lunch">Lunch</option>
+                                            <option value="Diner">Diner</option>
+                                            <option value="Lunch en diner">Lunch en diner</option>
+                                            <option value="Geen">Geen lunch of diner</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activities">Activiteiten</label>
+                                        <select id="activities" name="activities">
+                                            <option value="Nog te bepalen">Nog te bepalen</option>
+                                            <option value="Ja">Ja, graag</option>
+                                            <option value="Nee">Nee</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="lunch-package-group" hidden>
+                                    <label for="lunch-package">Luncharrangement (optioneel)</label>
+                                    <select id="lunch-package" name="lunch_package" disabled>
+                                        <option value="">Ik ontvang graag advies</option>
+                                        <option value="Klassiek">Land &amp; Zee Klassiek</option>
+                                        <option value="Bourgondisch">Land &amp; Zee Bourgondisch</option>
+                                        <option value="Vitaal">Land &amp; Zee Vitaal</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Aanvullende wensen (optioneel)</label>
+                                    <textarea id="message" name="message" rows="4" placeholder="Bijvoorbeeld uw programma, gewenste zaalopstelling of dieetwensen"></textarea>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Uw contactgegevens</legend>
+                                <div class="form-group">
+                                    <label for="company">Bedrijfsnaam / organisatie *</label>
+                                    <input type="text" id="company" name="company" autocomplete="organization" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstname">Voornaam *</label>
+                                        <input type="text" id="firstname" name="firstname" autocomplete="given-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname">Achternaam *</label>
+                                        <input type="text" id="lastname" name="lastname" autocomplete="family-name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mailadres *</label>
+                                    <input type="email" id="email" name="email" autocomplete="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefoonnummer (optioneel)</label>
+                                    <input type="tel" id="phone" name="phone" autocomplete="tel">
+                                </div>
+                            </fieldset>
+                            <p class="form-help">We gebruiken uw gegevens om uw aanvraag te behandelen. Lees meer in onze <a href="juridisch.html#privacy">privacyverklaring</a>.</p>
+                            <div id="business-request-error" class="business-request-error" role="alert" tabindex="-1" hidden>
+                                <p>We konden de ontvangst van uw aanvraag niet bevestigen. Uw gegevens staan nog in het formulier. Probeer het opnieuw of neem contact met ons op via <a href="tel:+31111671785">+31 (0)111 671 785</a> of <a href="mailto:info@landenzee.nl">info@landenzee.nl</a>.</p>
                             </div>
-                            <button type="submit" class="btn-submit">VERSTUUR BERICHT</button>
+                            <p id="business-request-status" class="form-help" role="status" aria-live="polite"></p>
+                            <button type="submit" class="btn-submit">VRAAG EEN VOORSTEL AAN</button>
                         </form>
-                    </div>
-
-                    <!-- Right: Map -->
-                    <div class="contact-map-section reveal-on-scroll delay-100">
-                        <div class="map-container">
-                            <iframe
-                                src="https://maps.google.com/maps?q=Resort+Land+en+Zee&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                            </iframe>
-                            <div class="map-overlay-info">
-                                <h3>Locatie</h3>
-                                <p>Rampweg 28, 4326 LK Scharendijke</p>
-                            </div>
+                        <div id="business-request-success" class="business-request-success" role="status" tabindex="-1" hidden>
+                            <h3>Bedankt voor uw aanvraag!</h3>
+                            <p>Uw zakelijke aanvraag is ontvangen. We bekijken uw wensen en nemen contact met u op om de mogelijkheden te bespreken.</p>
+                            <p>Wilt u iets aanvullen? Bel ons op <a href="tel:+31111671785">+31 (0)111 671 785</a> of mail naar <a href="mailto:info@landenzee.nl">info@landenzee.nl</a>.</p>
+                            <a href="index.html" class="btn-outline">TERUG NAAR DE HOMEPAGE</a>
                         </div>
                     </div>
+
+            </div>
+        </section>
+
+        <!-- Location has its own layout, independent of the request form. -->
+        <section class="business-location-section" aria-labelledby="business-location-title">
+            <div class="container">
+                <div class="business-location-header">
+                    <div>
+                        <h2 id="business-location-title">Hier vindt u Land &amp; Zee</h2>
+                        <p>Rampweg 28, 4326 LK Scharendijke</p>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Resort+Land+en+Zee%2C+Rampweg+28%2C+Scharendijke"
+                        class="btn-outline" target="_blank" rel="noopener">PLAN UW ROUTE</a>
+                </div>
+                <div class="business-location-map">
+                    <iframe
+                        title="Locatie van Resort Land &amp; Zee in Scharendijke"
+                        src="https://maps.google.com/maps?q=Resort+Land+en+Zee&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -843,6 +936,7 @@
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/business-request.js" defer></script>
     <script async src="https://webchat.runnr.ai/chat/chat-widget.js" type="application/javascript" data-widget="chat"
         data-title="Chat met Resort Land & Zee" data-btn-title="Chat via de site" data-primary-color="#0e2d56"
         crossorigin="anonymous">
@@ -851,31 +945,85 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var packageButtons = document.querySelectorAll('.btn-select-package');
+            var arrangementInput = document.getElementById('arrangement');
+            var arrangementHelp = document.getElementById('arrangement-help');
+            var overnightInput = document.getElementById('overnight');
+            var cateringInput = document.getElementById('catering');
+            var lunchInput = document.getElementById('lunch-package');
+            var includedOptions = null;
+
+            function updateLunchOptions() {
+                var hasLunch = cateringInput.value === 'Lunch' || cateringInput.value === 'Lunch en diner';
+                document.getElementById('lunch-package-group').hidden = !hasLunch;
+                lunchInput.disabled = !hasLunch;
+            }
+
+            cateringInput.addEventListener('change', updateLunchOptions);
+
+            function updateIncludedOptions() {
+                var isRetreat = arrangementInput.value === 'Meerdagen arrangement';
+                if (isRetreat && !includedOptions) {
+                    includedOptions = { overnight: overnightInput.value, catering: cateringInput.value };
+                    overnightInput.value = 'Ja';
+                    cateringInput.value = 'Lunch en diner';
+                } else if (!isRetreat && includedOptions) {
+                    overnightInput.value = includedOptions.overnight;
+                    cateringInput.value = includedOptions.catering;
+                    includedOptions = null;
+                }
+                document.getElementById('overnight-group').hidden = isRetreat;
+                document.getElementById('catering-group').hidden = isRetreat;
+                arrangementHelp.textContent = isRetreat
+                    ? 'Bij dit retreat zijn overnachtingen, ontbijt, lunches en diners inbegrepen.'
+                    : '';
+                arrangementHelp.hidden = !isRetreat;
+                updateLunchOptions();
+            }
+
+            arrangementInput.addEventListener('change', updateIncludedOptions);
+            arrangementInput.form.addEventListener('reset', function () {
+                setTimeout(function () {
+                    includedOptions = null;
+                    updateIncludedOptions();
+                }, 0);
+            });
+            updateIncludedOptions();
             packageButtons.forEach(function (btn) {
-                function selectAndScroll(pkg) {
+                function selectAndScroll() {
+                    var pkg = btn.getAttribute('data-package');
+                    var catering = btn.getAttribute('data-catering');
+                    var lunch = btn.getAttribute('data-lunch');
                     var formSection = document.getElementById('aanvraag-formulier');
-                    var messageInput = document.getElementById('message');
-                    if (messageInput && pkg && !messageInput.value) {
-                        messageInput.value = 'Ik heb interesse in / wil een aanvraag doen voor: ' + pkg + '.\n\n';
+                    // Catering is an addition to an existing meeting, rather than a replacement.
+                    if ((!catering || !arrangementInput.value) && Array.from(arrangementInput.options).some(function (option) { return option.value === pkg; })) {
+                        arrangementInput.value = pkg;
+                        updateIncludedOptions();
                     }
+                    if (catering && arrangementInput.value !== 'Meerdagen arrangement') {
+                        var combinesMeals = cateringInput.value === 'Lunch en diner'
+                            || (catering === 'Lunch' && cateringInput.value === 'Diner')
+                            || (catering === 'Diner' && cateringInput.value === 'Lunch');
+                        cateringInput.value = combinesMeals ? 'Lunch en diner' : catering;
+                    }
+                    if (lunch) {
+                        lunchInput.value = lunch;
+                    }
+                    updateLunchOptions();
                     if (formSection) {
                         formSection.scrollIntoView({ behavior: 'smooth' });
                     }
-                    if (messageInput) {
-                        messageInput.focus();
-                    }
+                    arrangementInput.focus({ preventScroll: true });
                 }
 
                 btn.addEventListener('click', function (e) {
-                    var pkg = this.getAttribute('data-package');
-                    selectAndScroll(pkg);
+                    e.preventDefault();
+                    selectAndScroll();
                 });
 
                 btn.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        var pkg = this.getAttribute('data-package');
-                        selectAndScroll(pkg);
+                        selectAndScroll();
                     }
                 });
             });
