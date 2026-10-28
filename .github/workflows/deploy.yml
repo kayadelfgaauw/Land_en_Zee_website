@@ -16,10 +16,14 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      # We slaan Setup Node en Build Site over omdat je site al 'ready-to-go' is.
+      - name: Check URL consistency
+        run: python3 -m unittest discover -s tests
+
+      - name: Prepare canonical links for publication
+        run: python3 scripts/prepare_site.py --output "${{ runner.temp }}/land-en-zee-site"
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .        # We gebruiken de huidige map in plaats van 'dist'
+          folder: ${{ runner.temp }}/land-en-zee-site
           branch: gh-pages

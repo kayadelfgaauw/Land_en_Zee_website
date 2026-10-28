@@ -1,0 +1,16 @@
+{
+  "/bijeenkomsten": "/zakelijk",
+  "/zalen": "/zakelijk",
+  "/hotelkamers": "/hotel/",
+  "/camping": "/kamperen",
+  "/verhuur": "/accommodaties/",
+  "/restaurant": "https://www.zeeuwsverlangen.nl/",
+  "/hotel/standaardkamer": "/hotel/duinkamer",
+  "/en/hotel/standard-room": "/en/hotel/dune-room",
+  "/de/hotel/standardzimmer": "/de/hotel/duenenzimmer",
+  "/en/kamperen": "/en/camping",
+  "/en/contact-en-route": "/en/contact",
+  "/en/impression": "/en/impressions",
+  "/en/wifi": "/en/wifi-usage",
+  "/de/hotel/standaard-deluxe": "/de/hotel/standard-deluxe"
+}
