@@ -10,6 +10,47 @@ document.addEventListener('DOMContentLoaded', function () {
     var sending = false;
     var sent = false;
 
+    function fieldMessage(field) {
+        if (field.validity.valueMissing) return field.tagName === 'SELECT' ? 'Maak een keuze.' : 'Vul dit veld in.';
+        if (field.validity.typeMismatch) return 'Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.';
+        if (field.validity.rangeUnderflow || field.validity.stepMismatch || field.validity.badInput) return 'Vul een heel aantal personen in van minimaal 1.';
+        return 'Controleer de invoer in dit veld.';
+    }
+
+    function fieldError(field, message) {
+        var id = field.id + '-error';
+        var help = document.getElementById(id);
+        if (!help) {
+            help = document.createElement('span');
+            help.id = id;
+            help.className = 'field-error';
+            field.insertAdjacentElement('afterend', help);
+            var descriptions = (field.getAttribute('aria-describedby') || '').split(' ').filter(Boolean);
+            if (!descriptions.includes(id)) descriptions.push(id);
+            field.setAttribute('aria-describedby', descriptions.join(' '));
+        }
+        help.textContent = message;
+        help.hidden = !message;
+        if (message) field.setAttribute('aria-invalid', 'true');
+        else field.removeAttribute('aria-invalid');
+    }
+
+    form.addEventListener('invalid', function (event) {
+        fieldError(event.target, fieldMessage(event.target));
+    }, true);
+
+    function clearCorrectedError(event) {
+        if (event.target.hasAttribute('aria-invalid') && event.target.validity.valid) {
+            fieldError(event.target, '');
+        }
+    }
+    form.addEventListener('input', clearCorrectedError);
+    form.addEventListener('change', clearCorrectedError);
+    form.addEventListener('reset', function () {
+        form.querySelectorAll('[aria-invalid]').forEach(function (field) { fieldError(field, ''); });
+        error.hidden = true;
+    });
+
     form.addEventListener('submit', async function (event) {
         event.preventDefault();
         if (sending || sent || !form.reportValidity()) return;
@@ -19,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.disabled = true;
         button.textContent = 'BEZIG MET VERSTUREN…';
         status.textContent = 'Uw aanvraag wordt verstuurd. Een ogenblik geduld.';
-        form.setAttribute('aria-busy', 'true');
+        button.setAttribute('aria-busy', 'true');
 
         var controller = new AbortController();
         var timeout = setTimeout(function () { controller.abort(); }, 30000);
@@ -45,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } finally {
             clearTimeout(timeout);
             sending = false;
-            form.removeAttribute('aria-busy');
+            button.removeAttribute('aria-busy');
             button.disabled = false;
             button.textContent = buttonText;
             status.textContent = '';

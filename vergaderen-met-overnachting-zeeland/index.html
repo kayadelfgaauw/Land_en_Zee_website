@@ -19,6 +19,8 @@
     <link rel="canonical" href="https://landenzee.nl/vergaderen-met-overnachting-zeeland/">
     <title>Vergaderen met overnachting in Zeeland | Land &amp; Zee</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/accessibility.css">
+    <script src="../js/dialogs.js" defer></script>
     <link rel="stylesheet" href="../css/business-pages.css">
     <!-- Lenis Smooth Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
@@ -73,6 +75,7 @@
 </head>
 
 <body class="business-page business-landing">
+    <a class="skip-link" href="#main-content">Direct naar inhoud</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -80,7 +83,7 @@
     <!-- Fixed Header -->
     <header id="main-header" class="fixed-header force-scrolled-style">
         <div class="header-container">
-            <button class="nav-link menu-trigger" aria-label="Open Menu">MENU</button>
+            <button class="nav-link menu-trigger" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" aria-label="Menu openen">MENU</button>
 
             <a href="../index.html" class="header-logo-link">
                 <img src="../images/Logo/Logo Resort Land & Zee.png"
@@ -90,7 +93,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="../zakelijk.html" class="lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
@@ -98,7 +101,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="../en/meetings-and-events.html" class="lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -110,7 +113,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="../de/tagungen-und-feiern.html" class="lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -126,7 +129,7 @@
     </header>
 
     <!-- Fullscreen Menu -->
-        <nav class="fullscreen-menu" aria-hidden="true">
+        <nav class="fullscreen-menu" id="main-menu" role="dialog" aria-label="Hoofdnavigatie" aria-hidden="true" inert>
         <button class="menu-close" aria-label="Menu sluiten">SLUIT</button>
         <div class="menu-content">
             <div class="menu-left">
@@ -147,14 +150,14 @@
                 </ul>
                 <div class="menu-language-switcher">
                     <a href="../zakelijk.html" class="menu-lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
                     <a href="../en/meetings-and-events.html" class="menu-lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -165,7 +168,7 @@
                         </svg>
                     </a>
                     <a href="../de/tagungen-und-feiern.html" class="menu-lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -190,7 +193,7 @@
         </div>
     </nav>
 
-    <main>
+    <main id="main-content" tabindex="-1">
 <section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../zakelijk.html">Zakelijk</a><span aria-hidden="true">/</span><span aria-current="page">Meerdaags &amp; overnachten</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Vergaderen met overnachting in Zeeland</h1><p class="business-hero-lead">Een tweede dag geeft ruimte om ideeën verder te brengen. Met een meerdaags retreat bij Land &amp; Zee combineert u vergaderen, dineren en overnachten op dezelfde locatie. U kunt na een werksessie samen eten en de volgende ochtend verdergaan, zonder dat iedereen tussendoor naar huis hoeft.</p><div class="business-actions"><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="../images/Suite/Resort Land &amp; Zee - november 2025-61.webp" alt="Hotelkamer bij Resort Land &amp; Zee voor een meerdaags verblijf" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Meerdaags programma</li><li>Inclusief maaltijden &amp; verblijf</li><li>Vergaderen op één locatie</li></ul></div></section><nav class="business-section-nav container" aria-label="Op deze pagina"><a href="#mogelijkheden">Mogelijkheden</a><a href="#programma">Voorbeeldprogramma</a><a href="#kosten">Kosten</a><a href="#vragen">Veelgestelde vragen</a></nav><div id="mogelijkheden"></div><section class="business-content-section"><div class="container"><h2>Van eerste gesprek naar een gezamenlijk plan</h2><p class="business-section-lead">Het meerdaagse arrangement is bedoeld voor bijeenkomsten waarbij u tijd wilt maken voor verdieping en samenwerking. Denk aan een strategietraject, projectstart of zakelijke retreat. Het bestaande aanbod gaat uit van twee tot vijf dagen; we stemmen de uiteindelijke duur op uw aanvraag af.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Wat is inbegrepen?</h3><p>Het retreat combineert vergaderruimte met overnachtingen, ontbijt, lunches en dagelijks diner bij Zeeuws Verlangen. De concrete invulling leggen we vast in uw voorstel.</p></article><article class="business-detail-card"><h3>Welke kamer past?</h3><p>Hotelkamers, suites en ecolodges bieden verschillende verblijfsmogelijkheden. Kamerverdeling en beschikbaarheid zijn onderdeel van de afstemming.</p></article></div></div></section><section class="business-content-section"><div class="container"><h2>Een ritme met ruimte tussen de sessies</h2><p class="business-section-lead">Plan niet alleen de inhoudelijke onderdelen, maar ook de pauzes en maaltijden. Het strand ligt op circa 150 meter van het resort en biedt gelegenheid om tussendoor naar buiten te gaan.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Overleg en verblijf combineren</h3><p>Geef door hoeveel deelnemers er vergaderen en hoeveel mensen blijven slapen. Dat aantal hoeft niet hetzelfde te zijn.</p></article><article class="business-detail-card"><h3>Een activiteit toevoegen</h3><p>Een workshop of gezamenlijke activiteit kan een aanvulling zijn. Deze maakt niet standaard deel uit van het retreat en wordt apart afgestemd.</p></article></div></div></section><section id="programma" class="business-content-section"><div class="container"><p class="business-eyebrow">Zo kan uw bijeenkomst eruitzien</p><h2>Een voorbeeldprogramma</h2><p class="business-section-lead">Dit is een mogelijke invulling, geen vast pakket. De tijden en onderdelen stemmen we met u af; optionele uitbreidingen worden afzonderlijk afgesproken.</p><ol class="business-program"><li><h3>Dag 1 · aankomen en werken</h3><p>Ontvangst, een eerste werksessie en lunch, gevolgd door uw middagprogramma.</p></li><li><h3>Avond · samen eten en verblijven</h3><p>Gezamenlijk diner en overnachting in de afgesproken accommodaties.</p></li><li><h3>Dag 2 · verder bouwen</h3><p>Ontbijt, een vervolgsessie en lunch. Daarna afronden of doorgaan met het afgesproken programma.</p></li></ol></div></section><section id="kosten" class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Kosten & samenstelling</p><h2>Wat kost uw bijeenkomst?</h2><p>Uw prijs wordt bepaald door het aantal dagen en nachten, de groepsgrootte, kamerindeling, periode en aanvullende activiteiten. Vraag een voorstel aan waarin verblijf, maaltijden en vergaderfaciliteiten overzichtelijk zijn opgenomen.</p></div><aside><h3>Prijs op aanvraag</h3><p>Geef uw voorkeuren door. U ontvangt een voorstel met de afgesproken onderdelen en bijbehorende kosten.</p><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></aside></div></section><section id="vragen" class="business-content-section"><div class="container business-faq"><h2>Veelgestelde vragen</h2><details><summary>Moet ik ontbijt, lunch en diner apart aanvragen?</summary><p>Nee. Bij het meerdaagse retreat zijn deze maaltijden en overnachtingen onderdeel van het arrangement. Daarom vraagt het formulier deze keuzes niet opnieuw uit.</p></details><details><summary>Kunnen deelnemers een eigen kamer krijgen?</summary><p>Geef uw voorkeur voor kamerindeling aan. We bekijken welke kamers en accommodaties op de gewenste datum beschikbaar zijn.</p></details><details><summary>Is een activiteit inbegrepen?</summary><p>Activiteiten zijn optionele uitbreidingen. Geef door wat u wilt doen, dan nemen we de mogelijkheden en kosten apart mee.</p></details></div></section><section class="business-content-section business-combine" aria-labelledby="business-combine-title">
     <div class="container">
         <div class="business-combine-panel">

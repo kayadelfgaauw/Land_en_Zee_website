@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Catering is an addition to an existing meeting, rather than a replacement.
             if ((!catering || !arrangementInput.value) && Array.from(arrangementInput.options).some(function (option) { return option.value === pkg; })) {
                 arrangementInput.value = pkg;
-                updateIncludedOptions();
+                arrangementInput.dispatchEvent(new Event('change', { bubbles: true }));
             }
             if (catering && arrangementInput.value !== 'Meerdagen arrangement') {
                 var combinesMeals = cateringInput.value === 'Lunch en diner'
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             updateLunchOptions();
             if (formSection) {
-                formSection.scrollIntoView({ behavior: 'smooth' });
+                formSection.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
             }
             arrangementInput.focus({ preventScroll: true });
         }
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
             selectAndScroll();
         });
 
-        btn.addEventListener('keydown', function (e) {
+        if (!btn.matches('a, button')) btn.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 selectAndScroll();

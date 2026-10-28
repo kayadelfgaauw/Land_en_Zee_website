@@ -22,6 +22,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <title>Hotelstudio mit Naturblick | Resort Land & Zee</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/accessibility.css">
+    <script src="../../js/dialogs.js" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -86,6 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Direkt zum Inhalt</a>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -93,7 +96,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Fixed Header -->
     <header id="main-header" class="fixed-header">
         <div class="header-container">
-            <button class="nav-link menu-trigger" aria-label="Menu oeffnen">MENU</button>
+            <button class="nav-link menu-trigger" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" aria-label="Menü öffnen">MENU</button>
             <a href="../index.html" class="header-logo-link">
                 <img src="../../images/Logo/Logo Resort Land & Zee.png" alt="Resort Land & Zee Logo"
                     class="header-logo">
@@ -101,7 +104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="../../hotel/hotelstudio-natuur.html" class="lang-link " title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
@@ -109,7 +112,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="../../en/hotel/hotel-studio-nature.html" class="lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -121,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="hotelstudio-natur.html" class="lang-link active" title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -135,7 +138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </header>
 
     <!-- Fullscreen Menu -->
-        <nav class="fullscreen-menu" aria-hidden="true">
+        <nav class="fullscreen-menu" id="main-menu" role="dialog" aria-label="Hauptnavigation" aria-hidden="true" inert>
         <button class="menu-close" aria-label="Menu schließen">SCHLIESSEN</button>
         <div class="menu-content">
             <div class="menu-left">
@@ -155,14 +158,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
                 <div class="menu-language-switcher">
                     <a href="../../hotel/hotelstudio-natuur.html" class="menu-lang-link " title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
                     <a href="../../en/hotel/hotel-studio-nature.html" class="menu-lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -173,7 +176,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </svg>
                     </a>
                     <a href="hotelstudio-natur.html" class="menu-lang-link active" title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -213,7 +216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <!-- Two-Column Intro Section -->
         <section class="room-intro-split">
             <div class="container room-intro-container">
