@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) throw new Error('Submission was not accepted');
 
             sent = true;
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'aanvraag_zakelijk',
+                source_page: form.elements.source_page ? form.elements.source_page.value : window.location.pathname,
+                arrangement: form.elements.arrangement ? form.elements.arrangement.value : ''
+            });
             form.hidden = true;
             success.hidden = false;
             success.focus();
