@@ -2,14 +2,17 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://landenzee.nl/zakelijk">
     <meta http-equiv="refresh" content="0; url=/zakelijk">
-    <link rel="canonical" href="https://www.landenzee.nl/zakelijk">
-    <title>Resort Land & Zee - Zakelijk</title>
+    <title>Pagina verplaatst | Resort Land &amp; Zee</title>
     <script>
-        window.location.replace('/zakelijk');
+        var target = new URL("/zakelijk", window.location.href);
+        target.search = window.location.search;
+        target.hash = window.location.hash;
+        window.location.replace(target.href);
     </script>
 </head>
-<body>
-    <p>Als u niet automatisch wordt doorgestuurd, <a href="/zakelijk">klik dan hier om naar de pagina Zakelijk te gaan</a>.</p>
-</body>
+<body><p>Deze pagina is verplaatst. <a href="/zakelijk">Ga naar de nieuwe pagina</a>.</p></body>
 </html>

@@ -1,38 +1,36 @@
-# Enable URL Rewriting
+# Apache fallback only. GitHub Pages ignores .htaccess.
+# Source of legacy routes: config/url-redirects.json.
 RewriteEngine On
-
-# Custom 404 error page
+DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
-# Redirect .html extension to clean URL (301 permanent redirect)
-# This handles old URLs that still have .html
-RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-RewriteRule ^ /%1 [NC,L,R=301]
+# Resolve legacy URLs directly before general URL normalization.
+RewriteRule ^bijeenkomsten(?:\.html)?/?$ /zakelijk [R=301,L,NE]
+RewriteRule ^zalen(?:\.html)?/?$ /zakelijk [R=301,L,NE]
+RewriteRule ^hotelkamers(?:\.html)?/?$ /hotel/ [R=301,L,NE]
+RewriteRule ^camping(?:\.html)?/?$ /kamperen [R=301,L,NE]
+RewriteRule ^verhuur(?:\.html)?/?$ /accommodaties/ [R=301,L,NE]
+RewriteRule ^restaurant(?:\.html)?/?$ https://www.zeeuwsverlangen.nl/ [R=301,L,NE]
+RewriteRule ^hotel/standaardkamer(?:\.html)?/?$ /hotel/duinkamer [R=301,L,NE]
+RewriteRule ^en/hotel/standard\-room(?:\.html)?/?$ /en/hotel/dune-room [R=301,L,NE]
+RewriteRule ^de/hotel/standardzimmer(?:\.html)?/?$ /de/hotel/duenenzimmer [R=301,L,NE]
+RewriteRule ^en/kamperen(?:\.html)?/?$ /en/camping [R=301,L,NE]
+RewriteRule ^en/contact\-en\-route(?:\.html)?/?$ /en/contact [R=301,L,NE]
+RewriteRule ^en/impression(?:\.html)?/?$ /en/impressions [R=301,L,NE]
+RewriteRule ^en/wifi(?:\.html)?/?$ /en/wifi-usage [R=301,L,NE]
+RewriteRule ^de/hotel/standaard\-deluxe(?:\.html)?/?$ /de/hotel/standard-deluxe [R=301,L,NE]
 
-# Serve .html file for clean URLs
-# If the requested file doesn't exist as-is, try adding .html
-RewriteEngine On
+# Redirect requested index.html URLs to their containing directory.
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html(?:[?\s]) [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L,NE]
 
-# Redirect old bijeenkomsten and zalen URLs to zakelijk
-RewriteRule ^(bijeenkomsten|zalen)(\.html)?/?$ /zakelijk [R=301,L,NC]
+# Existing flat HTML pages use extensionless canonical URLs.
+RewriteCond %{THE_REQUEST} \s/+[^?\ ]+\.html(?:[?\s]) [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
 
-# Redirects for broken Google Sitelinks
-Redirect 301 /bijeenkomsten /zakelijk
-Redirect 301 /bijeenkomsten.html /zakelijk
-Redirect 301 /zalen /zakelijk
-Redirect 301 /zalen.html /zakelijk
-Redirect 301 /hotelkamers/ /hotel/
-Redirect 301 /camping/ /kamperen
-Redirect 301 /verhuur/ /accommodaties/
-Redirect 301 /restaurant/ https://www.zeeuwsverlangen.nl/
-Redirect 301 /hotel/standaardkamer /hotel/duinkamer
-Redirect 301 /en/hotel/standard-room /en/hotel/dune-room
-Redirect 301 /de/hotel/standardzimmer /de/hotel/duenenzimmer
-
-# Redirect .html extension to clean URLs
+# Preserve true directories; serve .html only for existing flat pages.
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [NC,L]
-
-# Optional: Serve index.html if no file found
-DirectoryIndex index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]

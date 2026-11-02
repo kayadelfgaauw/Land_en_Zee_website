@@ -1,0 +1,422 @@
+/* Shared layout for the business overview and individual offers. */
+.business-hero {
+    padding: 125px 0 0;
+    color: #2f4356;
+}
+
+.business-breadcrumbs,
+.business-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+}
+
+.business-breadcrumbs {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.business-breadcrumbs a,
+.business-section-nav a {
+    color: #005f73;
+    text-underline-offset: 0.2em;
+}
+
+.business-hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.business-eyebrow {
+    color: #005f73;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    margin: 0 0 1rem;
+}
+
+.business-hero h1 {
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    line-height: 1.1;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    overflow-wrap: break-word;
+}
+
+.business-hero-lead {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+}
+
+.business-hero-image {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 38vw, 540px);
+    object-fit: cover;
+    border-radius: 4px 4px 90px 4px;
+}
+
+.business-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 3rem;
+    padding: 1.5rem 0;
+    margin: 2.5rem 0 0;
+    list-style: none;
+    border-top: 1px solid #c8c5bf;
+    border-bottom: 1px solid #c8c5bf;
+    color: #005f73;
+}
+
+.business-facts li::before {
+    content: '\2713';
+    margin-right: 0.6rem;
+}
+
+.business-content-section {
+    padding: 4rem 0;
+    color: #2f4356;
+}
+
+.business-content-section h2 {
+    font-size: clamp(1.9rem, 3.3vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 1.25rem;
+}
+
+.business-content-section h3 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+    font-weight: 400;
+    margin: 0 0 0.75rem;
+}
+
+.business-section-lead {
+    max-width: 850px;
+    font-size: 1.1rem;
+    margin: 0 0 2rem;
+}
+
+.business-offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.business-offer-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #d1cbc5;
+    color: #2f4356;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+}
+
+.business-offer-card:hover {
+    border-color: #005f73;
+}
+
+.business-offer-card > img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.business-offer-card > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.business-offer-card p {
+    margin: 0 0 1.5rem;
+}
+
+.business-offer-card > div > span {
+    margin-top: auto;
+    color: #005f73;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.business-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.5rem;
+}
+
+.business-detail-card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.65);
+    border-top: 3px solid #005f73;
+}
+
+.business-detail-card p {
+    margin: 0;
+}
+
+.business-section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    padding-top: 1.5rem;
+}
+
+.business-day-actions {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+.business-program {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: business-step;
+}
+
+.business-program li {
+    counter-increment: business-step;
+    border-top: 1px solid #b8b9b4;
+    padding-top: 1.5rem;
+}
+
+.business-program li::before {
+    content: '0' counter(business-step);
+    display: block;
+    color: #005f73;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.business-price-section {
+    background: #dfe8e4;
+}
+
+.business-price-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.business-price-grid aside {
+    background: #fff;
+    padding: 2rem;
+}
+
+.business-faq {
+    max-width: 960px;
+}
+
+.business-faq details {
+    border-bottom: 1px solid #c8c5bf;
+    padding: 1.25rem 0;
+}
+
+.business-faq summary {
+    cursor: pointer;
+    color: #005f73;
+    font-size: 1.1rem;
+}
+
+.business-faq details p {
+    margin-bottom: 0;
+}
+
+.business-combine {
+    padding-top: 0;
+}
+
+.business-combine-panel {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: #dfe8e4;
+    border: 1px solid #c2d2ca;
+    border-radius: 4px;
+}
+
+.business-combine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.business-combine-grid article {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.business-combine-grid p {
+    margin: 0;
+}
+
+.business-combine-note {
+    max-width: 850px;
+    margin: 0 0 1.5rem;
+}
+
+.business-combine .btn-outline {
+    box-sizing: border-box;
+    max-width: 100%;
+    text-align: center;
+}
+
+.business-hero :is(a, button):focus-visible,
+.business-content-section :is(a, summary):focus-visible,
+.business-section-nav a:focus-visible,
+.business-day-actions a:focus-visible {
+    outline: 2px solid #005f73;
+    outline-offset: 4px;
+}
+
+:is(#aanbod, #mogelijkheden, #programma, #kosten, #vragen, #aanvraag-formulier) {
+    scroll-margin-top: 110px;
+}
+
+/* Detail pages use one section gap instead of stacked top/bottom padding. */
+.business-landing .business-content-section {
+    padding: clamp(1.75rem, 3vw, 2.4rem) 0;
+}
+
+.business-landing .business-content-section:not(.business-price-section) + .business-content-section:not(.business-price-section) {
+    padding-top: 0;
+}
+
+.business-landing .business-section-lead {
+    margin-bottom: 1.25rem;
+}
+
+.business-landing .business-detail-card {
+    padding: 1.5rem;
+}
+
+.business-landing .business-program {
+    gap: 1.5rem;
+}
+
+.business-landing .business-program p {
+    margin-bottom: 0;
+}
+
+.business-landing .business-combine {
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+}
+
+.business-landing .business-combine-panel {
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.business-landing .business-combine-grid {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.business-landing .business-contact-section {
+    min-height: 0;
+    padding: 1rem 0 2rem;
+}
+
+.business-landing .contact-header h2 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+    line-height: 1.2;
+}
+
+.business-landing .contact-header,
+.business-landing .contact-options {
+    margin-bottom: 1.5rem;
+}
+
+.business-landing .business-location-section {
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 1050px) {
+    .business-offer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .business-price-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .business-page .header-container {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 0.75rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .business-page .header-logo-link {
+        position: static;
+        transform: none;
+        justify-self: center;
+    }
+
+    .business-page #main-header .header-logo {
+        width: 88px;
+        height: auto;
+    }
+
+    .business-page .header-right .language-switcher {
+        display: none;
+    }
+
+    .business-page .book-now-link {
+        max-width: 115px;
+        padding: 8px 12px;
+        box-sizing: border-box;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .business-hero {
+        padding-top: 110px;
+    }
+
+    .business-hero-grid,
+    .business-price-grid,
+    .business-program {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .business-hero-image {
+        height: 320px;
+        border-bottom-right-radius: 55px;
+    }
+
+    .business-content-section {
+        padding: 3rem 0;
+    }
+
+    .business-offer-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .business-actions a,
+    .business-price-grid a {
+        box-sizing: border-box;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .business-breadcrumbs {
+        font-size: 0.85rem;
+        gap: 0.5rem;
+    }
+}

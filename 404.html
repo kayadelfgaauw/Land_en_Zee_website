@@ -14,77 +14,15 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        // =========================================
-        // Language Loop Redirect (runs first)
-        // =========================================
-        // Detects nested language prefixes (e.g. /en/de/, /de/en/en/) and redirects
-        // to the cleaned version. This catches 404s caused by stacked language paths.
-        (function () {
-            var path = window.location.pathname;
-            var segments = path.split('/').filter(Boolean);
-            var langCount = 0;
-            var firstLangIndex = -1;
-            var hasNestedLang = false;
-
-            for (var i = 0; i < segments.length; i++) {
-                if (segments[i] === 'en' || segments[i] === 'de') {
-                    langCount++;
-                    if (firstLangIndex === -1) firstLangIndex = i;
-                    if (langCount > 1) { hasNestedLang = true; break; }
-                }
-            }
-
-            if (hasNestedLang) {
-                var firstLang = (firstLangIndex === 0) ? segments[0] : null;
-                var cleanSegments = [];
-                if (firstLang) cleanSegments.push(firstLang);
-                for (var j = (firstLang ? 1 : 0); j < segments.length; j++) {
-                    if (segments[j] !== 'en' && segments[j] !== 'de') {
-                        cleanSegments.push(segments[j]);
-                    }
-                }
-                var cleanUrl = '/' + cleanSegments.join('/');
-                if (path.endsWith('/') && !cleanUrl.endsWith('/')) cleanUrl += '/';
-                if (cleanUrl !== path) {
-                    window.location.replace(window.location.origin + cleanUrl + window.location.search + window.location.hash);
-                }
-            }
-        })();
-
-        // =========================================
-        // Redirect logic for legacy Google Sitelink paths
-        // =========================================
-        (function () {
-            var path = window.location.pathname;
-            var redirects = {
-                '/hotelkamers/': '/hotel/',
-                '/camping/': '/kamperen',
-                '/verhuur/': '/accommodaties/',
-                '/restaurant/': 'https://www.zeeuwsverlangen.nl/',
-                '/bijeenkomsten': '/zakelijk',
-                '/bijeenkomsten.html': '/zakelijk',
-                '/zalen': '/zakelijk',
-                '/zalen.html': '/zakelijk'
-            };
-
-            // Check for exact match or match with trailing slash
-            for (var oldPath in redirects) {
-                if (path === oldPath || path === oldPath.replace(/\/$/, '') || path === oldPath + '/') {
-                    window.location.replace(redirects[oldPath]);
-                    break;
-                }
-            }
-        })();
-    </script>
+    <script src="/js/legacy-redirects.js"></script>
     <meta name="description"
         content="Oeps! Deze pagina konden we niet vinden. Laat ons je terugleiden naar de rust van Resort Land & Zee.">
     <meta name="robots" content="noindex, follow"> <!-- Noindex for 404 page -->
     <title>Pagina niet gevonden | Resort Land & Zee</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- Lenis Smooth Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 
 <body>
@@ -97,14 +35,14 @@
         <div class="header-container">
             <button class="nav-link menu-trigger" aria-label="Open Menu">MENU</button>
 
-            <a href="index.html" class="header-logo-link">
-                <img src="images/Logo/Logo Resort Land & Zee.png"
+            <a href="/" class="header-logo-link">
+                <img src="/images/Logo/Logo Resort Land &amp; Zee.png"
                     alt="Logo van Resort Land & Zee - Hotel en Camping in Scharendijke" class="header-logo">
             </a>
 
             <div class="header-right">
                 <div class="language-switcher">
-                    <a href="index.html" class="lang-link active" title="Nederlands">
+                    <a href="/" class="lang-link active" title="Nederlands">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
@@ -112,7 +50,7 @@
                         </svg>
                     </a>
                     <span class="lang-separator">|</span>
-                    <a href="en/index.html" class="lang-link " title="English">
+                    <a href="/en/" class="lang-link " title="English">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
@@ -124,7 +62,7 @@
                         </svg>
                     </a>
                     <span class="lang-separator">|</span>
-                    <a href="de/index.html" class="lang-link " title="Deutsch">
+                    <a href="/de/" class="lang-link " title="Deutsch">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
@@ -133,7 +71,7 @@
                         </svg>
                     </a>
                 </div>
-                <a href="boeken.html" class="nav-link book-now-link"
+                <a href="/boeken" class="nav-link book-now-link"
                     aria-label="Boek uw verblijf direct bij Land & Zee">BOEK DIRECT</a>
             </div>
         </div>
@@ -145,29 +83,29 @@
         <div class="menu-content">
             <div class="menu-left">
                 <ul class="menu-nav">
-                    <li><a href="index.html" data-image="welkom">Welkom</a></li>
-                    <li><a href="over-land-en-zee.html" data-image="over">Over Resort Land & Zee</a></li>
-                    <li><a href="hotel/index.html" data-image="hotel">Hotelkamers & Studios</a></li>
-                    <li><a href="accommodaties/index.html" data-image="accommodaties">Accommodaties</a></li>
-                    <li><a href="kamperen.html" data-image="kamperen">Kamperen</a></li>
+                    <li><a href="/" data-image="welkom">Welkom</a></li>
+                    <li><a href="/over-land-en-zee" data-image="over">Over Resort Land & Zee</a></li>
+                    <li><a href="/hotel/" data-image="hotel">Hotelkamers & Studios</a></li>
+                    <li><a href="/accommodaties/" data-image="accommodaties">Accommodaties</a></li>
+                    <li><a href="/kamperen" data-image="kamperen">Kamperen</a></li>
                     <li><a href="https://www.zeeuwsverlangen.nl/" target="_blank" rel="noopener"
                             data-image="restaurant">Restaurant</a>
                     </li>
-                    <li><a href="zakelijk.html" data-image="zalen">Zakelijk</a></li>
-                    <li><a href="omgeving.html" data-image="omgeving">Omgeving en Activiteiten</a></li>
-                    <li><a href="impressie.html" data-image="impressie">Impressie Foto's</a></li>
-                    <li><a href="duurzaamheid.html" data-image="duurzaamheid">Duurzaamheid</a></li>
-                    <li><a href="contact-en-route.html" data-image="contact">Contact en Route</a></li>
+                    <li><a href="/zakelijk" data-image="zalen">Zakelijk</a></li>
+                    <li><a href="/omgeving" data-image="omgeving">Omgeving en Activiteiten</a></li>
+                    <li><a href="/impressie" data-image="impressie">Impressie Foto's</a></li>
+                    <li><a href="/duurzaamheid" data-image="duurzaamheid">Duurzaamheid</a></li>
+                    <li><a href="/contact-en-route" data-image="contact">Contact en Route</a></li>
                 </ul>
                 <div class="menu-language-switcher">
-                    <a href="index.html" class="menu-lang-link active" title="Nederlands">
+                    <a href="/" class="menu-lang-link active" title="Nederlands">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
-                    <a href="en/index.html" class="menu-lang-link " title="English">
+                    <a href="/en/" class="menu-lang-link " title="English">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
@@ -178,7 +116,7 @@
                                 d="m334 334 178 178v-11.3l-166.7-166.7H334zM178 178 0 0v11.3l166.7 166.7H178zM178 334 0 512v-11.3l166.7-166.7H178zM334 178 512 0v11.3L345.3 178H334z" />
                         </svg>
                     </a>
-                    <a href="de/index.html" class="menu-lang-link " title="Deutsch">
+                    <a href="/de/" class="menu-lang-link " title="Deutsch">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
@@ -189,17 +127,17 @@
                 </div>
             </div>
             <div class="menu-right">
-                <img src="images/Ingang_RLNZ.webp" alt="Hoofdingang en receptie van Resort Land & Zee in Zeeland" class="menu-image active" data-id="welkom">
-                <img src="images/Suite/Resort Land & Zee - november 2025-61.webp" alt="Luxe hotelbed met witte lakens en oranje sierkussens" class="menu-image" data-id="hotel">
-                <img src="images/Ecologde/Resort Land & Zee - november 2025-102.webp" alt="Sfeervolle woonkamer van een houten vakantiewoning" class="menu-image" data-id="accommodaties">
-                <img src="images/Kamperen/Camping Kampeer plaats prive Sanitair/2_Resort Land & Zee - juni 2026-40.webp" alt="Panoramisch overzicht van vakantiepark Land & Zee" class="menu-image" data-id="kamperen">
-                <img src="images/Ontbijt.webp" alt="Uitgebreid vers ontbijtbuffet" class="menu-image" data-id="restaurant">
-                <img src="images/Vergaderen/Resort Land & Zee - november 2025-150.webp" alt="Zakelijk" class="menu-image" data-id="zalen">
-                <img src="images/Strand.webp" alt="Het brede Noordzeestrand" class="menu-image" data-id="omgeving">
-                <img src="images/Buiten fotos/Resort Land & Zee - november 2025-127.webp" alt="Impressie foto's" class="menu-image" data-id="impressie">
-                <img src="images/RLNZ_vanaf_boot.webp" alt="Gezicht op Resort Land & Zee vanaf het water" class="menu-image" data-id="duurzaamheid">
-                <img src="images/Buiten fotos/Resort Land & Zee - november 2025-135.webp" alt="Over Resort Land & Zee" class="menu-image" data-id="over">
-                <img src="images/Buiten fotos/Resort Land & Zee - november 2025-140.webp" alt="Contact en Route" class="menu-image" data-id="contact">
+                <img src="/images/Ingang_RLNZ.webp" alt="Hoofdingang en receptie van Resort Land & Zee in Zeeland" class="menu-image active" data-id="welkom">
+                <img src="/images/Suite/Resort Land &amp; Zee - november 2025-61.webp" alt="Luxe hotelbed met witte lakens en oranje sierkussens" class="menu-image" data-id="hotel">
+                <img src="/images/Ecologde/Resort Land &amp; Zee - november 2025-102.webp" alt="Sfeervolle woonkamer van een houten vakantiewoning" class="menu-image" data-id="accommodaties">
+                <img src="/images/Kamperen/Camping Kampeer plaats prive Sanitair/2_Resort Land &amp; Zee - juni 2026-40.webp" alt="Panoramisch overzicht van vakantiepark Land & Zee" class="menu-image" data-id="kamperen">
+                <img src="/images/Ontbijt.webp" alt="Uitgebreid vers ontbijtbuffet" class="menu-image" data-id="restaurant">
+                <img src="/images/Vergaderen/Resort Land &amp; Zee - november 2025-150.webp" alt="Zakelijk" class="menu-image" data-id="zalen">
+                <img src="/images/Strand.webp" alt="Het brede Noordzeestrand" class="menu-image" data-id="omgeving">
+                <img src="/images/Buiten fotos/Resort Land &amp; Zee - november 2025-127.webp" alt="Impressie foto's" class="menu-image" data-id="impressie">
+                <img src="/images/RLNZ_vanaf_boot.webp" alt="Gezicht op Resort Land & Zee vanaf het water" class="menu-image" data-id="duurzaamheid">
+                <img src="/images/Buiten fotos/Resort Land &amp; Zee - november 2025-135.webp" alt="Over Resort Land & Zee" class="menu-image" data-id="over">
+                <img src="/images/Buiten fotos/Resort Land &amp; Zee - november 2025-140.webp" alt="Contact en Route" class="menu-image" data-id="contact">
             </div>
         </div>
     </nav>
@@ -217,10 +155,10 @@
                         we je de weg terug te vinden naar de rust van Land & Zee.</p>
 
                     <div class="error-404-actions">
-                        <a href="index.html" class="btn-outline">TERUG NAAR DE VEILIGE HAVEN</a>
+                        <a href="/" class="btn-outline">TERUG NAAR DE VEILIGE HAVEN</a>
                         <div class="secondary-links">
-                            <a href="accommodaties/index.html" class="text-link">Bekijk accommodaties</a>
-                            <a href="contact-en-route.html" class="text-link">Direct contact opnemen</a>
+                            <a href="/accommodaties/" class="text-link">Bekijk accommodaties</a>
+                            <a href="/contact-en-route" class="text-link">Direct contact opnemen</a>
                         </div>
                     </div>
                 </div>
@@ -233,8 +171,8 @@
         <div class="container footer-container">
             <!-- Column 0: Logo -->
             <div class="footer-col footer-logo-col">
-                <a href="index.html">
-                    <img src="images/Logo/Logo Resort Land & Zee.png" alt="Resort Land & Zee Logo"
+                <a href="/">
+                    <img src="/images/Logo/Logo Resort Land &amp; Zee.png" alt="Resort Land & Zee Logo"
                         class="footer-logo-img">
                 </a>
             </div>
@@ -243,9 +181,9 @@
             <div class="footer-col">
                 <h3 class="footer-heading">Overnachten</h3>
                 <ul class="footer-links">
-                    <li><a href="hotel/index.html">Hotelkamers & Studios</a></li>
-                    <li><a href="accommodaties/index.html">Vakantiewoningen & Ecolodges</a></li>
-                    <li><a href="kamperen.html">Kamperen</a></li>
+                    <li><a href="/hotel/">Hotelkamers & Studios</a></li>
+                    <li><a href="/accommodaties/">Vakantiewoningen & Ecolodges</a></li>
+                    <li><a href="/kamperen">Kamperen</a></li>
                 </ul>
             </div>
 
@@ -255,8 +193,8 @@
                 <ul class="footer-links">
                     <li><a href="https://www.zeeuwsverlangen.nl/" target="_blank" rel="noopener">Restaurant Zeeuws
                             Verlangen</a></li>
-                    <li><a href="zakelijk.html">Zakelijk</a></li>
-                    <li><a href="over-land-en-zee.html">Over ons</a></li>
+                    <li><a href="/zakelijk">Zakelijk</a></li>
+                    <li><a href="/over-land-en-zee">Over ons</a></li>
                 </ul>
             </div>
 
@@ -306,14 +244,14 @@
         <div class="sub-footer">
             <div class="container sub-footer-content">
                 <ul class="sub-footer-links">
-                    <li><a href="juridisch.html#colofon">Colofon</a></li>
-                    <li><a href="juridisch.html#disclaimer">Disclaimer</a></li>
-                    <li><a href="juridisch.html#privacy">Privacy</a></li>
-                    <li><a href="wifi.html">Wifi gebruik</a></li>
-                    <li><a href="vacatures.html">Vacatures</a></li>
-                    <li><a href="Annuleringsvoorwaarden-hotel.pdf"
+                    <li><a href="/juridisch#colofon">Colofon</a></li>
+                    <li><a href="/juridisch#disclaimer">Disclaimer</a></li>
+                    <li><a href="/juridisch#privacy">Privacy</a></li>
+                    <li><a href="/wifi">Wifi gebruik</a></li>
+                    <li><a href="/vacatures">Vacatures</a></li>
+                    <li><a href="/Annuleringsvoorwaarden-hotel.pdf"
                             target="_blank" rel="noopener">Annuleringsvoorwaarden hotel</a> <a
-                            href="Annuleringsvoorwaarden-camping-nl.pdf"
+                            href="/Annuleringsvoorwaarden-camping-nl.pdf"
                             target="_blank" rel="noopener">Annuleringsvoorwaarden camping</a></li>
                 </ul>
                 <div class="copyright">
@@ -325,7 +263,7 @@
 
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
     <script async src="https://webchat.runnr.ai/chat/chat-widget.js" type="application/javascript" data-widget="chat"
         data-title="Chat met Resort Land & Zee" data-btn-title="Chat via de site" data-primary-color="#0e2d56"
         crossorigin="anonymous">
