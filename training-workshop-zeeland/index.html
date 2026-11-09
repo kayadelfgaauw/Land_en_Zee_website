@@ -37,6 +37,26 @@
       "inLanguage": "nl-NL",
       "breadcrumb": {
         "@id": "https://landenzee.nl/training-workshop-zeeland/#breadcrumbs"
+      },
+      "publisher": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "about": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mentions": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://landenzee.nl/zakelijk#webpage"
+      },
+      "mainEntity": {
+        "@id": "https://landenzee.nl/training-workshop-zeeland/#service"
       }
     },
     {
@@ -62,6 +82,55 @@
           "item": "https://landenzee.nl/training-workshop-zeeland/"
         }
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/training-workshop-zeeland/#service",
+      "name": "Trainingen & workshops",
+      "url": "https://landenzee.nl/training-workshop-zeeland/",
+      "description": "Een goede trainingsdag begint met een ruimte die bij de werkvorm past. Bij Land & Zee organiseert u een training of inhoudelijke workshop met uw eigen trainer. U bepaalt wat deelnemers gaan leren; wij stemmen de ruimte, vergadermiddelen en eventuele maaltijden met u af.",
+      "serviceType": "Trainingen & workshops",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/training-workshop-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Resort",
+      "@id": "https://landenzee.nl/#resort",
+      "name": "Resort Land & Zee",
+      "url": "https://landenzee.nl/",
+      "hasOfferCatalog": {
+        "@id": "https://landenzee.nl/zakelijk#aanbod"
+      },
+      "containsPlace": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ]
+    },
+    {
+      "@type": "Hotel",
+      "@id": "https://landenzee.nl/hotel/#hotel",
+      "name": "Hotel Land & Zee",
+      "url": "https://landenzee.nl/hotel/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://landenzee.nl/#restaurant",
+      "name": "Restaurant Zeeuws Verlangen",
+      "url": "https://www.zeeuwsverlangen.nl/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
     }
   ]
 }
