@@ -69,9 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
 
     let lenis = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     // Only initialize Lenis if the library is loaded
-    if (typeof Lenis !== 'undefined') {
+    if (typeof Lenis !== 'undefined' && !reducedMotion.matches) {
         lenis = new Lenis({
             duration: 1.2,                    // Scroll duration (higher = slower)
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing curve
@@ -84,11 +85,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Animation frame loop for Lenis
         function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
+            if (lenis) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
         }
         requestAnimationFrame(raf);
     }
+
+    reducedMotion.addEventListener('change', () => {
+        if (reducedMotion.matches && lenis) {
+            lenis.destroy();
+            lenis = null;
+        }
+    });
+    document.addEventListener('site-dialog-open', () => { if (lenis) lenis.stop(); });
+    document.addEventListener('site-dialog-close', () => { if (lenis) lenis.start(); });
+
+    // A moving background can be stopped without relying on a third-party player API.
+    document.querySelectorAll('.hero-video-wrapper iframe[data-video-src]').forEach((frame, index) => {
+        const hero = frame.closest('section');
+        const language = document.documentElement.lang;
+        const labels = language === 'de' ? ['Video starten', 'Video stoppen']
+            : language === 'en' ? ['Start video', 'Stop video'] : ['Video starten', 'Video stoppen'];
+        const control = document.createElement('button');
+        control.type = 'button';
+        control.className = 'hero-video-control';
+        frame.id = frame.id || 'hero-video-' + index;
+        control.setAttribute('aria-controls', frame.id);
+        function setPlaying(playing) {
+            frame.hidden = !playing;
+            frame.src = playing ? frame.dataset.videoSrc : 'about:blank';
+            control.textContent = labels[playing ? 1 : 0];
+        }
+        control.addEventListener('click', () => setPlaying(frame.hidden));
+        reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) setPlaying(false); });
+        hero.appendChild(control);
+        setPlaying(!reducedMotion.matches);
+    });
 
     // Header Scroll Effect
     // Header Scroll Effect - Optimized with IntersectionObserver
@@ -118,23 +152,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     headerObserver.observe(scrollWatcher);
 
+    const businessContact = document.querySelector('.business-contact-section');
+    if (businessContact) {
+        new IntersectionObserver((entries) => {
+            document.body.classList.toggle('business-form-visible', entries[0].isIntersecting);
+        }, { threshold: 0 }).observe(businessContact);
+    }
+
     // Smooth scroll for anchor links (using Lenis if available)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            if (this.matches('.btn-select-package')) return;
             const href = this.getAttribute('href');
-            const target = document.querySelector(href);
+            if (href === '#') return;
+            let target;
+            try { target = document.getElementById(decodeURIComponent(href.slice(1))); }
+            catch (error) { return; }
             if (target) {
-                if (lenis) {
+                e.preventDefault();
+                if (!target.hasAttribute('tabindex') && !target.matches('a, button, input, select, textarea')) {
+                    target.setAttribute('tabindex', '-1');
+                }
+                target.focus({ preventScroll: true });
+                if (lenis && !reducedMotion.matches) {
                     // Use Lenis for smooth scrolling
                     lenis.scrollTo(target, {
-                        offset: 0,
+                        offset: -110,
                         duration: 1.5
                     });
                 } else {
                     // Fallback to native smooth scroll
                     target.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: reducedMotion.matches ? 'auto' : 'smooth'
                     });
                 }
             }
@@ -289,28 +338,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuTrigger && fullscreenMenu) {
         menuTrigger.addEventListener('click', (e) => {
             e.preventDefault();
-            fullscreenMenu.classList.add('active');
-            fullscreenMenu.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
+            window.landAndSeaDialogs.open(fullscreenMenu, menuTrigger);
         });
     }
 
     // Close menu
     if (menuClose && fullscreenMenu) {
         menuClose.addEventListener('click', () => {
-            fullscreenMenu.classList.remove('active');
-            fullscreenMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
+            window.landAndSeaDialogs.close(fullscreenMenu);
         });
     }
 
-    // Close menu on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullscreenMenu && fullscreenMenu.classList.contains('active')) {
-            fullscreenMenu.classList.remove('active');
-            fullscreenMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
+    // Restore the page before following an in-menu link, including same-page links.
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => window.landAndSeaDialogs.close(fullscreenMenu));
     });
 
     // Hover effect for menu images (only on devices with hover capability)
@@ -412,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
 
     // Check if browser supports IntersectionObserver
-    if ('IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window && !reducedMotion.matches) {
         const observerOptions = {
             root: null, // viewport
             rootMargin: '0px 0px -50px 0px', // trigger slightly before element is fully in view

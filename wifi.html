@@ -30,6 +30,8 @@
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <script src="js/dialogs.js" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -83,10 +85,11 @@
 </head>
 
 <body id="top">
+    <a class="skip-link" href="#main-content">Direct naar inhoud</a>
     <!-- Fixed Header -->
     <header id="main-header" class="fixed-header force-scrolled-style">
         <div class="header-container">
-            <button class="nav-link menu-trigger" aria-label="Open Menu">MENU</button>
+            <button class="nav-link menu-trigger" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" aria-label="Menu openen">MENU</button>
 
             <a href="/" class="header-logo-link">
                 <img src="images/Logo/Logo Resort Land & Zee.png"
@@ -96,7 +99,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="/wifi" class="lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
@@ -104,7 +107,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/en/wifi-usage" class="lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -116,7 +119,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/de/wlan-nutzung" class="lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -132,7 +135,7 @@
 
     <!-- Fullscreen Menu (To be consistent with other pages) -->
     <!-- Fullscreen Menu (To be consistent with other pages) -->
-        <nav class="fullscreen-menu" aria-hidden="true">
+        <nav class="fullscreen-menu" id="main-menu" role="dialog" aria-label="Hoofdnavigatie" aria-hidden="true" inert>
         <button class="menu-close" aria-label="Menu sluiten">SLUIT</button>
         <div class="menu-content">
             <div class="menu-left">
@@ -153,14 +156,14 @@
                 </ul>
                 <div class="menu-language-switcher">
                     <a href="/wifi" class="menu-lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
                     <a href="/en/wifi-usage" class="menu-lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -171,7 +174,7 @@
                         </svg>
                     </a>
                     <a href="/de/wlan-nutzung" class="menu-lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -196,7 +199,7 @@
         </div>
     </nav>
 
-    <main class="legal-page">
+    <main class="legal-page" id="main-content" tabindex="-1">
         <div class="legal-container">
             <section class="legal-section reveal-on-scroll">
                 <h2>Wifi gebruik Resort Land & Zee</h2>
@@ -296,6 +299,16 @@
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/resort-land-zee/home/" target="_blank" rel="noopener"
+                        class="social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true" focusable="false">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
                         </svg>
                     </a>
                 </div>

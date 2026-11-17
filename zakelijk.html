@@ -24,70 +24,288 @@
     <link rel="alternate" hreflang="x-default" href="https://landenzee.nl/zakelijk">
     <title>Zakelijke Bijeenkomsten & Arrangementen | Resort Land & Zee</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <script src="js/dialogs.js" defer></script>
     <link rel="stylesheet" href="css/business-pages.css">
     <!-- Lenis Smooth Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://landenzee.nl/zakelijk#webpage",
-  "url": "https://landenzee.nl/zakelijk",
-  "name": "Zakelijke bijeenkomsten aan de Zeeuwse kust",
-  "inLanguage": "nl-NL",
-  "mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Vergaderen",
-        "url": "https://landenzee.nl/vergaderen-zeeland/"
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://landenzee.nl/zakelijk#webpage",
+      "url": "https://landenzee.nl/zakelijk",
+      "name": "Zakelijke bijeenkomsten aan de Zeeuwse kust",
+      "inLanguage": "nl-NL",
+      "mainEntity": {
+        "@id": "https://landenzee.nl/zakelijk#aanbod"
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Heisessies & MT-overleg",
-        "url": "https://landenzee.nl/heisessie-zeeland/"
+      "description": "Zakelijke bijeenkomsten, vergaderingen en arrangementen bij Resort Land & Zee in Scharendijke. Vergaderen, verbinden en ontspannen aan de Zeeuwse kust met uitzicht over het water.",
+      "publisher": {
+        "@id": "https://landenzee.nl/#resort"
       },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Teamuitjes & teambuilding",
-        "url": "https://landenzee.nl/teamuitje-zeeland/"
+      "about": {
+        "@id": "https://landenzee.nl/#resort"
       },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "Meerdaags & overnachten",
-        "url": "https://landenzee.nl/vergaderen-met-overnachting-zeeland/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "name": "Werkplekken",
-        "url": "https://landenzee.nl/werkplek-zeeland/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 6,
-        "name": "Trainingen & workshops",
-        "url": "https://landenzee.nl/training-workshop-zeeland/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 7,
-        "name": "Zakelijke lunch & diner",
-        "url": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/"
+      "mentions": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ],
+      "breadcrumb": {
+        "@id": "https://landenzee.nl/zakelijk#breadcrumbs"
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://landenzee.nl/zakelijk#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://landenzee.nl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Zakelijk",
+          "item": "https://landenzee.nl/zakelijk"
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://landenzee.nl/zakelijk#aanbod",
+      "name": "Zakelijke arrangementen bij Resort Land & Zee",
+      "url": "https://landenzee.nl/zakelijk",
+      "numberOfItems": 7,
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Vergaderen",
+          "url": "https://landenzee.nl/vergaderen-zeeland/",
+          "seller": {
+            "@id": "https://landenzee.nl/#resort"
+          },
+          "itemOffered": {
+            "@id": "https://landenzee.nl/vergaderen-zeeland/#service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Heisessies & MT-overleg",
+          "url": "https://landenzee.nl/heisessie-zeeland/",
+          "seller": {
+            "@id": "https://landenzee.nl/#resort"
+          },
+          "itemOffered": {
+            "@id": "https://landenzee.nl/heisessie-zeeland/#service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Teamuitjes & teambuilding",
+          "url": "https://landenzee.nl/teamuitje-zeeland/",
+          "seller": {
+            "@id": "https://landenzee.nl/#resort"
+          },
+          "itemOffered": {
+            "@id": "https://landenzee.nl/teamuitje-zeeland/#service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Meerdaags & overnachten",
+          "url": "https://landenzee.nl/vergaderen-met-overnachting-zeeland/",
+          "seller": {
+            "@id": "https://landenzee.nl/#resort"
+          },
+          "itemOffered": {
+            "@id": "https://landenzee.nl/vergaderen-met-overnachting-zeeland/#service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Werkplekken",
+          "url": "https://landenzee.nl/werkplek-zeeland/",
+          "seller": {
+            "@id": "https://landenzee.nl/#resort"
+          },
+          "itemOffered": {
+            "@id": "https://landenzee.nl/werkplek-zeeland/#service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Trainingen & workshops",
+          "url": "https://landenzee.nl/training-workshop-zeeland/",
+          "seller": {
+            "@id": "https://landenzee.nl/#resort"
+          },
+          "itemOffered": {
+            "@id": "https://landenzee.nl/training-workshop-zeeland/#service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Zakelijke lunch & diner",
+          "url": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/",
+          "seller": {
+            "@id": "https://landenzee.nl/#resort"
+          },
+          "itemOffered": {
+            "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#service"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Resort",
+      "@id": "https://landenzee.nl/#resort",
+      "name": "Resort Land & Zee",
+      "url": "https://landenzee.nl/",
+      "hasOfferCatalog": {
+        "@id": "https://landenzee.nl/zakelijk#aanbod"
+      },
+      "containsPlace": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ]
+    },
+    {
+      "@type": "Hotel",
+      "@id": "https://landenzee.nl/hotel/#hotel",
+      "name": "Hotel Land & Zee",
+      "url": "https://landenzee.nl/hotel/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://landenzee.nl/#restaurant",
+      "name": "Restaurant Zeeuws Verlangen",
+      "url": "https://www.zeeuwsverlangen.nl/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/vergaderen-zeeland/#service",
+      "name": "Vergaderen",
+      "url": "https://landenzee.nl/vergaderen-zeeland/",
+      "description": "Een teamoverleg, presentatie of brainstorm buiten kantoor vraagt om een plek waar u samen verder komt. Bij Resort Land & Zee in Scharendijke combineert u een vergaderruimte met daglicht met een pauze aan de Zeeuwse kust. Kies een halve of hele dag en vul die aan met lunch, diner of een activiteit.",
+      "serviceType": "Vergaderen",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/vergaderen-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/heisessie-zeeland/#service",
+      "name": "Heisessies & MT-overleg",
+      "url": "https://landenzee.nl/heisessie-zeeland/",
+      "description": "Voor een heisessie wilt u afstand nemen van de dagelijkse werkzaamheden en tijd maken voor de volgende stap. Land & Zee biedt een plek aan de Zeeuwse kust om met uw managementteam of collega’s aan strategie, samenwerking en plannen te werken. U brengt de inhoud mee; wij denken mee over de ruimte en de invulling eromheen.",
+      "serviceType": "Heisessies & MT-overleg",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/heisessie-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/teamuitje-zeeland/#service",
+      "name": "Teamuitjes & teambuilding",
+      "url": "https://landenzee.nl/teamuitje-zeeland/",
+      "description": "Even weg van de werkvloer en samen iets beleven. Bij Land & Zee combineert u een teamuitje met het strand, een creatieve activiteit en eten bij Zeeuws Verlangen. Van een ontspannen middag met collega’s tot een bedrijfsuitje met een gezamenlijk overleg: het programma begint bij wat uw team leuk vindt en nodig heeft.",
+      "serviceType": "Teamuitjes & teambuilding",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/teamuitje-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/vergaderen-met-overnachting-zeeland/#service",
+      "name": "Meerdaags & overnachten",
+      "url": "https://landenzee.nl/vergaderen-met-overnachting-zeeland/",
+      "description": "Een tweede dag geeft ruimte om ideeën verder te brengen. Met een meerdaags retreat bij Land & Zee combineert u vergaderen, dineren en overnachten op dezelfde locatie. U kunt na een werksessie samen eten en de volgende ochtend verdergaan, zonder dat iedereen tussendoor naar huis hoeft.",
+      "serviceType": "Meerdaags & overnachten",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/vergaderen-met-overnachting-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/werkplek-zeeland/#service",
+      "name": "Werkplekken",
+      "url": "https://landenzee.nl/werkplek-zeeland/",
+      "description": "Wilt u ongestoord schrijven, een plan uitwerken of samen met een klein projectteam aan de slag? Het werkplekarrangement van Land & Zee biedt een andere omgeving dan kantoor of thuis. Combineer uw werkdag in Scharendijke met een eetmoment en een wandeling naar het strand.",
+      "serviceType": "Werkplekken",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/werkplek-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/training-workshop-zeeland/#service",
+      "name": "Trainingen & workshops",
+      "url": "https://landenzee.nl/training-workshop-zeeland/",
+      "description": "Een goede trainingsdag begint met een ruimte die bij de werkvorm past. Bij Land & Zee organiseert u een training of inhoudelijke workshop met uw eigen trainer. U bepaalt wat deelnemers gaan leren; wij stemmen de ruimte, vergadermiddelen en eventuele maaltijden met u af.",
+      "serviceType": "Trainingen & workshops",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/training-workshop-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#service",
+      "name": "Zakelijke lunch & diner",
+      "url": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/",
+      "description": "Samen eten geeft ruimte voor een ander gesprek. Bij Restaurant Zeeuws Verlangen op het resort combineert u een zakelijke lunch of diner met uw overleg, teamuitje of werkdag. U kunt ook een afzonderlijk zakelijk eetmoment aanvragen. We stemmen de invulling af op uw gezelschap en programma.",
+      "serviceType": "Zakelijke lunch & diner",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#webpage"
+      }
+    }
+  ]
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
 <body class="business-page">
+    <a class="skip-link" href="#main-content">Direct naar inhoud</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -95,7 +313,7 @@
     <!-- Fixed Header -->
     <header id="main-header" class="fixed-header force-scrolled-style">
         <div class="header-container">
-            <button class="nav-link menu-trigger" aria-label="Open Menu">MENU</button>
+            <button class="nav-link menu-trigger" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" aria-label="Menu openen">MENU</button>
 
             <a href="/" class="header-logo-link">
                 <img src="images/Logo/Logo Resort Land & Zee.png"
@@ -105,7 +323,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="/zakelijk" class="lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
@@ -113,7 +331,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/en/meetings-and-events" class="lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -125,7 +343,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/de/tagungen-und-feiern" class="lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -141,7 +359,7 @@
     </header>
 
     <!-- Fullscreen Menu -->
-        <nav class="fullscreen-menu" aria-hidden="true">
+        <nav class="fullscreen-menu" id="main-menu" role="dialog" aria-label="Hoofdnavigatie" aria-hidden="true" inert>
         <button class="menu-close" aria-label="Menu sluiten">SLUIT</button>
         <div class="menu-content">
             <div class="menu-left">
@@ -162,14 +380,14 @@
                 </ul>
                 <div class="menu-language-switcher">
                     <a href="/zakelijk" class="menu-lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
                     <a href="/en/meetings-and-events" class="menu-lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -180,7 +398,7 @@
                         </svg>
                     </a>
                     <a href="/de/tagungen-und-feiern" class="menu-lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -205,8 +423,8 @@
         </div>
     </nav>
 
-    <main>
-<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Zakelijk</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Zakelijke bijeenkomsten aan de Zeeuwse kust</h1><p class="business-hero-lead">Van een vergaderdag tot een teamuitje of meerdaags retreat. Bij Land &amp; Zee brengt u uw bijeenkomst, eten, activiteiten en verblijf samen op één locatie. Ontdek welk aanbod bij uw gezelschap past.</p><div class="business-actions"><a href="#aanbod" class="btn-editorial-teal">Ontdek ons zakelijke aanbod</a><a href="#aanvraag-formulier" class="btn-editorial-sand">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="images/Vergaderen/Resort Land &amp; Zee - november 2025-147.webp" alt="Vergaderruimte van Resort Land &amp; Zee" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Tot 100 personen</li><li>150 meter van het strand</li><li>Vergaderen, eten &amp; overnachten</li></ul></div></section><section id="aanbod" class="business-content-section"><div class="container"><p class="business-eyebrow">Kies uw bijeenkomst</p><h2>Wat wilt u organiseren?</h2><p class="business-section-lead">Elk gezelschap heeft een ander doel. Bekijk per aanbod wat u kunt verwachten, welke onderdelen mogelijk zijn en hoe een programma eruit kan zien.</p><div class="business-offer-grid"><a class="business-offer-card" href="/vergaderen-zeeland/"><img src="images/Vergaderen/Resort Land &amp; Zee - november 2025-147.webp" alt="Vergaderopstelling bij Resort Land &amp; Zee" loading="lazy" width="720" height="480"><div><h3>Vergaderen</h3><p>Vergaderen aan de Zeeuwse kust bij Land &amp; Zee. Vergelijk een halve en hele vergaderdag, bekijk faciliteiten en vraag een voorstel op maat aan.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/heisessie-zeeland/"><img src="images/Strand.webp" alt="Het Noordzeestrand bij Scharendijke" loading="lazy" width="720" height="480"><div><h3>Heisessies &amp; MT-overleg</h3><p>Organiseer een heisessie of MT-overleg in Scharendijke. Ruimte voor strategie, een strandpauze en eventueel overnachten bij Resort Land &amp; Zee.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/teamuitje-zeeland/"><img src="images/Vergaderen/strandtekening-sandmagic.jpg" alt="Gezamenlijke strandtekening als groepsactiviteit" loading="lazy" width="720" height="480"><div><h3>Teamuitjes &amp; teambuilding</h3><p>Een teamuitje of bedrijfsuitje in Zeeland organiseren? Combineer creatieve activiteiten, het strand en eten bij Resort Land &amp; Zee. Programma op maat.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/vergaderen-met-overnachting-zeeland/"><img src="images/Suite/Resort Land &amp; Zee - november 2025-61.webp" alt="Hotelkamer bij Resort Land &amp; Zee voor een meerdaags verblijf" loading="lazy" width="720" height="480"><div><h3>Meerdaags &amp; overnachten</h3><p>Meerdaags vergaderen of een zakelijke retreat aan zee. Combineer vergaderruimte, ontbijt, lunch, diner en verblijf bij Resort Land &amp; Zee in Zeeland.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/werkplek-zeeland/"><img src="images/Vergaderen/Resort Land &amp; Zee - november 2025-148.webp" alt="Werk- en overlegomgeving bij Land &amp; Zee" loading="lazy" width="720" height="480"><div><h3>Werkplekken</h3><p>Werk een dag buiten kantoor bij Land &amp; Zee in Scharendijke. Voor zelfstandig werken of kleine teams, met mogelijkheden voor lunch en diner.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/training-workshop-zeeland/"><img src="images/Vergaderen/Resort Land &amp; Zee - november 2025-149.webp" alt="Vergaderruimte voor een training of workshop" loading="lazy" width="720" height="480"><div><h3>Trainingen &amp; workshops</h3><p>Een training of workshop organiseren in Zeeland? Bekijk zaalopstellingen, faciliteiten en mogelijkheden voor lunch en verblijf bij Resort Land &amp; Zee.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/zakelijke-lunch-diner-zeeland/"><img src="images/Diner.webp" alt="Diner bij Restaurant Zeeuws Verlangen" loading="lazy" width="720" height="480"><div><h3>Zakelijke lunch &amp; diner</h3><p>Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk luncharrangementen en combineer samen eten met uw bijeenkomst.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a></div></div></section><section class="business-content-section"><div class="container"><h2>Maak er uw eigen programma van</h2><p class="business-section-lead">Combineer een passende ruimte met eten, verblijf en een activiteit. In het voorstel leggen we vast welke onderdelen bij uw bijeenkomst horen.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Lunch &amp; diner</h3><p>Van een lunch tussen de sessies tot samen dineren bij Zeeuws Verlangen. Bekijk de lunchformules en mogelijkheden voor groepen.</p></article><article class="business-detail-card"><h3>Overnachten</h3><p>Een tweede dag verder werken? Bekijk het meerdaagse arrangement en de kamers of accommodaties die bij uw verblijf passen.</p></article><article class="business-detail-card"><h3>Activiteiten</h3><p>Geef een creatieve workshop of strandactiviteit een plek in uw teamuitje. Beschikbaarheid en groepsgrootte stemmen we vooraf af.</p></article></div></div></section><section class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Een voorstel dat past</p><h2>Uw wensen bepalen de invulling</h2><p>Geef uw groepsgrootte, gewenste datum en programma door. We bekijken de mogelijkheden en maken duidelijk wat inbegrepen is en welke uitbreidingen apart worden berekend.</p></div><div><h3>Een halve of hele vergaderdag?</h3><p>Die vindt u samen op één pagina, zodat u de duur en mogelijkheden eenvoudig kunt vergelijken.</p><a class="btn-outline" href="/vergaderen-zeeland/">BEKIJK VERGADERARRANGEMENTEN</a></div></div></section>
+    <main id="main-content" tabindex="-1">
+<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Zakelijk</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Zakelijke bijeenkomsten aan de Zeeuwse kust</h1><p class="business-hero-lead">Van een vergaderdag tot een teamuitje of meerdaags retreat. Bij Land &amp; Zee brengt u uw bijeenkomst, eten, activiteiten en verblijf samen op één locatie. Ontdek welk aanbod bij uw gezelschap past.</p><div class="business-actions"><a href="#aanbod" class="btn-editorial-teal">Ontdek ons zakelijke aanbod</a><a href="#aanvraag-formulier" class="btn-editorial-sand">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="images/Vergaderen/Resort Land &amp; Zee - november 2025-147.webp" alt="Vergaderruimte van Resort Land &amp; Zee" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Tot 100 personen</li><li>150 meter van het strand</li><li>Vergaderen, eten &amp; overnachten</li></ul></div></section><section id="aanbod" class="business-content-section"><div class="container"><p class="business-eyebrow">Kies uw bijeenkomst</p><h2>Wat wilt u organiseren?</h2><p class="business-section-lead">Elk gezelschap heeft een ander doel. Bekijk per aanbod wat u kunt verwachten, welke onderdelen mogelijk zijn en hoe een programma eruit kan zien.</p><div class="business-offer-grid"><a class="business-offer-card" href="/vergaderen-zeeland/"><img src="images/Vergaderen/Resort Land &amp; Zee - november 2025-147.webp" alt="Vergaderopstelling bij Resort Land &amp; Zee" loading="lazy" width="720" height="480"><div><h3>Vergaderen</h3><p>Vergaderen aan de Zeeuwse kust bij Land &amp; Zee. Vergelijk een halve en hele vergaderdag, bekijk faciliteiten en vraag een voorstel op maat aan.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/heisessie-zeeland/"><img src="images/Strand.webp" alt="Het Noordzeestrand bij Scharendijke" loading="lazy" width="720" height="480"><div><h3>Heisessies &amp; MT-overleg</h3><p>Organiseer een heisessie of MT-overleg in Scharendijke. Ruimte voor strategie, een strandpauze en eventueel overnachten bij Resort Land &amp; Zee.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/teamuitje-zeeland/"><img src="images/Vergaderen/strandtekening-sandmagic.jpg" alt="Gezamenlijke strandtekening als groepsactiviteit" loading="lazy" width="720" height="480"><div><h3>Teamuitjes &amp; teambuilding</h3><p>Een teamuitje of bedrijfsuitje in Zeeland organiseren? Combineer creatieve activiteiten, het strand en eten bij Resort Land &amp; Zee. Programma op maat.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/vergaderen-met-overnachting-zeeland/"><img src="images/Suite/Resort Land &amp; Zee - november 2025-61.webp" alt="Hotelkamer bij Resort Land &amp; Zee voor een meerdaags verblijf" loading="lazy" width="720" height="480"><div><h3>Meerdaags &amp; overnachten</h3><p>Meerdaags vergaderen of een zakelijke retreat aan zee. Combineer vergaderruimte, ontbijt, lunch, diner en verblijf bij Resort Land &amp; Zee in Zeeland.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/werkplek-zeeland/"><img src="images/Vergaderen/Resort Land &amp; Zee - november 2025-148.webp" alt="Werk- en overlegomgeving bij Land &amp; Zee" loading="lazy" width="720" height="480"><div><h3>Werkplekken</h3><p>Werk een dag buiten kantoor bij Land &amp; Zee in Scharendijke. Voor zelfstandig werken of kleine teams, met mogelijkheden voor lunch en diner.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/training-workshop-zeeland/"><img src="images/Vergaderen/Resort Land &amp; Zee - november 2025-149.webp" alt="Vergaderruimte voor een training of workshop" loading="lazy" width="720" height="480"><div><h3>Trainingen &amp; workshops</h3><p>Een training of workshop organiseren in Zeeland? Bekijk zaalopstellingen, faciliteiten en mogelijkheden voor lunch en verblijf bij Resort Land &amp; Zee.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a><a class="business-offer-card" href="/zakelijke-lunch-diner-zeeland/"><img src="images/Diner.webp" alt="Diner bij Restaurant Zeeuws Verlangen" loading="lazy" width="720" height="480"><div><h3>Zakelijke lunch &amp; diner</h3><p>Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk menusuggesties en combineer samen eten met uw bijeenkomst.</p><span>Bekijk de mogelijkheden <span aria-hidden="true">↗</span></span></div></a></div></div></section><section class="business-content-section"><div class="container"><h2>Maak er uw eigen programma van</h2><p class="business-section-lead">Combineer een passende ruimte met eten, verblijf en een activiteit. In het voorstel leggen we vast welke onderdelen bij uw bijeenkomst horen.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Lunch &amp; diner</h3><p>Van een lunch tussen de sessies tot samen dineren bij Zeeuws Verlangen. Bekijk de menusuggesties en mogelijkheden voor groepen.</p></article><article class="business-detail-card"><h3>Overnachten</h3><p>Een tweede dag verder werken? Bekijk het meerdaagse arrangement en de kamers of accommodaties die bij uw verblijf passen.</p></article><article class="business-detail-card"><h3>Activiteiten</h3><p>Geef een creatieve workshop of strandactiviteit een plek in uw teamuitje. Beschikbaarheid en groepsgrootte stemmen we vooraf af.</p></article></div></div></section><section class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Een voorstel dat past</p><h2>Uw wensen bepalen de invulling</h2><p>Geef uw groepsgrootte, gewenste datum en programma door. We bekijken de mogelijkheden en maken duidelijk wat inbegrepen is en welke uitbreidingen apart worden berekend.</p></div><div><h3>Een halve of hele vergaderdag?</h3><p>Die vindt u samen op één pagina, zodat u de duur en mogelijkheden eenvoudig kunt vergelijken.</p><a class="btn-outline" href="/vergaderen-zeeland/">BEKIJK VERGADERARRANGEMENTEN</a></div></div></section>
         <!-- Contact Section -->
         <section id="aanvraag-formulier" class="contact-section business-contact-section">
             <div class="container contact-container">
@@ -329,9 +547,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="lunch-package-group" hidden>
-                                    <label for="lunch-package">Luncharrangement (optioneel)</label>
-                                    <select id="lunch-package" name="lunch_package" disabled>
+                                <div class="form-group" id="menu-package-group" hidden>
+                                    <label for="menu-package">Menuvoorkeur (optioneel)</label>
+                                    <select id="menu-package" name="menu_package" disabled>
                                         <option value="">Ik ontvang graag advies</option>
                                         <option value="Klassiek">Land &amp; Zee Klassiek</option>
                                         <option value="Bourgondisch">Land &amp; Zee Bourgondisch</option>
@@ -393,7 +611,7 @@
                 <div class="business-location-header">
                     <div>
                         <h2 id="business-location-title">Hier vindt u Land &amp; Zee</h2>
-                        <p>Rampweg 28, 4326 LK Scharendijke</p>
+                        <p>Rampweg 28, 4326 LK Scharendijke</p><p>Circa 80 parkeerplaatsen en 4 laadpalen. De vergaderzalen en het aangepaste toilet met douche zijn rolstoeltoegankelijk.</p>
                     </div>
                     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Resort+Land+en+Zee%2C+Rampweg+28%2C+Scharendijke"
                         class="btn-outline" target="_blank" rel="noopener">PLAN UW ROUTE</a>
@@ -480,6 +698,16 @@
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/resort-land-zee/home/" target="_blank" rel="noopener"
+                        class="social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true" focusable="false">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
                         </svg>
                     </a>
                 </div>

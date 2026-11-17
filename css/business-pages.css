@@ -162,6 +162,21 @@
     margin: 0;
 }
 
+.business-detail-card h4 {
+    font: inherit;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+}
+
+.business-inclusions {
+    margin: 0.5rem 0 1rem;
+    padding-left: 1.25rem;
+}
+
+.business-inclusions li + li {
+    margin-top: 0.35rem;
+}
+
 .business-section-nav {
     display: flex;
     flex-wrap: wrap;

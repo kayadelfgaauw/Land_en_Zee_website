@@ -19,6 +19,8 @@
     <link rel="canonical" href="https://landenzee.nl/teamuitje-zeeland/">
     <title>Een teamuitje in Zeeland, samen aan zee | Land &amp; Zee</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/accessibility.css">
+    <script src="../js/dialogs.js" defer></script>
     <link rel="stylesheet" href="../css/business-pages.css">
     <!-- Lenis Smooth Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
@@ -35,6 +37,26 @@
       "inLanguage": "nl-NL",
       "breadcrumb": {
         "@id": "https://landenzee.nl/teamuitje-zeeland/#breadcrumbs"
+      },
+      "publisher": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "about": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mentions": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://landenzee.nl/zakelijk#webpage"
+      },
+      "mainEntity": {
+        "@id": "https://landenzee.nl/teamuitje-zeeland/#service"
       }
     },
     {
@@ -60,6 +82,55 @@
           "item": "https://landenzee.nl/teamuitje-zeeland/"
         }
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/teamuitje-zeeland/#service",
+      "name": "Teamuitjes & teambuilding",
+      "url": "https://landenzee.nl/teamuitje-zeeland/",
+      "description": "Even weg van de werkvloer en samen iets beleven. Bij Land & Zee combineert u een teamuitje met het strand, een creatieve activiteit en eten bij Zeeuws Verlangen. Van een ontspannen middag met collega’s tot een bedrijfsuitje met een gezamenlijk overleg: het programma begint bij wat uw team leuk vindt en nodig heeft.",
+      "serviceType": "Teamuitjes & teambuilding",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/teamuitje-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Resort",
+      "@id": "https://landenzee.nl/#resort",
+      "name": "Resort Land & Zee",
+      "url": "https://landenzee.nl/",
+      "hasOfferCatalog": {
+        "@id": "https://landenzee.nl/zakelijk#aanbod"
+      },
+      "containsPlace": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ]
+    },
+    {
+      "@type": "Hotel",
+      "@id": "https://landenzee.nl/hotel/#hotel",
+      "name": "Hotel Land & Zee",
+      "url": "https://landenzee.nl/hotel/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://landenzee.nl/#restaurant",
+      "name": "Restaurant Zeeuws Verlangen",
+      "url": "https://www.zeeuwsverlangen.nl/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
     }
   ]
 }
@@ -73,6 +144,7 @@
 </head>
 
 <body class="business-page business-landing">
+    <a class="skip-link" href="#main-content">Direct naar inhoud</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -80,7 +152,7 @@
     <!-- Fixed Header -->
     <header id="main-header" class="fixed-header force-scrolled-style">
         <div class="header-container">
-            <button class="nav-link menu-trigger" aria-label="Open Menu">MENU</button>
+            <button class="nav-link menu-trigger" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" aria-label="Menu openen">MENU</button>
 
             <a href="/" class="header-logo-link">
                 <img src="../images/Logo/Logo Resort Land & Zee.png"
@@ -90,7 +162,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="/zakelijk" class="lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
@@ -98,7 +170,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/en/meetings-and-events" class="lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -110,7 +182,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/de/tagungen-und-feiern" class="lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -126,7 +198,7 @@
     </header>
 
     <!-- Fullscreen Menu -->
-        <nav class="fullscreen-menu" aria-hidden="true">
+        <nav class="fullscreen-menu" id="main-menu" role="dialog" aria-label="Hoofdnavigatie" aria-hidden="true" inert>
         <button class="menu-close" aria-label="Menu sluiten">SLUIT</button>
         <div class="menu-content">
             <div class="menu-left">
@@ -147,14 +219,14 @@
                 </ul>
                 <div class="menu-language-switcher">
                     <a href="/zakelijk" class="menu-lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
                     <a href="/en/meetings-and-events" class="menu-lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -165,7 +237,7 @@
                         </svg>
                     </a>
                     <a href="/de/tagungen-und-feiern" class="menu-lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -190,8 +262,8 @@
         </div>
     </nav>
 
-    <main>
-<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/zakelijk">Zakelijk</a><span aria-hidden="true">/</span><span aria-current="page">Teamuitjes &amp; teambuilding</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Een teamuitje in Zeeland, samen aan zee</h1><p class="business-hero-lead">Even weg van de werkvloer en samen iets beleven. Bij Land &amp; Zee combineert u een teamuitje met het strand, een creatieve activiteit en eten bij Zeeuws Verlangen. Van een ontspannen middag met collega’s tot een bedrijfsuitje met een gezamenlijk overleg: het programma begint bij wat uw team leuk vindt en nodig heeft.</p><div class="business-actions"><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="../images/Vergaderen/strandtekening-sandmagic.jpg" alt="Gezamenlijke strandtekening als groepsactiviteit" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Programma op maat</li><li>Locatie tot 100 personen</li><li>Activiteiten &amp; samen eten</li></ul></div></section><nav class="business-section-nav container" aria-label="Op deze pagina"><a href="#mogelijkheden">Mogelijkheden</a><a href="#programma">Voorbeeldprogramma</a><a href="#kosten">Kosten</a><a href="#vragen">Veelgestelde vragen</a></nav><div id="mogelijkheden"></div><section class="business-content-section"><div class="container"><h2>Kies wat bij uw team past</h2><p class="business-section-lead">Niet ieder team zoekt dezelfde activiteit. Bespreek de samenstelling van uw groep, het gewenste tempo en eventuele aandachtspunten. We bekijken welke activiteiten passen bij de datum en het aantal deelnemers.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Samen iets maken</h3><p>Denk aan vazen beschilderen of een groepsschilderij met Atelier Goudkust. Met Sandmagic kan een gezamenlijke strandtekening onderdeel van uw uitje worden.</p></article><article class="business-detail-card"><h3>Ontspannen en bewegen</h3><p>Yoga, een strandwandeling of een andere activiteit in de omgeving kunnen een plek in het programma krijgen. Deelname en praktische mogelijkheden stemmen we vooraf af.</p></article></div></div></section><section class="business-content-section"><div class="container"><h2>Maak er een complete dag van</h2><p class="business-section-lead">Start met een bijeenkomst, kies een activiteit en sluit af met een gezamenlijk eetmoment. De locatie kan gezelschappen tot 100 personen ontvangen; de mogelijkheden en capaciteit verschillen per activiteit.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Lunch of diner</h3><p>Een gezamenlijke maaltijd geeft ruimte om na te praten. We bespreken het menu, dieetwensen en een passend moment in uw programma.</p></article><article class="business-detail-card"><h3>Langer samen blijven</h3><p>Wilt u na de activiteit en het diner blijven overnachten? Geef dit aan bij de aanvraag, dan bekijken we passende verblijfsmogelijkheden.</p></article></div></div></section><section id="programma" class="business-content-section"><div class="container"><p class="business-eyebrow">Zo kan uw bijeenkomst eruitzien</p><h2>Een voorbeeldprogramma</h2><p class="business-section-lead">Dit is een mogelijke invulling, geen vast pakket. De tijden en onderdelen stemmen we met u af; optionele uitbreidingen worden afzonderlijk afgesproken.</p><ol class="business-program"><li><h3>Samen starten</h3><p>Ontvangst en kennismaking, eventueel met een kort teamoverleg.</p></li><li><h3>Iets beleven</h3><p>Een creatieve workshop, strandactiviteit of ontspannen onderdeel naar keuze.</p></li><li><h3>Samen afsluiten</h3><p>Een lunch, diner of andere afsluiting die past bij het gezelschap.</p></li></ol></div></section><section id="kosten" class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Kosten & samenstelling</p><h2>Wat kost een teamuitje?</h2><p>De kosten hangen vooral af van de gekozen activiteit, het aantal deelnemers, horeca en eventuele zaalhuur of overnachtingen. Activiteiten van partners zijn afhankelijk van beschikbaarheid. We werken uw keuzes uit in een offerte op maat.</p></div><aside><h3>Prijs op aanvraag</h3><p>Geef uw voorkeuren door. U ontvangt een voorstel met de afgesproken onderdelen en bijbehorende kosten.</p><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></aside></div></section><section id="vragen" class="business-content-section"><div class="container business-faq"><h2>Veelgestelde vragen</h2><details><summary>Voor hoeveel personen is een teamuitje mogelijk?</summary><p>Land &amp; Zee biedt mogelijkheden voor gezelschappen tot 100 personen. De groepsgrootte die bij een specifieke activiteit past, bespreken we met de uitvoerende partner.</p></details><details><summary>Wat gebeurt er bij slecht weer?</summary><p>Bespreek bij een buitenactiviteit vooraf welke alternatieven of afspraken mogelijk zijn. Een binnenprogramma is niet automatisch inbegrepen.</p></details><details><summary>Kunnen we een vergadering combineren met het uitje?</summary><p>Ja. Geef aan hoeveel tijd u aan de bijeenkomst wilt besteden, zodat ruimte, activiteit en eetmomenten op elkaar kunnen aansluiten.</p></details></div></section><section class="business-content-section business-combine" aria-labelledby="business-combine-title">
+    <main id="main-content" tabindex="-1">
+<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/zakelijk">Zakelijk</a><span aria-hidden="true">/</span><span aria-current="page">Teamuitjes &amp; teambuilding</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Een teamuitje in Zeeland, samen aan zee</h1><p class="business-hero-lead">Even weg van de werkvloer en samen iets beleven. Bij Land &amp; Zee combineert u een teamuitje met het strand, een creatieve activiteit en eten bij Zeeuws Verlangen. Van een ontspannen middag met collega’s tot een bedrijfsuitje met een gezamenlijk overleg: het programma begint bij wat uw team leuk vindt en nodig heeft.</p><div class="business-actions"><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="../images/Vergaderen/strandtekening-sandmagic.jpg" alt="Gezamenlijke strandtekening als groepsactiviteit" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Programma op maat</li><li>Locatie tot 100 personen</li><li>Activiteiten &amp; samen eten</li></ul></div></section><nav class="business-section-nav container" aria-label="Op deze pagina"><a href="#mogelijkheden">Mogelijkheden</a><a href="#programma">Voorbeeldprogramma</a><a href="#kosten">Kosten</a><a href="#vragen">Veelgestelde vragen</a></nav><div id="mogelijkheden"></div><section class="business-content-section"><div class="container"><h2>Kies wat bij uw team past</h2><p class="business-section-lead">Niet ieder team zoekt dezelfde activiteit. Bespreek de samenstelling van uw groep, het gewenste tempo en eventuele aandachtspunten. We bekijken welke activiteiten passen bij de datum en het aantal deelnemers.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Samen iets maken</h3><p>Maak en beschilder bloempotten of werk met Sandmagic aan een gezamenlijke strandtekening. De invulling stemmen we af op uw groep en de beschikbaarheid van de partner.</p></article><article class="business-detail-card"><h3>Ontspannen en bewegen</h3><p>Kies een fotocursus in de duinen of strandjutten via Pixlife. Ook yoga of Human Garage-training via Arlette Wierenga is mogelijk. Duur en groepsgrootte stemmen we vooraf af.</p></article></div></div></section><section class="business-content-section"><div class="container"><h2>Maak er een complete dag van</h2><p class="business-section-lead">Start met een bijeenkomst, kies een activiteit en sluit af met een gezamenlijk eetmoment. De locatie kan gezelschappen tot 100 personen ontvangen; de mogelijkheden en capaciteit verschillen per activiteit.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Eten en entertainment</h3><p>Combineer uw programma met lunch of diner. Ook oestermannen of -vrouwen, een band of een dj zijn op aanvraag mogelijk. Beschikbaarheid en kosten leggen we vast in uw voorstel.</p></article><article class="business-detail-card"><h3>Langer samen blijven</h3><p>Wilt u na de activiteit en het diner blijven overnachten? Geef dit aan bij de aanvraag, dan bekijken we passende verblijfsmogelijkheden.</p></article></div></div></section><section id="programma" class="business-content-section"><div class="container"><p class="business-eyebrow">Zo kan uw bijeenkomst eruitzien</p><h2>Een voorbeeldprogramma</h2><p class="business-section-lead">Dit is een mogelijke invulling, geen vast pakket. De tijden en onderdelen stemmen we met u af; optionele uitbreidingen worden afzonderlijk afgesproken.</p><ol class="business-program"><li><h3>Samen starten</h3><p>Ontvangst en kennismaking, eventueel met een kort teamoverleg.</p></li><li><h3>Iets beleven</h3><p>Een creatieve workshop, strandactiviteit of ontspannen onderdeel naar keuze.</p></li><li><h3>Samen afsluiten</h3><p>Een lunch, diner of andere afsluiting die past bij het gezelschap.</p></li></ol></div></section><section id="kosten" class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Kosten & samenstelling</p><h2>Wat kost een teamuitje?</h2><p>De kosten hangen vooral af van de gekozen activiteit, het aantal deelnemers, horeca en eventuele zaalhuur of overnachtingen. Activiteiten van partners zijn afhankelijk van beschikbaarheid. We werken uw keuzes uit in een offerte op maat.</p></div><aside><h3>Prijs op aanvraag</h3><p>Geef uw voorkeuren door. U ontvangt een voorstel met de afgesproken onderdelen en bijbehorende kosten. Prijzen voor zakelijke arrangementen zijn exclusief btw.</p><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></aside></div></section><section id="vragen" class="business-content-section"><div class="container business-faq"><h2>Veelgestelde vragen</h2><details><summary>Voor hoeveel personen is een teamuitje mogelijk?</summary><p>Land &amp; Zee biedt mogelijkheden voor gezelschappen tot 100 personen. De groepsgrootte die bij een specifieke activiteit past, bespreken we met de uitvoerende partner.</p></details><details><summary>Wat gebeurt er bij slecht weer?</summary><p>We kunnen vooraf een alternatief programma afspreken. Land &amp; Zee beschikt over een nette witte partytent van 8 bij 12 meter. Ook het gebruik van een grote hal bij de naastgelegen Zeeuwse Kust kan worden besproken. Beschikbaarheid en eventuele kosten stemmen we vooraf af.</p></details><details><summary>Kunnen we een vergadering combineren met het uitje?</summary><p>Ja. Geef aan hoeveel tijd u aan de bijeenkomst wilt besteden, zodat ruimte, activiteit en eetmomenten op elkaar kunnen aansluiten.</p></details></div></section><section class="business-content-section business-combine" aria-labelledby="business-combine-title">
     <div class="container">
         <div class="business-combine-panel">
             <p class="business-eyebrow">Alles op één locatie</p>
@@ -338,9 +410,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="lunch-package-group" hidden>
-                                    <label for="lunch-package">Luncharrangement (optioneel)</label>
-                                    <select id="lunch-package" name="lunch_package" disabled>
+                                <div class="form-group" id="menu-package-group" hidden>
+                                    <label for="menu-package">Menuvoorkeur (optioneel)</label>
+                                    <select id="menu-package" name="menu_package" disabled>
                                         <option value="">Ik ontvang graag advies</option>
                                         <option value="Klassiek">Land &amp; Zee Klassiek</option>
                                         <option value="Bourgondisch">Land &amp; Zee Bourgondisch</option>
@@ -402,7 +474,7 @@
                 <div class="business-location-header">
                     <div>
                         <h2 id="business-location-title">Hier vindt u Land &amp; Zee</h2>
-                        <p>Rampweg 28, 4326 LK Scharendijke</p>
+                        <p>Rampweg 28, 4326 LK Scharendijke</p><p>Circa 80 parkeerplaatsen en 4 laadpalen. De vergaderzalen en het aangepaste toilet met douche zijn rolstoeltoegankelijk.</p>
                     </div>
                     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Resort+Land+en+Zee%2C+Rampweg+28%2C+Scharendijke"
                         class="btn-outline" target="_blank" rel="noopener">PLAN UW ROUTE</a>
@@ -489,6 +561,16 @@
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/resort-land-zee/home/" target="_blank" rel="noopener"
+                        class="social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true" focusable="false">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
                         </svg>
                     </a>
                 </div>

@@ -14,11 +14,13 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk luncharrangementen en combineer samen eten met uw bijeenkomst.">
+    <meta name="description" content="Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk menusuggesties en combineer samen eten met uw bijeenkomst.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://landenzee.nl/zakelijke-lunch-diner-zeeland/">
     <title>Zakelijk lunchen en dineren in Zeeland | Land &amp; Zee</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/accessibility.css">
+    <script src="../js/dialogs.js" defer></script>
     <link rel="stylesheet" href="../css/business-pages.css">
     <!-- Lenis Smooth Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
@@ -31,10 +33,30 @@
       "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#webpage",
       "url": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/",
       "name": "Zakelijk lunchen en dineren in Zeeland",
-      "description": "Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk luncharrangementen en combineer samen eten met uw bijeenkomst.",
+      "description": "Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk menusuggesties en combineer samen eten met uw bijeenkomst.",
       "inLanguage": "nl-NL",
       "breadcrumb": {
         "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#breadcrumbs"
+      },
+      "publisher": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "about": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mentions": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://landenzee.nl/zakelijk#webpage"
+      },
+      "mainEntity": {
+        "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#service"
       }
     },
     {
@@ -60,12 +82,61 @@
           "item": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/"
         }
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#service",
+      "name": "Zakelijke lunch & diner",
+      "url": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/",
+      "description": "Samen eten geeft ruimte voor een ander gesprek. Bij Restaurant Zeeuws Verlangen op het resort combineert u een zakelijke lunch of diner met uw overleg, teamuitje of werkdag. U kunt ook een afzonderlijk zakelijk eetmoment aanvragen. We stemmen de invulling af op uw gezelschap en programma.",
+      "serviceType": "Zakelijke lunch & diner",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/zakelijke-lunch-diner-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Resort",
+      "@id": "https://landenzee.nl/#resort",
+      "name": "Resort Land & Zee",
+      "url": "https://landenzee.nl/",
+      "hasOfferCatalog": {
+        "@id": "https://landenzee.nl/zakelijk#aanbod"
+      },
+      "containsPlace": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ]
+    },
+    {
+      "@type": "Hotel",
+      "@id": "https://landenzee.nl/hotel/#hotel",
+      "name": "Hotel Land & Zee",
+      "url": "https://landenzee.nl/hotel/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://landenzee.nl/#restaurant",
+      "name": "Restaurant Zeeuws Verlangen",
+      "url": "https://www.zeeuwsverlangen.nl/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
     }
   ]
 }
     </script>
     <meta property="og:title" content="Zakelijk lunchen en dineren in Zeeland">
-    <meta property="og:description" content="Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk luncharrangementen en combineer samen eten met uw bijeenkomst.">
+    <meta property="og:description" content="Een zakelijke lunch of groepsdiner bij Zeeuws Verlangen in Scharendijke. Bekijk menusuggesties en combineer samen eten met uw bijeenkomst.">
     <meta property="og:url" content="https://landenzee.nl/zakelijke-lunch-diner-zeeland/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://landenzee.nl/images/Diner.webp">
@@ -73,6 +144,7 @@
 </head>
 
 <body class="business-page business-landing">
+    <a class="skip-link" href="#main-content">Direct naar inhoud</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -80,7 +152,7 @@
     <!-- Fixed Header -->
     <header id="main-header" class="fixed-header force-scrolled-style">
         <div class="header-container">
-            <button class="nav-link menu-trigger" aria-label="Open Menu">MENU</button>
+            <button class="nav-link menu-trigger" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" aria-label="Menu openen">MENU</button>
 
             <a href="/" class="header-logo-link">
                 <img src="../images/Logo/Logo Resort Land & Zee.png"
@@ -90,7 +162,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="/zakelijk" class="lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
@@ -98,7 +170,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/en/meetings-and-events" class="lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -110,7 +182,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/de/tagungen-und-feiern" class="lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -126,7 +198,7 @@
     </header>
 
     <!-- Fullscreen Menu -->
-        <nav class="fullscreen-menu" aria-hidden="true">
+        <nav class="fullscreen-menu" id="main-menu" role="dialog" aria-label="Hoofdnavigatie" aria-hidden="true" inert>
         <button class="menu-close" aria-label="Menu sluiten">SLUIT</button>
         <div class="menu-content">
             <div class="menu-left">
@@ -147,14 +219,14 @@
                 </ul>
                 <div class="menu-language-switcher">
                     <a href="/zakelijk" class="menu-lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
                     <a href="/en/meetings-and-events" class="menu-lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -165,7 +237,7 @@
                         </svg>
                     </a>
                     <a href="/de/tagungen-und-feiern" class="menu-lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -190,8 +262,8 @@
         </div>
     </nav>
 
-    <main>
-<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/zakelijk">Zakelijk</a><span aria-hidden="true">/</span><span aria-current="page">Zakelijke lunch &amp; diner</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Zakelijk lunchen en dineren in Zeeland</h1><p class="business-hero-lead">Samen eten geeft ruimte voor een ander gesprek. Bij Restaurant Zeeuws Verlangen op het resort combineert u een zakelijke lunch of diner met uw overleg, teamuitje of werkdag. U kunt ook een afzonderlijk zakelijk eetmoment aanvragen. We stemmen de invulling af op uw gezelschap en programma.</p><div class="business-actions"><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="../images/Diner.webp" alt="Diner bij Restaurant Zeeuws Verlangen" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Restaurant Zeeuws Verlangen</li><li>Drie luncharrangementen</li><li>Ook bij uw bijeenkomst</li></ul></div></section><nav class="business-section-nav container" aria-label="Op deze pagina"><a href="#mogelijkheden">Mogelijkheden</a><a href="#programma">Voorbeeldprogramma</a><a href="#kosten">Kosten</a><a href="#vragen">Veelgestelde vragen</a></nav><div id="mogelijkheden"></div><section class="business-content-section"><div class="container"><h2>Welke lunch past bij uw gezelschap?</h2><p class="business-section-lead">Er zijn drie luncharrangementen met een eigen invulling. Geef een voorkeur door; de definitieve samenstelling en eventuele dieetwensen bespreken we bij uw aanvraag.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Land &amp; Zee Klassiek</h3><p>Een traditionele zakelijke lunch met een assortiment broodjes en verschillende soorten beleg.</p></article><article class="business-detail-card"><h3>Land &amp; Zee Bourgondisch</h3><p>Een uitgebreidere lunch met warme en koude onderdelen. De concrete samenstelling stemmen we vooraf af.</p></article><article class="business-detail-card"><h3>Land &amp; Zee Vitaal</h3><p>Een lichte lunch met onder meer fruit, salades en een verse smoothie. Bespreek dieetwensen bij het samenstellen van het menu.</p></article></div></div></section><section class="business-content-section"><div class="container"><h2>Een gezamenlijk diner als afsluiting</h2><p class="business-section-lead">Voor groepen kan een meergangenmenu worden afgestemd. Wat mogelijk is, hangt af van de groepsgrootte, de datum en het menu. Geef de gewenste aankomsttijd en dieetwensen door.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Na een vergadering</h3><p>Laat het diner aansluiten op het einde van uw bijeenkomst, zodat u samen kunt napraten.</p></article><article class="business-detail-card"><h3>Onderdeel van een teamuitje</h3><p>Combineer een activiteit met een lunch of diner. We bekijken samen hoe de tijden op elkaar aansluiten.</p></article></div></div></section><div class="container business-actions business-day-actions"><a class="btn-outline btn-select-package" href="#aanvraag-formulier" data-package="Lunch of Diner" data-catering="Lunch" data-lunch="Klassiek">VRAAG KLASSIEK AAN</a><a class="btn-outline btn-select-package" href="#aanvraag-formulier" data-package="Lunch of Diner" data-catering="Lunch" data-lunch="Bourgondisch">VRAAG BOURGONDISCH AAN</a><a class="btn-outline btn-select-package" href="#aanvraag-formulier" data-package="Lunch of Diner" data-catering="Lunch" data-lunch="Vitaal">VRAAG VITAAL AAN</a><a class="btn-outline btn-select-package" href="#aanvraag-formulier" data-package="Lunch of Diner" data-catering="Diner">VRAAG EEN DINER AAN</a></div><section id="programma" class="business-content-section"><div class="container"><p class="business-eyebrow">Zo kan uw bijeenkomst eruitzien</p><h2>Een voorbeeldprogramma</h2><p class="business-section-lead">Dit is een mogelijke invulling, geen vast pakket. De tijden en onderdelen stemmen we met u af; optionele uitbreidingen worden afzonderlijk afgesproken.</p><ol class="business-program"><li><h3>Ontvangst</h3><p>Aankomst van het gezelschap op het afgesproken tijdstip.</p></li><li><h3>Samen aan tafel</h3><p>De gekozen lunchformule of het afgestemde diner, met ruimte voor gesprek.</p></li><li><h3>Verder met uw programma</h3><p>Na de lunch verder vergaderen of na het diner uw bijeenkomst afronden.</p></li></ol></div></section><section id="kosten" class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Kosten & samenstelling</p><h2>Wat kost uw bijeenkomst?</h2><p>Vraag een prijs aan voor de gekozen lunchformule of het groepsmenu. Het aantal personen, de menukeuze, drankjes en eventuele uitbreidingen bepalen het totaal. De actuele invulling en prijzen bevestigen we in het voorstel.</p></div><aside><h3>Prijs op aanvraag</h3><p>Geef uw voorkeuren door. U ontvangt een voorstel met de afgesproken onderdelen en bijbehorende kosten.</p><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></aside></div></section><section id="vragen" class="business-content-section"><div class="container business-faq"><h2>Veelgestelde vragen</h2><details><summary>Moet iedereen hetzelfde luncharrangement kiezen?</summary><p>De mogelijkheden voor een gezamenlijke formule bespreken we op basis van de groepsgrootte. Geef afwijkende wensen vooraf door.</p></details><details><summary>Kunnen jullie rekening houden met dieetwensen?</summary><p>Geef allergieën en dieetwensen bij uw aanvraag aan. Het restaurant bevestigt welke aanpassingen mogelijk zijn.</p></details><details><summary>Kan ik alleen een lunch of diner aanvragen?</summary><p>Ja. Selecteer zakelijke lunch / diner in het formulier. U hoeft daarvoor geen vergaderruimte of overnachting aan te vragen.</p></details></div></section><section class="business-content-section business-combine" aria-labelledby="business-combine-title">
+    <main id="main-content" tabindex="-1">
+<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/zakelijk">Zakelijk</a><span aria-hidden="true">/</span><span aria-current="page">Zakelijke lunch &amp; diner</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Zakelijk lunchen en dineren in Zeeland</h1><p class="business-hero-lead">Samen eten geeft ruimte voor een ander gesprek. Bij Restaurant Zeeuws Verlangen op het resort combineert u een zakelijke lunch of diner met uw overleg, teamuitje of werkdag. U kunt ook een afzonderlijk zakelijk eetmoment aanvragen. We stemmen de invulling af op uw gezelschap en programma.</p><div class="business-actions"><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="../images/Diner.webp" alt="Diner bij Restaurant Zeeuws Verlangen" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Restaurant Zeeuws Verlangen</li><li>Drie menu’s op maat</li><li>Ook bij uw bijeenkomst</li></ul></div></section><nav class="business-section-nav container" aria-label="Op deze pagina"><a href="#mogelijkheden">Mogelijkheden</a><a href="#programma">Voorbeeldprogramma</a><a href="#kosten">Kosten</a><a href="#vragen">Veelgestelde vragen</a></nav><div id="mogelijkheden"></div><section class="business-content-section"><div class="container"><h2>Drie driegangenmenu’s als vertrekpunt</h2><p class="business-section-lead">Klassiek, Bourgondisch en Vitaal zijn menusuggesties voor uw gezelschap. Alle genoemde bedragen zijn exclusief btw. De keuken kan de menu’s op verzoek aanpassen; de definitieve samenstelling en dieetwensen stemmen we vooraf af.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Klassiek Menu · € 34,50</h3><ul class="business-inclusions"><li><strong>Voorgerecht: Carpaccio van rund</strong><br>Truffelmayonaise, oude Zeeuwse kaas, pittenmix en rucola</li><li><strong>Hoofdgerecht: Langzaam gegaarde sukade</strong><br>Seizoensgroenten, rodewijnjus en aardappelgratin</li><li><strong>Dessert: Dame Blanche</strong><br>Vanille-ijs, warme chocoladesaus en slagroom</li></ul><a class="btn-outline btn-select-package" href="#aanvraag-formulier" data-package="Lunch of Diner" data-menu="Klassiek">VRAAG KLASSIEK AAN</a></article><article class="business-detail-card"><h3>Bourgondisch Menu · € 36,50</h3><ul class="business-inclusions"><li><strong>Voorgerecht: Proeverij van vis</strong><br>Gerookte zalm, garnalen en huisgemaakte visrillette</li><li><strong>Hoofdgerecht: Varkenshaasmedaillons</strong><br>Romige pepersaus, seizoensgroenten en frieten</li><li><strong>Dessert: Warm appelgebakje</strong><br>Vanille-ijs en karamelsaus</li></ul><a class="btn-outline btn-select-package" href="#aanvraag-formulier" data-package="Lunch of Diner" data-menu="Bourgondisch">VRAAG BOURGONDISCH AAN</a></article><article class="business-detail-card"><h3>Vitaal Menu · € 34,50</h3><ul class="business-inclusions"><li><strong>Voorgerecht: Salade geitenkaas</strong><br>Geroosterde biet, walnoten en honingdressing</li><li><strong>Hoofdgerecht: Gebakken kabeljauwfilet</strong><br>Groene groenten, quinoa en citroen-kruidendressing</li><li><strong>Dessert: Hangop van Zeeuwse yoghurt</strong><br>Rood fruit en amandelcrumble</li></ul><a class="btn-outline btn-select-package" href="#aanvraag-formulier" data-package="Lunch of Diner" data-menu="Vitaal">VRAAG VITAAL AAN</a></article></div></div></section><section class="business-content-section"><div class="container"><h2>Een gezamenlijk diner als afsluiting</h2><p class="business-section-lead">Voor groepen kan een meergangenmenu worden afgestemd. Wat mogelijk is, hangt af van de groepsgrootte, de datum en het menu. Geef de gewenste aankomsttijd en dieetwensen door.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Na een vergadering</h3><p>Laat het diner aansluiten op het einde van uw bijeenkomst, zodat u samen kunt napraten.</p></article><article class="business-detail-card"><h3>Onderdeel van een teamuitje</h3><p>Combineer een activiteit met een lunch of diner. We bekijken samen hoe de tijden op elkaar aansluiten.</p></article></div></div></section><section id="programma" class="business-content-section"><div class="container"><p class="business-eyebrow">Zo kan uw bijeenkomst eruitzien</p><h2>Een voorbeeldprogramma</h2><p class="business-section-lead">Dit is een mogelijke invulling, geen vast pakket. De tijden en onderdelen stemmen we met u af; optionele uitbreidingen worden afzonderlijk afgesproken.</p><ol class="business-program"><li><h3>Ontvangst</h3><p>Aankomst van het gezelschap op het afgesproken tijdstip.</p></li><li><h3>Samen aan tafel</h3><p>Het gekozen menu, afgestemd op uw gezelschap, met ruimte voor gesprek.</p></li><li><h3>Verder met uw programma</h3><p>Na de lunch verder vergaderen of na het diner uw bijeenkomst afronden.</p></li></ol></div></section><section id="kosten" class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Kosten & samenstelling</p><h2>Wat kost uw bijeenkomst?</h2><p>De menusuggesties Klassiek en Vitaal kosten € 34,50; Bourgondisch kost € 36,50, exclusief btw. Voor een aangepaste lunch of diner maken we een voorstel. De menukeuze, drankjes en eventuele uitbreidingen nemen we daarin mee.</p></div><aside><h3>Prijs op aanvraag</h3><p>Geef uw voorkeuren door. U ontvangt een voorstel met de afgesproken onderdelen en bijbehorende kosten. Prijzen voor zakelijke arrangementen zijn exclusief btw.</p><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></aside></div></section><section id="vragen" class="business-content-section"><div class="container business-faq"><h2>Veelgestelde vragen</h2><details><summary>Kunnen de menu’s worden aangepast?</summary><p>Ja. De drie menu’s zijn suggesties. De keuken denkt graag mee over een andere samenstelling; geef uw voorkeuren, allergieën en dieetwensen vooraf door.</p></details><details><summary>Kunnen jullie rekening houden met dieetwensen?</summary><p>Geef allergieën en dieetwensen bij uw aanvraag aan. Het restaurant bevestigt welke aanpassingen mogelijk zijn.</p></details><details><summary>Kan ik alleen een lunch of diner aanvragen?</summary><p>Ja. Selecteer zakelijke lunch / diner in het formulier. U hoeft daarvoor geen vergaderruimte of overnachting aan te vragen.</p></details></div></section><section class="business-content-section business-combine" aria-labelledby="business-combine-title">
     <div class="container">
         <div class="business-combine-panel">
             <p class="business-eyebrow">Alles op één locatie</p>
@@ -338,9 +410,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="lunch-package-group" hidden>
-                                    <label for="lunch-package">Luncharrangement (optioneel)</label>
-                                    <select id="lunch-package" name="lunch_package" disabled>
+                                <div class="form-group" id="menu-package-group" hidden>
+                                    <label for="menu-package">Menuvoorkeur (optioneel)</label>
+                                    <select id="menu-package" name="menu_package" disabled>
                                         <option value="">Ik ontvang graag advies</option>
                                         <option value="Klassiek">Land &amp; Zee Klassiek</option>
                                         <option value="Bourgondisch">Land &amp; Zee Bourgondisch</option>
@@ -402,7 +474,7 @@
                 <div class="business-location-header">
                     <div>
                         <h2 id="business-location-title">Hier vindt u Land &amp; Zee</h2>
-                        <p>Rampweg 28, 4326 LK Scharendijke</p>
+                        <p>Rampweg 28, 4326 LK Scharendijke</p><p>Circa 80 parkeerplaatsen en 4 laadpalen. De vergaderzalen en het aangepaste toilet met douche zijn rolstoeltoegankelijk.</p>
                     </div>
                     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Resort+Land+en+Zee%2C+Rampweg+28%2C+Scharendijke"
                         class="btn-outline" target="_blank" rel="noopener">PLAN UW ROUTE</a>
@@ -489,6 +561,16 @@
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/resort-land-zee/home/" target="_blank" rel="noopener"
+                        class="social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true" focusable="false">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
                         </svg>
                     </a>
                 </div>

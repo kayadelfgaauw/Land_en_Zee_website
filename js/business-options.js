@@ -4,16 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var arrangementHelp = document.getElementById('arrangement-help');
     var overnightInput = document.getElementById('overnight');
     var cateringInput = document.getElementById('catering');
-    var lunchInput = document.getElementById('lunch-package');
+    var menuInput = document.getElementById('menu-package');
     var includedOptions = null;
 
-    function updateLunchOptions() {
-        var hasLunch = cateringInput.value === 'Lunch' || cateringInput.value === 'Lunch en diner';
-        document.getElementById('lunch-package-group').hidden = !hasLunch;
-        lunchInput.disabled = !hasLunch;
+    function updateMenuOptions() {
+        var hasMeal = cateringInput.value === 'Lunch' || cateringInput.value === 'Diner' || cateringInput.value === 'Lunch en diner';
+        var showMenu = cateringInput.value !== 'Geen' && (hasMeal || menuInput.value !== '');
+        document.getElementById('menu-package-group').hidden = !showMenu;
+        menuInput.disabled = !showMenu;
     }
 
-    cateringInput.addEventListener('change', updateLunchOptions);
+    cateringInput.addEventListener('change', updateMenuOptions);
 
     function updateIncludedOptions() {
         var isRetreat = arrangementInput.value === 'Meerdagen arrangement';
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ? 'Bij dit retreat zijn overnachtingen, ontbijt, lunches en diners inbegrepen.'
             : '';
         arrangementHelp.hidden = !isRetreat;
-        updateLunchOptions();
+        updateMenuOptions();
     }
 
     arrangementInput.addEventListener('change', updateIncludedOptions);
@@ -47,12 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
         function selectAndScroll() {
             var pkg = btn.getAttribute('data-package');
             var catering = btn.getAttribute('data-catering');
-            var lunch = btn.getAttribute('data-lunch');
+            var menu = btn.getAttribute('data-menu');
             var formSection = document.getElementById('aanvraag-formulier');
             // Catering is an addition to an existing meeting, rather than a replacement.
-            if ((!catering || !arrangementInput.value) && Array.from(arrangementInput.options).some(function (option) { return option.value === pkg; })) {
+            if (((!catering && !menu) || !arrangementInput.value) && Array.from(arrangementInput.options).some(function (option) { return option.value === pkg; })) {
                 arrangementInput.value = pkg;
-                updateIncludedOptions();
+                arrangementInput.dispatchEvent(new Event('change', { bubbles: true }));
             }
             if (catering && arrangementInput.value !== 'Meerdagen arrangement') {
                 var combinesMeals = cateringInput.value === 'Lunch en diner'
@@ -60,12 +61,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     || (catering === 'Diner' && cateringInput.value === 'Lunch');
                 cateringInput.value = combinesMeals ? 'Lunch en diner' : catering;
             }
-            if (lunch) {
-                lunchInput.value = lunch;
+            if (menu) {
+                menuInput.value = menu;
+                if (cateringInput.value === 'Geen') cateringInput.value = 'Nog te bepalen';
             }
-            updateLunchOptions();
+            updateMenuOptions();
             if (formSection) {
-                formSection.scrollIntoView({ behavior: 'smooth' });
+                formSection.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
             }
             arrangementInput.focus({ preventScroll: true });
         }
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             selectAndScroll();
         });
 
-        btn.addEventListener('keydown', function (e) {
+        if (!btn.matches('a, button')) btn.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 selectAndScroll();

@@ -19,6 +19,8 @@
     <link rel="canonical" href="https://landenzee.nl/werkplek-zeeland/">
     <title>Een werkplek buiten kantoor in Zeeland | Land &amp; Zee</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/accessibility.css">
+    <script src="../js/dialogs.js" defer></script>
     <link rel="stylesheet" href="../css/business-pages.css">
     <!-- Lenis Smooth Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
@@ -35,6 +37,26 @@
       "inLanguage": "nl-NL",
       "breadcrumb": {
         "@id": "https://landenzee.nl/werkplek-zeeland/#breadcrumbs"
+      },
+      "publisher": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "about": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mentions": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://landenzee.nl/zakelijk#webpage"
+      },
+      "mainEntity": {
+        "@id": "https://landenzee.nl/werkplek-zeeland/#service"
       }
     },
     {
@@ -60,6 +82,55 @@
           "item": "https://landenzee.nl/werkplek-zeeland/"
         }
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://landenzee.nl/werkplek-zeeland/#service",
+      "name": "Werkplekken",
+      "url": "https://landenzee.nl/werkplek-zeeland/",
+      "description": "Wilt u ongestoord schrijven, een plan uitwerken of samen met een klein projectteam aan de slag? Het werkplekarrangement van Land & Zee biedt een andere omgeving dan kantoor of thuis. Combineer uw werkdag in Scharendijke met een eetmoment en een wandeling naar het strand.",
+      "serviceType": "Werkplekken",
+      "provider": {
+        "@id": "https://landenzee.nl/#resort"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://landenzee.nl/werkplek-zeeland/#webpage"
+      }
+    },
+    {
+      "@type": "Resort",
+      "@id": "https://landenzee.nl/#resort",
+      "name": "Resort Land & Zee",
+      "url": "https://landenzee.nl/",
+      "hasOfferCatalog": {
+        "@id": "https://landenzee.nl/zakelijk#aanbod"
+      },
+      "containsPlace": [
+        {
+          "@id": "https://landenzee.nl/hotel/#hotel"
+        },
+        {
+          "@id": "https://landenzee.nl/#restaurant"
+        }
+      ]
+    },
+    {
+      "@type": "Hotel",
+      "@id": "https://landenzee.nl/hotel/#hotel",
+      "name": "Hotel Land & Zee",
+      "url": "https://landenzee.nl/hotel/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://landenzee.nl/#restaurant",
+      "name": "Restaurant Zeeuws Verlangen",
+      "url": "https://www.zeeuwsverlangen.nl/",
+      "containedInPlace": {
+        "@id": "https://landenzee.nl/#resort"
+      }
     }
   ]
 }
@@ -73,6 +144,7 @@
 </head>
 
 <body class="business-page business-landing">
+    <a class="skip-link" href="#main-content">Direct naar inhoud</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6G9HF63" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -80,7 +152,7 @@
     <!-- Fixed Header -->
     <header id="main-header" class="fixed-header force-scrolled-style">
         <div class="header-container">
-            <button class="nav-link menu-trigger" aria-label="Open Menu">MENU</button>
+            <button class="nav-link menu-trigger" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" aria-label="Menu openen">MENU</button>
 
             <a href="/" class="header-logo-link">
                 <img src="../images/Logo/Logo Resort Land & Zee.png"
@@ -90,7 +162,7 @@
             <div class="header-right">
                 <div class="language-switcher">
                     <a href="/zakelijk" class="lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
@@ -98,7 +170,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/en/meetings-and-events" class="lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -110,7 +182,7 @@
                     </a>
                     <span class="lang-separator">|</span>
                     <a href="/de/tagungen-und-feiern" class="lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -126,7 +198,7 @@
     </header>
 
     <!-- Fullscreen Menu -->
-        <nav class="fullscreen-menu" aria-hidden="true">
+        <nav class="fullscreen-menu" id="main-menu" role="dialog" aria-label="Hoofdnavigatie" aria-hidden="true" inert>
         <button class="menu-close" aria-label="Menu sluiten">SLUIT</button>
         <div class="menu-content">
             <div class="menu-left">
@@ -147,14 +219,14 @@
                 </ul>
                 <div class="menu-language-switcher">
                     <a href="/zakelijk" class="menu-lang-link active" title="Nederlands">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path fill="#AE1C28" d="M0 170.7h512V0H0z" />
                             <path fill="#21468B" d="M0 512h512V341.3H0z" />
                         </svg>
                     </a>
                     <a href="/en/meetings-and-events" class="menu-lang-link " title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#00247D" />
                             <path fill="#F0F0F0"
                                 d="M480 0h32v33.4l-128 128V128L480 0zM0 0h32l128 128h-33.4L0 32V0zM0 480v32h33.4l128-128H128L0 480zM512 480v32h-32l-128-128h33.4l126.6 128z" />
@@ -165,7 +237,7 @@
                         </svg>
                     </a>
                     <a href="/de/tagungen-und-feiern" class="menu-lang-link " title="Deutsch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
                             <circle cx="256" cy="256" r="256" fill="#F0F0F0" />
                             <path d="M0 170.7h512V0H0z" />
                             <path fill="#D00" d="M0 341.3h512V170.7H0z" />
@@ -190,8 +262,8 @@
         </div>
     </nav>
 
-    <main>
-<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/zakelijk">Zakelijk</a><span aria-hidden="true">/</span><span aria-current="page">Werkplekken</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Een werkplek buiten kantoor in Zeeland</h1><p class="business-hero-lead">Wilt u ongestoord schrijven, een plan uitwerken of samen met een klein projectteam aan de slag? Het werkplekarrangement van Land &amp; Zee biedt een andere omgeving dan kantoor of thuis. Combineer uw werkdag in Scharendijke met een eetmoment en een wandeling naar het strand.</p><div class="business-actions"><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="../images/Vergaderen/Resort Land &amp; Zee - november 2025-148.webp" alt="Werk- en overlegomgeving bij Land &amp; Zee" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Zelfstandig of met een klein team</li><li>Voor 1 tot 6 personen</li><li>Lunch &amp; diner naar wens</li></ul></div></section><nav class="business-section-nav container" aria-label="Op deze pagina"><a href="#mogelijkheden">Mogelijkheden</a><a href="#programma">Voorbeeldprogramma</a><a href="#kosten">Kosten</a><a href="#vragen">Veelgestelde vragen</a></nav><div id="mogelijkheden"></div><section class="business-content-section"><div class="container"><h2>Een dag om meters te maken</h2><p class="business-section-lead">Dit aanbod is gericht op individueel werken en kleine groepen tot zes personen. Geef aan of u vooral zelfstandig wilt werken of samen wilt overleggen. We bespreken de passende plek en beschikbare voorzieningen.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Voor uzelf</h3><p>Werk aan een rapport, presentatie of nieuw idee en deel uw dag naar eigen behoefte in.</p></article><article class="business-detail-card"><h3>Voor een klein team</h3><p>Gebruik de dag om een project voor te bereiden of samen iets uit te werken. Voor een grotere vergadering met zaalopstelling is het vergaderarrangement een passendere ingang.</p></article></div></div></section><section class="business-content-section"><div class="container"><h2>Stem de werkdag op uw wensen af</h2><p class="business-section-lead">Laat weten wanneer u wilt komen, met hoeveel mensen en welke voorzieningen u nodig heeft. Beschikbaarheid en het gebruik van aanvullende vergadermiddelen bevestigen we vooraf.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Een lunch tussendoor</h3><p>Breid uw werkplek uit met een lunch. Welke kaart of lunchformule bij uw gezelschap past, bespreken we bij de aanvraag.</p></article><article class="business-detail-card"><h3>Afsluiten met een diner</h3><p>Wilt u na het werk samen eten bij Zeeuws Verlangen? Geef dit aan, zodat we het eetmoment kunnen meenemen in het voorstel.</p></article></div></div></section><section id="programma" class="business-content-section"><div class="container"><p class="business-eyebrow">Zo kan uw bijeenkomst eruitzien</p><h2>Een voorbeeldprogramma</h2><p class="business-section-lead">Dit is een mogelijke invulling, geen vast pakket. De tijden en onderdelen stemmen we met u af; optionele uitbreidingen worden afzonderlijk afgesproken.</p><ol class="business-program"><li><h3>Uw dag beginnen</h3><p>Aankomst op het afgesproken moment en starten op uw werkplek.</p></li><li><h3>Werken en pauzeren</h3><p>Tijd voor zelfstandig werk of overleg, met een lunch als gewenste uitbreiding.</p></li><li><h3>Afronden</h3><p>De werkdag afsluiten of blijven voor een vooraf afgestemd diner.</p></li></ol></div></section><section id="kosten" class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Kosten & samenstelling</p><h2>Wat kost uw bijeenkomst?</h2><p>Vraag het tarief aan voor uw gewenste datum en aantal personen. De prijs hangt af van het gebruik van de werkplek, de duur en eventuele lunch, diner of aanvullende faciliteiten. Ga niet uit van onbeperkte inloop; stem uw komst vooraf af.</p></div><aside><h3>Prijs op aanvraag</h3><p>Geef uw voorkeuren door. U ontvangt een voorstel met de afgesproken onderdelen en bijbehorende kosten.</p><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></aside></div></section><section id="vragen" class="business-content-section"><div class="container business-faq"><h2>Veelgestelde vragen</h2><details><summary>Kan ik alleen komen werken?</summary><p>Ja, het werkplekarrangement is ook bedoeld voor individuele professionals. Vraag vooraf naar de beschikbaarheid.</p></details><details><summary>Is een aparte vergaderzaal inbegrepen?</summary><p>Een werkplek is geen automatische reservering van een aparte vergaderzaal. Bespreek uw behoefte aan overleg of afzondering vooraf.</p></details><details><summary>Kan ik lunch of diner toevoegen?</summary><p>Ja, geef uw wensen door in het formulier. We stemmen de mogelijkheden af op het aantal personen en de datum.</p></details></div></section><section class="business-content-section business-combine" aria-labelledby="business-combine-title">
+    <main id="main-content" tabindex="-1">
+<section class="business-hero"><div class="container"><nav class="business-breadcrumbs" aria-label="Broodkruimel"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/zakelijk">Zakelijk</a><span aria-hidden="true">/</span><span aria-current="page">Werkplekken</span></nav><div class="business-hero-grid"><div><p class="business-eyebrow">Resort Land &amp; Zee · Scharendijke</p><h1>Een werkplek buiten kantoor in Zeeland</h1><p class="business-hero-lead">Wilt u ongestoord schrijven, een plan uitwerken of samen met een klein projectteam aan de slag? Het werkplekarrangement van Land &amp; Zee biedt een andere omgeving dan kantoor of thuis. Combineer uw werkdag in Scharendijke met een eetmoment en een wandeling naar het strand.</p><div class="business-actions"><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></div></div><img class="business-hero-image" src="../images/Vergaderen/Resort Land &amp; Zee - november 2025-148.webp" alt="Werk- en overlegomgeving bij Land &amp; Zee" width="900" height="1000" fetchpriority="high"></div><ul class="business-facts"><li>Zelfstandig of met een klein team</li><li>Voor 1 tot 6 personen</li><li>Lunch &amp; diner naar wens</li></ul></div></section><nav class="business-section-nav container" aria-label="Op deze pagina"><a href="#mogelijkheden">Mogelijkheden</a><a href="#programma">Voorbeeldprogramma</a><a href="#kosten">Kosten</a><a href="#vragen">Veelgestelde vragen</a></nav><div id="mogelijkheden"></div><section class="business-content-section"><div class="container"><h2>Een dag om meters te maken</h2><p class="business-section-lead">U werkt aan een lange tafel in een gedeelde zaal. Er is plaats voor maximaal zes personen, zodat iedereen ruimte en rust heeft. De sfeer is vergelijkbaar met een bibliotheek: rustig denken, schrijven en typen.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Rustig aan het werk</h3><p>Werk aan een rapport, presentatie of nieuw idee. Houd rekening met andere gasten die dezelfde ruimte gebruiken.</p></article><article class="business-detail-card"><h3>Telefoneren buiten de werkruimte</h3><p>Zijn er andere gasten aan het werk? Voer telefoongesprekken dan buiten of in het restaurant. Zo blijft de werkruimte rustig.</p></article></div></div></section><section class="business-content-section"><div class="container"><h2>Stem de werkdag op uw wensen af</h2><p class="business-section-lead">Laat weten wanneer u wilt komen, met hoeveel mensen en welke voorzieningen u nodig heeft. Beschikbaarheid en het gebruik van aanvullende vergadermiddelen bevestigen we vooraf.</p><div class="business-detail-grid"><article class="business-detail-card"><h3>Een lunch tussendoor</h3><p>Breid uw werkplek uit met een lunch. Welke kaart of lunchformule bij uw gezelschap past, bespreken we bij de aanvraag.</p></article><article class="business-detail-card"><h3>Afsluiten met een diner</h3><p>Wilt u na het werk samen eten bij Zeeuws Verlangen? Geef dit aan, zodat we het eetmoment kunnen meenemen in het voorstel.</p></article></div></div></section><section id="programma" class="business-content-section"><div class="container"><p class="business-eyebrow">Zo kan uw bijeenkomst eruitzien</p><h2>Een voorbeeldprogramma</h2><p class="business-section-lead">Dit is een mogelijke invulling, geen vast pakket. De tijden en onderdelen stemmen we met u af; optionele uitbreidingen worden afzonderlijk afgesproken.</p><ol class="business-program"><li><h3>Uw dag beginnen</h3><p>Aankomst op het afgesproken moment en starten op uw werkplek.</p></li><li><h3>Werken en pauzeren</h3><p>Tijd voor zelfstandig werk of overleg, met een lunch als gewenste uitbreiding.</p></li><li><h3>Afronden</h3><p>De werkdag afsluiten of blijven voor een vooraf afgestemd diner.</p></li></ol></div></section><section id="kosten" class="business-content-section business-price-section"><div class="container business-price-grid"><div><p class="business-eyebrow">Kosten & samenstelling</p><h2>Wat kost uw bijeenkomst?</h2><p>Vraag het tarief aan voor uw gewenste datum en aantal personen. De prijs hangt af van het gebruik van de werkplek, de duur en eventuele lunch, diner of aanvullende faciliteiten. Ga niet uit van onbeperkte inloop; stem uw komst vooraf af.</p></div><aside><h3>Prijs op aanvraag</h3><p>Geef uw voorkeuren door. U ontvangt een voorstel met de afgesproken onderdelen en bijbehorende kosten. Prijzen voor zakelijke arrangementen zijn exclusief btw.</p><a href="#aanvraag-formulier" class="btn-editorial-teal">Vraag een voorstel aan</a></aside></div></section><section id="vragen" class="business-content-section"><div class="container business-faq"><h2>Veelgestelde vragen</h2><details><summary>Kan ik alleen komen werken?</summary><p>Ja, het werkplekarrangement is ook bedoeld voor individuele professionals. Vraag vooraf naar de beschikbaarheid.</p></details><details><summary>Is een aparte vergaderzaal inbegrepen?</summary><p>Nee. U reserveert een plek aan een lange tafel in een gedeelde, stille werkruimte. Voor een eigen vergaderzaal of gezamenlijk overleg maken we afzonderlijke afspraken.</p></details><details><summary>Kan ik lunch of diner toevoegen?</summary><p>Ja, geef uw wensen door in het formulier. We stemmen de mogelijkheden af op het aantal personen en de datum.</p></details></div></section><section class="business-content-section business-combine" aria-labelledby="business-combine-title">
     <div class="container">
         <div class="business-combine-panel">
             <p class="business-eyebrow">Alles op één locatie</p>
@@ -338,9 +410,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="lunch-package-group" hidden>
-                                    <label for="lunch-package">Luncharrangement (optioneel)</label>
-                                    <select id="lunch-package" name="lunch_package" disabled>
+                                <div class="form-group" id="menu-package-group" hidden>
+                                    <label for="menu-package">Menuvoorkeur (optioneel)</label>
+                                    <select id="menu-package" name="menu_package" disabled>
                                         <option value="">Ik ontvang graag advies</option>
                                         <option value="Klassiek">Land &amp; Zee Klassiek</option>
                                         <option value="Bourgondisch">Land &amp; Zee Bourgondisch</option>
@@ -402,7 +474,7 @@
                 <div class="business-location-header">
                     <div>
                         <h2 id="business-location-title">Hier vindt u Land &amp; Zee</h2>
-                        <p>Rampweg 28, 4326 LK Scharendijke</p>
+                        <p>Rampweg 28, 4326 LK Scharendijke</p><p>Circa 80 parkeerplaatsen en 4 laadpalen. De vergaderzalen en het aangepaste toilet met douche zijn rolstoeltoegankelijk.</p>
                     </div>
                     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Resort+Land+en+Zee%2C+Rampweg+28%2C+Scharendijke"
                         class="btn-outline" target="_blank" rel="noopener">PLAN UW ROUTE</a>
@@ -489,6 +561,16 @@
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/resort-land-zee/home/" target="_blank" rel="noopener"
+                        class="social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true" focusable="false">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
                         </svg>
                     </a>
                 </div>
