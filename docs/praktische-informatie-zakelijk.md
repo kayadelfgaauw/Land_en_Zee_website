@@ -1,9 +1,53 @@
 # Praktische informatie zakelijke arrangementen
 
-Status 9 november 2026: inventarisatie op basis van de huidige projectpagina's.
-De onderstaande vragen zijn bedoeld voor Henk; open gegevens worden niet als
-feit op de website ingevuld. Bestaande websiteteksten zijn geen nieuwe
-bevestiging van actuele prijzen of beschikbaarheid.
+Status 16 november 2026: Henk heeft de onderstaande vragen beantwoord in een
+door Tim aangeleverde mail. De oorspronkelijke vragen blijven hieronder bewaard.
+
+## Verwerkt uit Henk zijn antwoord
+
+- Vier zalen en een terras; zaal Zee maximaal 40 in bioscoopopstelling, 20 in
+  carré en circa 24 in U-vorm. Uitbreiding met het restaurantgedeelte biedt
+  maximaal 100 plaatsen. Een tweede, niet uitbreidbare zaal biedt circa 20
+  plaatsen aan een lange tafel. Geen verzonnen namen of capaciteiten voor de
+  overige zalen toegevoegd.
+- Geen vaste starttijden; 08.00, 09.00, 12.00 met lunch en 13.00 zijn voorbeelden.
+- Beamer en extra flip-over zijn in principe kosteloos; vooraf afstemmen.
+- Geen minimumaantal deelnemers voor vergaderen. Bij meer dan 20 personen met
+  diner vervalt de zaalhuur. Geen algemene vrijstelling bij alleen lunch beloofd.
+- Zakelijke arrangementprijzen zijn exclusief btw. Het individuele voorbeeld
+  van 275 euro zaalhuur is geen algemeen tarief en is niet gepubliceerd.
+- Werkplek aan een lange tafel in een gedeelde, stille ruimte, maximaal zes
+  personen. Telefoneren buiten de werkruimte als er andere gasten werken.
+- Menusuggesties Klassiek 34,50 euro, Bourgondisch 36,50 euro en Vitaal 34,50
+  euro, met de drie gangen uit de mail. Na de aanvullende reactie van Tim zijn
+  de oude algemene lunchbeschrijvingen vervangen door deze driegangenmenu's.
+  Geen onbevestigde prijseenheid, drankinclusie of minimumaantal toegevoegd.
+- Formulieren noemen nu een menuvoorkeur voor lunch of diner. Een menukeuze
+  houdt een bestaand vergaderarrangement intact en kiest niet automatisch een
+  maaltijdmoment. Het verzonden veld heet nu `menu_package` in plaats van
+  `lunch_package`.
+- Activiteiten via Pixlife, Sandmagic en Arlette Wierenga, bloempotten maken en
+  beschilderen, oestermannen/-vrouwen, bands en dj's. Alternatief bij slecht weer
+  vooraf afspreken, met eventueel een partytent van 8 bij 12 meter of een hal
+  bij Zeeuwse Kust. Geen beschikbaarheidsgarantie of activiteitentarief ingevuld.
+- Voor heisessies en trainingen dezelfde voorzieningen en tarieven als
+  vergaderen; besloten zaal en ruimtes voor subgroepen vooraf afstemmen.
+- Circa 80 parkeerplaatsen (schatting), vier laadpalen en rolstoeltoegankelijke
+  vergaderzalen en aangepast toilet met douche.
+
+## Nog open
+
+- Gratis parkeren is niet expliciet bevestigd; geen gratisclaim toegevoegd.
+- Maaltijden op aankomst- en vertrekdag, kamertypes en eenpersoonskamertoeslag
+  bij meerdaags zijn niet beantwoord. Het bestaande, eerder met Tim afgestemde
+  meerdaagse aanbod en de bijbehorende formulierlogica zijn niet gewijzigd.
+- Werkplektarief, precieze duur en inbegrepen consumpties zijn niet ingevuld.
+- De mail noemt menuprijzen zonder expliciete prijseenheid of geldigheidsduur.
+  De website vermeldt de ontvangen bedragen exclusief btw en legt de
+  definitieve afspraken vast in het voorstel.
+- Per activiteit ontbreken duur, minimum-/maximumaantal en tarieven.
+- De privévoorbeelden over concrete gasten en hun omstandigheden zijn niet
+  overgenomen op de website.
 
 ## Vragen voor Henk
 
@@ -51,7 +95,7 @@ zaalindeling. We verwerken alleen gegevens die jullie bevestigen.
 Groet,
 Tim
 
-## Verwerking op de website
+## Oorspronkelijke verwerkingslijst van 9 november
 
 | Pagina | Aan te vullen na bevestiging |
 | --- | --- |
@@ -67,7 +111,7 @@ Gebruik compacte overzichten binnen de bestaande secties. Vervang algemene
 tekst waar concrete gegevens die overbodig maken, zodat de pagina's niet langer
 worden door herhaling. Publiceer geen lege tabellen of voorbeeldprijzen.
 
-## Al aangepast
+## Eerste verbetering van 9 november
 
 De vergaderpagina presenteert de bestaande voorzieningen als een scanbare lijst.
 De keuze voor vier of acht uur en de optionele aanvullingen blijven in hetzelfde
