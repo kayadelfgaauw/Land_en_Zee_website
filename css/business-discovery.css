@@ -1,0 +1,68 @@
+/* Contextual routes from the resort pages to the business overview. */
+.business-discovery {
+    padding: clamp(1rem, 2vw, 2rem) 0;
+}
+
+.business-discovery-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: #dfe8e4;
+    border-left: 3px solid #005f73;
+    color: #2f4356;
+}
+
+.business-discovery-copy {
+    flex: 1 1 24rem;
+    min-width: 0;
+}
+
+.business-discovery-title {
+    margin: 0 0 0.65rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 400;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.business-discovery-copy p {
+    max-width: 65ch;
+    margin: 0;
+}
+
+.business-discovery-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 44px;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 0.6rem 1.25rem;
+    background: #005f73;
+    color: #fff;
+    border: 2px solid #005f73;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.business-discovery-link:hover {
+    background: #004b5b;
+    border-color: #004b5b;
+    color: #fff;
+}
+
+.business-discovery-link:focus-visible {
+    outline: 3px solid #2f4356;
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .business-discovery-link {
+        width: 100%;
+    }
+}

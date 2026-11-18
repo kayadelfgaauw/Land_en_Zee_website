@@ -131,6 +131,12 @@ class SiteURLsTest(unittest.TestCase):
         for attr, url in re.findall(r'(href|src)="([^"]*)"', html):
             if not urlsplit(unescape(url)).scheme and not url.startswith('#'):
                 self.assertTrue(url.startswith('/'), url)
+        for candidates in re.findall(r'srcset="([^"]*)"', html):
+            for candidate in candidates.split(','):
+                url = candidate.strip().rsplit(' ', 1)[0]
+                if not urlsplit(url).scheme:
+                    self.assertTrue(url.startswith('/'), url)
+                    self.assertTrue((self.output / url.lstrip('/')).is_file())
         self.assertIsNone(canonical_path('/de/unbekannte-seite', self.routes))
         self.assertIsNone(canonical_path('/en/contact-other', self.routes))
 

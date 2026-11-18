@@ -4510,11 +4510,11 @@ p.intro-text {
 
 /* Specific Backgrounds */
 .bg-hotel {
-    background-image: url('../images/Suite/Resort Land & Zee - november 2025-51.webp');
+    background-image: url('../images/responsive/resort-land-zee-november-2025-51-02b22d-11af6a5f-1900.webp');
 }
 
 .bg-accommodaties {
-    background-image: url('../images/Ecologde/Resort Land & Zee - november 2025-102.webp');
+    background-image: url('../images/responsive/resort-land-zee-november-2025-102-597c39-793cd929-1900.webp');
     background-position: center 60%;
     /* Adjusted for focus */
 }
@@ -8298,3 +8298,10 @@ p.intro-text {
         padding: 0.95rem 2rem;
     }
 }
+
+/* Responsive photo backgrounds */
+@media (max-width: 768px) {
+    .bg-hotel { background-image: url('../images/responsive/resort-land-zee-november-2025-51-02b22d-11af6a5f-960.webp'); background-image: image-set(url('../images/responsive/resort-land-zee-november-2025-51-02b22d-11af6a5f-960.webp') 1x, url('../images/responsive/resort-land-zee-november-2025-51-02b22d-11af6a5f-1900.webp') 2x); }
+    .bg-accommodaties { background-image: url('../images/responsive/resort-land-zee-november-2025-102-597c39-793cd929-960.webp'); background-image: image-set(url('../images/responsive/resort-land-zee-november-2025-102-597c39-793cd929-960.webp') 1x, url('../images/responsive/resort-land-zee-november-2025-102-597c39-793cd929-1900.webp') 2x); }
+}
+/* End responsive photo backgrounds */

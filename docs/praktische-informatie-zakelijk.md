@@ -49,6 +49,30 @@ door Tim aangeleverde mail. De oorspronkelijke vragen blijven hieronder bewaard.
 - De privévoorbeelden over concrete gasten en hun omstandigheden zijn niet
   overgenomen op de website.
 
+## Tekstcontrole 18 november 2026
+
+De Nederlandse zakelijke hoofdpagina en zeven aanbodpagina's zijn inhoudelijk
+nagelopen aan de hand van Henk zijn antwoord en het Vollan SEO Playbook.
+
+- De werkplek is in introductie, overzichtskaart, beschrijving voor zoekmachines
+  en voorbeeldprogramma consequent een gedeelde, stille werkruimte. De eerdere
+  suggestie van projectoverleg is verwijderd.
+- De capaciteit van 100 personen is expliciet gekoppeld aan de gecombineerde
+  zaalruimte. Activiteiten hebben een afzonderlijk af te stemmen groepsgrootte.
+- De menuprijzen staan bij de drie menusuggesties. Het kostenblok beschrijft
+  nu het voorstel voor de complete aanvraag, in plaats van de bedragen opnieuw
+  te herhalen naast het algemene opschrift 'Prijs op aanvraag'. De genoemde
+  bedragen, gerechten en btw-status blijven behouden.
+- Dubbele FAQ-antwoorden zijn verwijderd of gericht op een nog niet beantwoorde
+  vraag. Het herhaalde combinatieblok op de werkplekpagina is verwijderd.
+- Het meerdaagse aanbod blijft inclusief verblijf en maaltijden, zoals eerder
+  met Tim afgesproken. De precieze maaltijdmomenten op aankomst-, tussenliggende
+  en vertrekdagen worden in het voorstel vastgelegd. Henk zijn antwoord wordt
+  niet opgevat als een nieuwe bevestiging van die nog open invulling.
+- De overige teksten zijn waar nodig concreter en korter gemaakt. Formulieren,
+  paginapaden, hoofdkoppen en foto's zijn behouden. De bestaande JSON-LD is
+  ververst op basis van de bijgewerkte zichtbare teksten.
+
 ## Vragen voor Henk
 
 Hi Henk,

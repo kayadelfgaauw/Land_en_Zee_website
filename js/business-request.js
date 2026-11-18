@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function fieldMessage(field) {
         if (field.validity.valueMissing) return field.tagName === 'SELECT' ? 'Maak een keuze.' : 'Vul dit veld in.';
         if (field.validity.typeMismatch) return 'Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.';
+        if (field.id === 'overnight-participants' && field.validity.rangeOverflow) return 'Het aantal overnachtende deelnemers mag niet hoger zijn dan het totale aantal personen.';
         if (field.validity.rangeUnderflow || field.validity.stepMismatch || field.validity.badInput) return 'Vul een heel aantal personen in van minimaal 1.';
         return 'Controleer de invoer in dit veld.';
     }
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, true);
 
     function clearCorrectedError(event) {
-        if (event.target.hasAttribute('aria-invalid') && event.target.validity.valid) {
+        if (event.target.hasAttribute('aria-invalid') && (event.target.disabled || event.target.validity.valid)) {
             fieldError(event.target, '');
         }
     }

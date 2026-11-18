@@ -5,7 +5,35 @@ document.addEventListener('DOMContentLoaded', function () {
     var overnightInput = document.getElementById('overnight');
     var cateringInput = document.getElementById('catering');
     var menuInput = document.getElementById('menu-package');
+    var participantsInput = document.getElementById('participants');
+    var overnightParticipantsInput = document.getElementById('overnight-participants');
+    var roomLayoutInput = document.getElementById('room-layout');
     var includedOptions = null;
+
+    function showOptionalField(field, groupId, visible) {
+        document.getElementById(groupId).hidden = !visible;
+        field.disabled = !visible;
+        // Clear an earlier inline error when a field becomes irrelevant or
+        // its allowed range changes, without discarding the visitor's value.
+        field.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+
+    function updateMeetingDetails() {
+        var meetings = ['Halve dag arrangement', 'Hele dag arrangement', 'Heisessie', 'Meerdagen arrangement', 'Training'];
+        showOptionalField(roomLayoutInput, 'room-layout-group', meetings.includes(arrangementInput.value));
+        var total = Number(participantsInput.value);
+        if (Number.isInteger(total) && total > 0) {
+            overnightParticipantsInput.max = String(total);
+        } else {
+            overnightParticipantsInput.removeAttribute('max');
+        }
+        var hasOvernight = arrangementInput.value === 'Meerdagen arrangement' || overnightInput.value === 'Ja';
+        showOptionalField(overnightParticipantsInput, 'overnight-participants-group', hasOvernight);
+    }
+
+    overnightInput.addEventListener('change', updateMeetingDetails);
+    participantsInput.addEventListener('input', updateMeetingDetails);
+    participantsInput.addEventListener('change', updateMeetingDetails);
 
     function updateMenuOptions() {
         var hasMeal = cateringInput.value === 'Lunch' || cateringInput.value === 'Diner' || cateringInput.value === 'Lunch en diner';
@@ -34,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
             : '';
         arrangementHelp.hidden = !isRetreat;
         updateMenuOptions();
+        updateMeetingDetails();
     }
 
     arrangementInput.addEventListener('change', updateIncludedOptions);

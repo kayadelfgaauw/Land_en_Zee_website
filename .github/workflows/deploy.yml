@@ -19,6 +19,9 @@ jobs:
       - name: Check URL consistency
         run: python3 -m unittest discover -s tests
 
+      - name: Check conditional business form
+        run: node --test tests/test_business_options.cjs
+
       - name: Prepare canonical links for publication
         run: python3 scripts/prepare_site.py --output "${{ runner.temp }}/land-en-zee-site"
 

@@ -49,6 +49,18 @@ def build(output):
                     return m.group(0)
                 return attr + '="' + escape(urljoin('/', unescape(url)), quote=True) + '"'
             source = re.sub(r'(href|src)="([^"]*)"', asset, source)
+            # Browsers choose srcset candidates instead of src when available.
+            # A 404 can be served below any nested URL, so candidates must be
+            # rooted just like the fallback image URL.
+            def candidates(match):
+                result = []
+                for candidate in unescape(match.group(1)).split(','):
+                    url, descriptor = candidate.strip().rsplit(' ', 1)
+                    if not urlsplit(url).scheme and not url.startswith('/'):
+                        url = urljoin('/', url)
+                    result.append(url + ' ' + descriptor)
+                return 'srcset="' + escape(', '.join(result), quote=True) + '"'
+            source = re.sub(r'srcset="([^"]*)"', candidates, source)
         target.write_text(source)
     for source, destination in REDIRECTS.items():
         for suffix in ['.html', '/index.html']:

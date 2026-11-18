@@ -60,6 +60,57 @@
     border-radius: 4px 4px 90px 4px;
 }
 
+.business-hero-figure,
+.business-photo {
+    min-width: 0;
+    margin: 0;
+}
+
+.business-hero-figure .business-hero-image {
+    height: auto;
+    aspect-ratio: 3 / 2;
+}
+
+.business-hero-figure figcaption,
+.business-photo figcaption {
+    margin-top: 0.65rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: #455767;
+}
+
+.business-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 1.5rem;
+}
+
+.business-photo-grid--single {
+    max-width: 780px;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.business-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.business-photo--portrait img {
+    object-fit: contain;
+    background: #dfe8e4;
+}
+
+@media (max-width: 768px) {
+    .business-photo-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 .business-facts {
     display: flex;
     flex-wrap: wrap;
